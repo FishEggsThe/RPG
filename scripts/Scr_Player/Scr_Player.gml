@@ -8,14 +8,18 @@ function MovePlayer() {
 		
 			if (xDirection != 0 || yDirection != 0) {
 				var last_input = input_check_press_most_recent(["right", "left", "up", "down"])
-				var last_input_h = input_check_press_most_recent(["right", "left"])
-				var last_input_v = input_check_press_most_recent(["up", "down"])
+				var hOrV = (last_input == "right" || last_input == "left")
+				var moveOrder = [hOrV, !hOrV]
 				
-				if (last_input == last_input_h && !TileCollision(xDirection, 0))
-				{xMove = xDirection; yMove = 0}
-				if (last_input == last_input_v && !TileCollision(0, yDirection))
-				{yMove = yDirection; xMove = 0}
-				if TileCollision(xMove, yMove) {return}
+				for(var i = 0; i < array_length(moveOrder); i++) {
+					if (moveOrder[i] && xDirection != 0)
+					{xMove = xDirection; yMove = 0; break}
+					else if (!moveOrder[i] && yDirection != 0)
+					{yMove = yDirection; xMove = 0; break}
+				}
+				//else {xMove = 0; yMove = 0}
+				
+				if TileCollision(xMove, yMove) {xMove = 0; yMove = 0; return}
 				moveTime = moveTimeSet
 			}
 		
