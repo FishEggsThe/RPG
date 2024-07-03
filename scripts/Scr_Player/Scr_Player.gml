@@ -11,12 +11,15 @@ function MovePlayer(){
 			}
 		
 		} else if moving {
-			var moveSpeed = 64 * 1/15
+			var moveSpeed = 64/16
 			
 			x += moveSpeed*xMove
 			y += moveSpeed*yMove
 			
-			if (x == xGoto || y == yGoto) {moving = false}
+			if ((xMove != 0 && x == xGoto) || (yMove != 0 && y == yGoto)) {
+				moving = false
+			}
+
 		}
 
 		
