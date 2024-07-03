@@ -11,14 +11,10 @@ function MovePlayer() {
 				var last_input_h = input_check_press_most_recent(["right", "left"])
 				var last_input_v = input_check_press_most_recent(["up", "down"])
 				
-
-				
-				if (last_input == "right" || last_input == "left")
+				if (last_input == last_input_h && !TileCollision(xDirection, 0))
 				{xMove = xDirection; yMove = 0}
-				
-				else if (last_input == "up" || last_input == "down")
+				if (last_input == last_input_v && !TileCollision(0, yDirection))
 				{yMove = yDirection; xMove = 0}
-				
 				if TileCollision(xMove, yMove) {return}
 				moveTime = moveTimeSet
 			}
