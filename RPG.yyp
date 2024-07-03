@@ -431,6 +431,8 @@
     {"id":{"name":"input_y","path":"scripts/input_y/input_y.yy",},},
     {"id":{"name":"Scr_Player","path":"scripts/Scr_Player/Scr_Player.yy",},},
     {"id":{"name":"chives","path":"sprites/chives/chives.yy",},},
+    {"id":{"name":"Spr_TestTiles","path":"sprites/Spr_TestTiles/Spr_TestTiles.yy",},},
+    {"id":{"name":"Ts_Test","path":"tilesets/Ts_Test/Ts_Test.yy",},},
   ],
   "resourceType":"GMProject",
   "resourceVersion":"2.0",

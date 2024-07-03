@@ -1,13 +1,12 @@
 #macro tileSize 64
 
-function MovePlayer(){
+function MovePlayer() {
 	if canMove {
 		if moveTime <= 0 {
 			var xDirection = input_check("right")-input_check("left")
 			var yDirection = input_check("down")-input_check("up")
 		
 			if (xDirection != 0 || yDirection != 0) {
-				xGoto = x+xDirection*tileSize; yGoto = y+yDirection*tileSize
 				var last_input = input_check_press_most_recent(["right", "left", "up", "down"])
 				
 				if (last_input == "right" || last_input == "left")
@@ -16,6 +15,7 @@ function MovePlayer(){
 				else if (last_input == "up" || last_input == "down")
 				{yMove = yDirection; xMove = 0}
 				
+				if TileCollision(xMove, yMove) {return}
 				moveTime = moveTimeSet
 			}
 		
@@ -31,8 +31,17 @@ function MovePlayer(){
 			}
 
 		}
-
-		
-		//TileCollision(xDirection, yDirection)
 	}
+}
+
+function TileCollision(xDir, yDir) {
+	var xGoto = x+xDir*tileSize; var yGoto = y+yDir*tileSize
+	var lay_id = layer_get_id("Tiles");
+	var map_id = layer_tilemap_get_id(lay_id);
+	var px = tilemap_get_cell_x_at_pixel(map_id, xGoto, yGoto);
+	var py = tilemap_get_cell_y_at_pixel(map_id, xGoto, yGoto);
+	var data = tilemap_get(map_id, px, py);
+	
+	if data >= 2 {return true}
+	return false
 }
