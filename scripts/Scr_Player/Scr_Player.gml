@@ -12,9 +12,9 @@ function MovePlayer() {
 				var moveOrder = [hOrV, !hOrV]
 				
 				for(var i = 0; i < array_length(moveOrder); i++) {
-					if (moveOrder[i] && xDirection != 0)
+					if (moveOrder[i] && !TileCollision(xDirection, 0))
 					{xMove = xDirection; yMove = 0; break}
-					else if (!moveOrder[i] && yDirection != 0)
+					if (!moveOrder[i] && !TileCollision(0, yDirection))
 					{yMove = yDirection; xMove = 0; break}
 				}
 				//else {xMove = 0; yMove = 0}
