@@ -8,6 +8,10 @@ function MovePlayer() {
 		
 			if (xDirection != 0 || yDirection != 0) {
 				var last_input = input_check_press_most_recent(["right", "left", "up", "down"])
+				var last_input_h = input_check_press_most_recent(["right", "left"])
+				var last_input_v = input_check_press_most_recent(["up", "down"])
+				
+
 				
 				if (last_input == "right" || last_input == "left")
 				{xMove = xDirection; yMove = 0}
