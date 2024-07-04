@@ -1,27 +1,29 @@
-function Item(d) constructor {
+function Item(buy, sell, desc) constructor {
 	// Key Item = 0;
 	// Consumable = 1;
 	// Weapon = 2;
 	// Armor = 3;
 	itemType = 0
-	description = d
+	description = desc
+	buyPrice = buy
+	sellPrice = sell
 }
 
-function Consumable(h, c, d) : Item(d) constructor {
+function Consumable(heal, cure, buff, buy, sell, desc) : Item(buy, sell, desc) constructor {
 	itemType = 1
-	healing = h
-	cureStatus = c // e.g. [true, false, false], I'll figure out status effects later
-	
+	healing = heal
+	cureStatus = cure // e.g. [true, false, false], I'll figure out status effects later
+	buffStats = buff // same as cure but with numbers
 }
 
-function Weapon(a, d) : Item(d) constructor {
+function Weapon(attack, buy, sell, desc) : Item(buy, sell, desc) constructor {
 	itemType = 2
-	damage = a
+	damage = attack
 	
 }
 
-function Armor(p, d) : Item(d) constructor {
+function Armor(def, buy, sell, desc) : Item(buy, sell, desc) constructor {
 	itemType = 3
-	protection = p
+	protection = def
 	
 }
