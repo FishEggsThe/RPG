@@ -35,8 +35,8 @@ if inventoryUp {
 		case 1:
 			var arraySize = array_length(inventory)
 			for(var i = 0; i < array_length(inventory); i++) {
-				var xPos = (width*2/5)+floor((i/(arraySize/2)))*(width*1/5)
-				var yPos = (height/6)+(i%(arraySize/2))*(height/6)+(height/6)
+				var xPos = boxX1+(boxWidth/4)+(floor(i/4))*(boxWidth*1/2)//(width*2/5)+floor((i/(arraySize/2)))*(width*1/5)
+				var yPos = boxY1+((i%4)+1)*(boxHeight/5)
 				
 				var invName = (inventory[i] == noone ? "-" : inventory[i].name)
 				draw_text_transformed(xPos, yPos, invName, textSize, textSize, 0)

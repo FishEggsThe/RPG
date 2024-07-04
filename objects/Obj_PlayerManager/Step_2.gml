@@ -1,6 +1,5 @@
 var playerCheck = false
-if instance_exists(Obj_Player)
-{playerCheck = Obj_Player.moveTime <= 0}
+if instance_exists(Obj_Player) {playerCheck = Obj_Player.moveTime <= 0}
 
 if (input_check_pressed("inventory") && playerCheck) {
 	inventoryUp = !inventoryUp
@@ -19,6 +18,7 @@ if inventoryUp {
 		case 0:
 			if horiInput != 0 {inventoryIndex = (inventoryIndex == 1 ? 0 : 1)}
 			if acceptInput {inventorySpot = inventoryIndex+1; inventoryIndex = 0}
+			if cancelInput {inventoryUp = false; Obj_Player.canMove = true}
 			break
 			
 		case 1:
