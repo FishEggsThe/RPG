@@ -10,16 +10,13 @@ function MovePlayer() {
 				var last_input = input_check_press_most_recent(["right", "left", "up", "down"])
 				var hOrV = (last_input == "right" || last_input == "left")
 				var moveOrder = [hOrV, !hOrV]
-				if moveOrder[0] {facing = abs(-1 + xDirection)}
-				else if !moveOrder[0] {facing = abs(2 + yDirection)}
 				
 				for(var i = 0; i < array_length(moveOrder); i++) {
 					if (moveOrder[i] && !TileCollision(xDirection, 0))
-					{xMove = xDirection; yMove = 0; break}
+					{xMove = xDirection; yMove = 0; facing = 1-xDirection; break}
 					if (!moveOrder[i] && !TileCollision(0, yDirection))
-					{yMove = yDirection; xMove = 0; break}
+					{yMove = yDirection; xMove = 0; facing = 2 + yDirection; break}
 				}
-				//else {xMove = 0; yMove = 0}
 				
 				if TileCollision(xMove, yMove) {xMove = 0; yMove = 0; return}
 				moveTime = moveTimeSet

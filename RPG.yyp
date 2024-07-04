@@ -81,7 +81,9 @@
     {"id":{"name":"input_controller_object","path":"objects/input_controller_object/input_controller_object.yy",},},
     {"id":{"name":"Obj_Camera","path":"objects/Obj_Camera/Obj_Camera.yy",},},
     {"id":{"name":"Obj_Control","path":"objects/Obj_Control/Obj_Control.yy",},},
+    {"id":{"name":"Obj_Inventory","path":"objects/Obj_Inventory/Obj_Inventory.yy",},},
     {"id":{"name":"Obj_Player","path":"objects/Obj_Player/Obj_Player.yy",},},
+    {"id":{"name":"Rm_Battle","path":"rooms/Rm_Battle/Rm_Battle.yy",},},
     {"id":{"name":"Room1","path":"rooms/Room1/Room1.yy",},},
     {"id":{"name":"__input_axis_is_directional","path":"scripts/__input_axis_is_directional/__input_axis_is_directional.yy",},},
     {"id":{"name":"__input_binding_get_label","path":"scripts/__input_binding_get_label/__input_binding_get_label.yy",},},
@@ -426,6 +428,7 @@
     {"id":{"name":"input_x","path":"scripts/input_x/input_x.yy",},},
     {"id":{"name":"input_xy","path":"scripts/input_xy/input_xy.yy",},},
     {"id":{"name":"input_y","path":"scripts/input_y/input_y.yy",},},
+    {"id":{"name":"Scr_Items","path":"scripts/Scr_Items/Scr_Items.yy",},},
     {"id":{"name":"Scr_Player","path":"scripts/Scr_Player/Scr_Player.yy",},},
     {"id":{"name":"chives","path":"sprites/chives/chives.yy",},},
     {"id":{"name":"Spr_TestTiles","path":"sprites/Spr_TestTiles/Spr_TestTiles.yy",},},
@@ -435,6 +438,7 @@
   "resourceVersion":"2.0",
   "RoomOrderNodes":[
     {"roomId":{"name":"Room1","path":"rooms/Room1/Room1.yy",},},
+    {"roomId":{"name":"Rm_Battle","path":"rooms/Rm_Battle/Rm_Battle.yy",},},
   ],
   "templateType":"game",
   "TextureGroups":[
