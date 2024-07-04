@@ -19,7 +19,7 @@ if inventoryUp {
 	draw_set_valign(fa_middle)
 	if global.debug {
 		draw_text(20+width/8, 20+height/6, string(inventorySpot) + " " + string(inventoryIndex))
-		draw_text(20+width/8, 40+height/6, inventory[0].description)
+		//draw_text(20+width/8, 40+height/6, inventory[0].description)
 	}
 	
 	switch(inventorySpot) {

@@ -26,11 +26,12 @@ if inventoryUp {
 			if vertInput != 0 {inventoryIndex += vertInput}
 			
 			if inventoryIndex >= array_length(inventory) {inventoryIndex-=array_length(inventory)}
-			if inventoryIndex < 0 {inventoryIndex+=array_length(inventory)}
+			else if inventoryIndex < 0 {inventoryIndex+=array_length(inventory)}
 			
 			if acceptInput {
 				selectedItem = inventory[inventoryIndex]
-				inventorySpot = 3; inventoryIndex = 1; lastSpot = 1}
+				inventorySpot = 3; inventoryIndex = 1
+				lastSpot = 1; lastIndex = inventoryIndex}
 			if cancelInput {inventorySpot = 0; inventoryIndex = 0}
 			break
 			
@@ -39,22 +40,24 @@ if inventoryUp {
 			if vertInput != 0 {inventoryIndex += vertInput}
 			
 			if inventoryIndex >= array_length(keyItems) {inventoryIndex-=array_length(keyItems)}
-			if inventoryIndex < 0 {inventoryIndex+=array_length(keyItems)}
+			else if inventoryIndex < 0 {inventoryIndex+=array_length(keyItems)}
 			
 			if acceptInput {
 				selectedItem = keyItems[inventoryIndex]
-				inventorySpot = 3; inventoryIndex = 1; lastSpot = 2}
+				inventorySpot = 3; inventoryIndex = 1
+				lastSpot = 2; lastIndex = inventoryIndex}
 			if cancelInput {inventorySpot = 0; inventoryIndex = 1}
 			break
 			
 		case 3: // Selected Item
-			if horiInput != 0 {inventoryIndex += (inventoryIndex == 1 ? 0 : 1)}
+			if horiInput != 0 {inventoryIndex = (inventoryIndex == 1 ? 0 : 1)}
 			
 			if acceptInput {
-				if inventoryIndex == 0 {x=x} // Do thing
-				else if inventoryIndex == 1 {inventorySpot = lastSpot}
+				if inventoryIndex == 0 {show_message("Imagine actually doing the thing\n\ncouldn't be me")} // Do thing
+				else if inventoryIndex == 1
+				{inventorySpot = lastSpot; inventoryIndex = lastIndex}
 			}
-			if cancelInput {inventorySpot = lastSpot; inventoryIndex = 0}
+			if cancelInput {inventorySpot = lastSpot; inventoryIndex = lastIndex}
 			break
 	}
 }

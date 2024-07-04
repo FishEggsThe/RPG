@@ -5,7 +5,8 @@ inventoryUp = false
 inventoryIndex = 0
 inventorySpot = 0
 selectedItem = noone
-lastSpot = 0;
+lastSpot = 0
+lastIndex = 0
 
 menuOptions = ["Inventory", "Key Items"]
 useOptions = ["Use", "Don't Use"]
