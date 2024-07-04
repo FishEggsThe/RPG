@@ -1,3 +1,5 @@
+if instance_number(Obj_Camera) > 1 {instance_destroy()}
+
 view_width = 640
 view_height = 640
 window_scale = 2

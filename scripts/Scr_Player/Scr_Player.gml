@@ -1,4 +1,4 @@
-#macro tileSize 64
+#macro tile (global.tileSize)
 
 function MovePlayer() {
 	if canMove {
@@ -24,7 +24,7 @@ function MovePlayer() {
 			}
 		
 		} if moveTime > 0 {
-			var moveSpeed = tileSize/moveTimeSet
+			var moveSpeed = tile/moveTimeSet
 			
 			x += moveSpeed*xMove
 			y += moveSpeed*yMove
@@ -39,7 +39,7 @@ function MovePlayer() {
 }
 
 function TileCollision(xDir, yDir) {
-	var xGoto = x+xDir*tileSize; var yGoto = y+yDir*tileSize
+	var xGoto = x+xDir*tile; var yGoto = y+yDir*tile
 	var lay_id = layer_get_id("Tiles");
 	var map_id = layer_tilemap_get_id(lay_id);
 	var px = tilemap_get_cell_x_at_pixel(map_id, xGoto, yGoto);

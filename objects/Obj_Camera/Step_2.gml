@@ -7,8 +7,8 @@ if instance_exists(Obj_Player) {
 	var xP = clamp(Obj_Player.x+32-halfViewWidth, 0, room_width-view_width)
 	var yP = clamp(Obj_Player.y+32-halfViewHeight, 0, room_height-view_height)
 
-	x = lerp(x, xP, 0.1);
-	y = lerp(y, yP, 0.1);
+	x = xP//lerp(x, xP, 0.1);
+	y = yP//lerp(y, yP, 0.1);
 	
 	camera_set_view_pos(view, x, y)
 }
