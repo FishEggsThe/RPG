@@ -10,6 +10,8 @@ function MovePlayer() {
 				var last_input = input_check_press_most_recent(["right", "left", "up", "down"])
 				var hOrV = (last_input == "right" || last_input == "left")
 				var moveOrder = [hOrV, !hOrV]
+				if moveOrder[0] {facing = abs(-1 + xDirection)}
+				else if !moveOrder[0] {facing = abs(2 + yDirection)}
 				
 				for(var i = 0; i < array_length(moveOrder); i++) {
 					if (moveOrder[i] && !TileCollision(xDirection, 0))

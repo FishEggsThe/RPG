@@ -3,3 +3,4 @@ moveTime = 0
 moveTimeSet = 20
 
 canMove = true
+facing = 0
