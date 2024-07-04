@@ -23,6 +23,11 @@ if inventoryUp {
 			for(var i = 0; i < array_length(menuOptions); i++) {
 				var offset = (width/4)+i*(width/2)
 				draw_text_transformed(offset, height/2, menuOptions[i], textSize, textSize, 0)
+				if inventoryIndex == i {
+					var lineWidthHalf = textSize*string_width(menuOptions[i])/2
+					var lineFloor = (height+(textSize*string_height(menuOptions[i])))/2
+					draw_line(offset-lineWidthHalf, lineFloor, offset+lineWidthHalf, lineFloor)
+				}
 			}
 			break
 		case 1:
