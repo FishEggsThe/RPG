@@ -23,7 +23,7 @@ function MovePlayer() {
 				moveTime = moveTimeSet
 			}
 		
-		} else if moveTime > 0 {
+		} if moveTime > 0 {
 			var moveSpeed = tileSize/moveTimeSet
 			
 			x += moveSpeed*xMove
