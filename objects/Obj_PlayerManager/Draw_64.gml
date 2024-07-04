@@ -25,7 +25,7 @@ if inventoryUp {
 				draw_text_transformed(offset, height/2, menuOptions[i], textSize, textSize, 0)
 				if inventoryIndex == i {
 					var lineWidthHalf = textSize*string_width(menuOptions[i])/2
-					var lineFloor = (height+(textSize*string_height(menuOptions[i])))/2
+					var lineFloor = (height+(textSize*string_height(menuOptions[i]))/2)
 					draw_line(offset-lineWidthHalf, lineFloor, offset+lineWidthHalf, lineFloor)
 				}
 			}
@@ -41,7 +41,7 @@ if inventoryUp {
 				draw_text_transformed(xPos, yPos, invName, textSize, textSize, 0)
 				if inventoryIndex == i {
 					var lineWidthHalf = textSize*string_width(invName)/2
-					var lineFloor = (yPos+(textSize*string_height(invName)))/2
+					var lineFloor = (yPos+(textSize*string_height(invName))/2)
 					draw_line(xPos-lineWidthHalf, lineFloor, xPos+lineWidthHalf, lineFloor)
 				}
 			}
