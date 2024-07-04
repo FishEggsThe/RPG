@@ -18,11 +18,12 @@ if inventoryUp {
 			break
 		case 1:
 			if horiInput != 0 {
-				inventoryIndex += horiInput
-			}
-			if vertInput != 0 {
 				inventoryIndex += 4*horiInput
 			}
+			if vertInput != 0 {
+				inventoryIndex += vertInput
+			}
+			
 			if inventoryIndex >= array_length(inventory) {inventoryIndex-=array_length(inventory)}
 			if inventoryIndex < 0 {inventoryIndex+=array_length(inventory)}
 			if cancelInput {inventorySpot = 0}
