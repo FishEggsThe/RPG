@@ -1,3 +1,3 @@
-function name(){
+function functionnamedonotsteal(){
 	
 }

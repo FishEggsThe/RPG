@@ -17,7 +17,10 @@ if inventoryUp {
 	draw_set_color(c_white)
 	draw_set_halign(fa_center)
 	draw_set_valign(fa_middle)
-	draw_text(20+width/8, 20+height/6, string(inventorySpot) + " " + string(inventoryIndex))
+	if global.debug {
+		draw_text(20+width/8, 20+height/6, string(inventorySpot) + " " + string(inventoryIndex))
+		draw_text(20+width/8, 40+height/6, inventory[0].description)
+	}
 	
 	switch(inventorySpot) {
 		case 0:
