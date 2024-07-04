@@ -25,7 +25,7 @@ if inventoryUp {
 				draw_text_transformed(offset, height/2, menuOptions[i], textSize, textSize, 0)
 				if inventoryIndex == i {
 					var lineWidthHalf = textSize*string_width(menuOptions[i])/2
-					var lineFloor = (height+(textSize*string_height(menuOptions[i]))/2)
+					var lineFloor = ((height/2)+(textSize*string_height(menuOptions[i]))/2)
 					draw_line(offset-lineWidthHalf, lineFloor, offset+lineWidthHalf, lineFloor)
 				}
 			}
@@ -34,7 +34,7 @@ if inventoryUp {
 		case 1:
 			var arraySize = array_length(inventory)
 			for(var i = 0; i < array_length(inventory); i++) {
-				var xPos = (width*2/5)+floor((i/(arraySize/2)))*(width*2/5)
+				var xPos = (width*2/5)+floor((i/(arraySize/2)))*(width*1/5)
 				var yPos = (height/6)+(i%(arraySize/2))*(height/6)+(height/6)
 				
 				var invName = (inventory[i] == noone ? "-" : inventory[i].name)
