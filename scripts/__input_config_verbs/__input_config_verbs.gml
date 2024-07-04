@@ -23,6 +23,7 @@ function __input_config_verbs()
             accept:  input_binding_key("Z"),
             cancel:  input_binding_key("X"),
             action:  input_binding_key("E"),
+			inventory: input_binding_key(vk_space),
             
             pause: input_binding_key(vk_escape),
         },
@@ -37,6 +38,7 @@ function __input_config_verbs()
             accept:  input_binding_gamepad_button(gp_face1),
             cancel:  input_binding_gamepad_button(gp_face2),
             action:  input_binding_gamepad_button(gp_face3),
+			inventory:  input_binding_gamepad_button(gp_face4),
             
             pause: input_binding_gamepad_button(gp_start),
         },

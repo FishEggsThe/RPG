@@ -10,20 +10,20 @@ function Item(_name, _buy, _sell, _desc) constructor {
 	sellPrice = _sell
 }
 
-function Consumable(_heal, _cure, _buff, _buy, _sell, _desc) : Item(_name, _buy, _sell, _desc) constructor {
+function Consumable(_heal, _cure, _buff, _name, _buy, _sell, _desc) : Item(_name, _buy, _sell, _desc) constructor {
 	itemType = 1
 	healing = _heal
 	cureStatus = _cure // e.g. [true, false, false], I'll figure out status effects later
 	buffStats = _buff // same as _cure but with numbers
 }
 
-function Weapon(_attack, _crit, _buy, _sell, _desc) : Item(_name, _buy, _sell, _desc) constructor {
+function Weapon(_attack, _crit, _name, _buy, _sell, _desc) : Item(_name, _buy, _sell, _desc) constructor {
 	itemType = 2
 	damage = _attack
 	critChance = _crit
 }
 
-function Armor(_def, _buy, _sell, _desc) : Item(_name, _buy, _sell, _desc) constructor {
+function Armor(_def, _name, _buy, _sell, _desc) : Item(_name, _buy, _sell, _desc) constructor {
 	itemType = 3
 	protection = def
 	
