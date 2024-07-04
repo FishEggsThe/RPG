@@ -13,9 +13,18 @@ if inventoryUp {
 	
 	switch(inventorySpot) {
 		case 0:
+			if horiInput != 0 {inventoryIndex = (inventoryIndex == 1 ? 0 : 1)}
 			if acceptInput {inventorySpot = inventoryIndex+1}
 			break
 		case 1:
+			if horiInput != 0 {
+				inventoryIndex += horiInput
+			}
+			if vertInput != 0 {
+				inventoryIndex += 4*horiInput
+			}
+			if inventoryIndex >= array_length(inventory) {inventoryIndex-=array_length(inventory)}
+			if inventoryIndex < 0 {inventoryIndex+=array_length(inventory)}
 			if cancelInput {inventorySpot = 0}
 			break
 		case 2:
