@@ -33,9 +33,8 @@ if inventoryUp {
 			break
 			
 		case 1:
-			var arraySize = array_length(inventory)
 			for(var i = 0; i < array_length(inventory); i++) {
-				var xPos = boxX1+(boxWidth/4)+(floor(i/4))*(boxWidth*1/2)//(width*2/5)+floor((i/(arraySize/2)))*(width*1/5)
+				var xPos = boxX1+(boxWidth/4)+(floor(i/4))*(boxWidth*1/2)
 				var yPos = boxY1+((i%4)+1)*(boxHeight/5)
 				
 				var invName = (inventory[i] == noone ? "-" : inventory[i].name)
@@ -49,7 +48,22 @@ if inventoryUp {
 			break
 			
 		case 2:
-			draw_text_transformed(width/2, height/2, "Key Items", textSize, textSize, 0)
+			for(var i = 0; i < array_length(keyItems); i++) {
+				var xPos = boxX1+(boxWidth/4)+(floor(i/4))*(boxWidth*1/2)
+				var yPos = boxY1+((i%4)+1)*(boxHeight/5)
+				
+				var invName = (keyItems[i] == noone ? "-" : keyItems[i].name)
+				draw_text_transformed(xPos, yPos, invName, textSize, textSize, 0)
+				if inventoryIndex == i {
+					var lineWidthHalf = textSize*string_width(invName)/2
+					var lineFloor = (yPos+(textSize*string_height(invName))/2)
+					draw_line(xPos-lineWidthHalf, lineFloor, xPos+lineWidthHalf, lineFloor)
+				}
+			}
+			break
+		
+		case 3:
+			
 			break
 	}
 }

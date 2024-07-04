@@ -7,6 +7,7 @@ inventorySpot = 0
 selectedItem = false
 
 menuOptions = ["Inventory", "Key Items"]
+useOptions = ["Use", "Don't Use"]
 
 inventory = array_create(8, noone)
 inventory[0] = new Consumable(5, array_create(3, false), array_create(3, false), 2, 1, "Tuna Sandwich", "Its okay")

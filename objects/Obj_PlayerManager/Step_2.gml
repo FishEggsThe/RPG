@@ -38,10 +38,25 @@ if inventoryUp {
 			break
 			
 		case 2:
+			if horiInput != 0 {
+				inventoryIndex += 4*horiInput
+			}
+			if vertInput != 0 {
+				inventoryIndex += vertInput
+			}
+			
+			if inventoryIndex >= array_length(keyItems) {inventoryIndex-=array_length(keyItems)}
+			if inventoryIndex < 0 {inventoryIndex+=array_length(keyItems)}
 			if cancelInput {
 				inventorySpot = 0
 				inventoryIndex = 1
 			}
+			break
+		case 3:
+			if horiInput != 0 {inventoryIndex += (inventoryIndex == 1 ? 0 : 1)}
+			
+			if acceptInput {inventorySpot = inventoryIndex+1; inventoryIndex = 0}
+			if cancelInput {inventoryUp = false; Obj_Player.canMove = true}
 			break
 	}
 }
