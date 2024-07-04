@@ -1,4 +1,8 @@
-if input_check_pressed("inventory") {
+var playerCheck = false
+if instance_exists(Obj_Player)
+{playerCheck = Obj_Player.moveTime <= 0}
+
+if (input_check_pressed("inventory") && playerCheck) {
 	inventoryUp = !inventoryUp
 	Obj_Player.canMove = !inventoryUp
 	inventorySpot = 0; inventoryIndex = 0; selectedItem = false
@@ -14,7 +18,7 @@ if inventoryUp {
 	switch(inventorySpot) {
 		case 0:
 			if horiInput != 0 {inventoryIndex = (inventoryIndex == 1 ? 0 : 1)}
-			if acceptInput {inventorySpot = inventoryIndex+1}
+			if acceptInput {inventorySpot = inventoryIndex+1; inventoryIndex = 0}
 			break
 			
 		case 1:
@@ -27,11 +31,17 @@ if inventoryUp {
 			
 			if inventoryIndex >= array_length(inventory) {inventoryIndex-=array_length(inventory)}
 			if inventoryIndex < 0 {inventoryIndex+=array_length(inventory)}
-			if cancelInput {inventorySpot = 0}
+			if cancelInput {
+				inventorySpot = 0
+				inventoryIndex = 0
+			}
 			break
 			
 		case 2:
-			if cancelInput {inventorySpot = 0}
+			if cancelInput {
+				inventorySpot = 0
+				inventoryIndex = 1
+			}
 			break
 	}
 }
