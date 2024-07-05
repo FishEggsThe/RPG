@@ -12,14 +12,16 @@ function Item(_buy, _sell, _image, _name, _desc) constructor {
 	
 	var layeredDesc = _desc
 	if string_length(_desc) > 33 {
-		layeredDesc = ""; var currDesc = ""; var splitDesc = string_split(_desc, " ")
+		layeredDesc = ""; var stringPos = 1
+		var splitDesc = string_split(_desc, " ")
 		
 		for(var i = 0; i < array_length(splitDesc); i++) {
-			if string_length(currDesc+splitDesc[i]) > 33 {
-				layeredDesc += (string_trim(currDesc) + "\n")
-				currDesc = ""
+			show_message(string_copy(layeredDesc, stringPos, 33))
+			if string_length(string_copy(layeredDesc, stringPos, 33)+splitDesc[i]) > 33 {
+				layeredDesc += "\n"
+				stringPos += 35
 			}
-			currDesc += (splitDesc[i]+" ")
+			layeredDesc += (splitDesc[i]+" ")
 		}
 	}
 	description = string_trim(layeredDesc)
