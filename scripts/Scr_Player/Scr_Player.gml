@@ -1,5 +1,22 @@
 #macro tile (global.tileSize)
 
+function PlayerStats(_name, _desc, _port, _walk, _wep, _spells, _health, _attack, _speed, _def, _mana, _magic) constructor {
+	name = _name
+	description = _desc
+	portraitSprites = _port
+	walkSprites = _walk
+	weaponChoice = _wep
+	spellList = _spells
+	
+	baseHealth = _health
+	baseAttack = _attack
+	baseSpeed = _speed
+	baseDefense = _def
+	baseMana = _mana
+	baseMagic = _magic
+	
+}
+
 function MovePlayer() {
 	if canMove {
 		if moveTime <= 0 {
