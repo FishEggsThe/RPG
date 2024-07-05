@@ -53,7 +53,8 @@ if inventoryUp {
 			if horiInput != 0 {inventoryIndex = (inventoryIndex == 1 ? 0 : 1)}
 			
 			if acceptInput {
-				if (inventoryIndex == 1 || selectedItem == noone) {inventorySpot = lastSpot; inventoryIndex = lastIndex}
+				if (inventoryIndex == 1 || lastSpot = 2 ||selectedItem == noone)
+				{inventorySpot = lastSpot; inventoryIndex = lastIndex}
 				else if inventoryIndex == 0 {show_message("Imagine actually doing the thing\n\ncouldn't be me")} // Do thing
 				
 			}

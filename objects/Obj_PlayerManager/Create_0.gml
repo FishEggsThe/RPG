@@ -12,12 +12,12 @@ menuOptions = ["Inventory", "Key Items"]
 useOptions = ["Use", "Don't Use"]
 emptyPockets = ["Barely enough space for a gasp of air",
 				"Could probably fit some change in here",
-				"You could stuff your whole hand in hear",
+				"You could stuff a lot of dirt in here",
 				"Pretty roomy in here",
 				"5",
 				"6",
 				"I'm starting to get lost in here",
-				"You wouldn't hear the screams",
+				"See how far you can stick your hand in here",
 				"You wouldn't hear the screams"]
 
 inventory = array_create(8, noone)

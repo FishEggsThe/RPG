@@ -76,7 +76,19 @@ if inventoryUp {
 			else {
 				draw_text_transformed(width/2, boxY1+boxHeight/8, selectedItem.name, textSize, textSize, 0)
 				draw_sprite(selectedItem.itemImage, 0, width/2, boxY1+boxHeight*3/8)
-				draw_text_transformed(width/2, boxY1+boxHeight*5/8, selectedItem.description, textSize/2, textSize/2, 0)
+				draw_text_transformed(width/2, boxY1+boxHeight*5/8, selectedItem.description, textSize, textSize, 0)
+				
+				if selectedItem.itemType != 0 {
+					for(var i = 0; i < array_length(menuOptions); i++) {
+						var offset = boxX1+(i+1)*(boxWidth*1/3)
+						draw_text_transformed(offset, boxY1+boxHeight*7/8, useOptions[i], textSize, textSize, 0)
+						if inventoryIndex == i {
+							var lineWidthHalf = textSize*string_width(useOptions[i])/2
+							var lineFloor = ((boxY1+boxHeight*7/8)+(textSize*string_height(useOptions[i]))/2)
+							draw_line(offset-lineWidthHalf, lineFloor, offset+lineWidthHalf, lineFloor)
+						}
+					}
+				}
 			}
 			break
 	}
