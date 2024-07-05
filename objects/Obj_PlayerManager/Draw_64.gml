@@ -66,7 +66,18 @@ if inventoryUp {
 			break
 		
 		case 3:
-			
+			if selectedItem == noone {
+				var array = (lastSpot == 1 ? inventory : keyItems)
+				var arraySize = array_length(array); var emptySlots = 0
+				for(var i = 0; i < arraySize; i++) {if array[i] == noone {emptySlots++}}
+				var textScale = ((arraySize+1-emptySlots)/arraySize)*textSize
+				draw_text_transformed(width/2, height/2, emptyPockets[emptySlots], textScale, textScale, 0)
+			}
+			else {
+				draw_text_transformed(width/2, boxY1+boxHeight/8, selectedItem.name, textSize, textSize, 0)
+				draw_sprite(selectedItem.itemImage, 0, width/2, boxY1+boxHeight*3/8)
+				draw_text_transformed(width/2, boxY1+boxHeight*5/8, selectedItem.description, textSize/2, textSize/2, 0)
+			}
 			break
 	}
 }

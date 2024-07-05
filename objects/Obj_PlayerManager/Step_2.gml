@@ -30,8 +30,8 @@ if inventoryUp {
 			
 			if acceptInput {
 				selectedItem = inventory[inventoryIndex]
-				inventorySpot = 3; inventoryIndex = 1
-				lastSpot = 1; lastIndex = inventoryIndex}
+				lastSpot = 1; lastIndex = inventoryIndex
+				inventorySpot = 3; inventoryIndex = 1}
 			if cancelInput {inventorySpot = 0; inventoryIndex = 0}
 			break
 			
@@ -44,8 +44,8 @@ if inventoryUp {
 			
 			if acceptInput {
 				selectedItem = keyItems[inventoryIndex]
-				inventorySpot = 3; inventoryIndex = 1
-				lastSpot = 2; lastIndex = inventoryIndex}
+				lastSpot = 2; lastIndex = inventoryIndex
+				inventorySpot = 3; inventoryIndex = 1}
 			if cancelInput {inventorySpot = 0; inventoryIndex = 1}
 			break
 			
@@ -53,9 +53,9 @@ if inventoryUp {
 			if horiInput != 0 {inventoryIndex = (inventoryIndex == 1 ? 0 : 1)}
 			
 			if acceptInput {
-				if inventoryIndex == 0 {show_message("Imagine actually doing the thing\n\ncouldn't be me")} // Do thing
-				else if inventoryIndex == 1
-				{inventorySpot = lastSpot; inventoryIndex = lastIndex}
+				if (inventoryIndex == 1 || selectedItem == noone) {inventorySpot = lastSpot; inventoryIndex = lastIndex}
+				else if inventoryIndex == 0 {show_message("Imagine actually doing the thing\n\ncouldn't be me")} // Do thing
+				
 			}
 			if cancelInput {inventorySpot = lastSpot; inventoryIndex = lastIndex}
 			break
