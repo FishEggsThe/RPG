@@ -1,6 +1,6 @@
 #macro tile (global.tileSize)
 
-function PlayerStats(_name, _desc, _port, _walk, _wep, _spells, _health, _attack, _speed, _def, _mana, _magic) constructor {
+function PlayerStats(_port, _walk, _wep, _spells, _health, _attack, _speed, _def, _mana, _magic, _name, _desc) constructor {
 	name = _name
 	description = _desc
 	portraitSprites = _port

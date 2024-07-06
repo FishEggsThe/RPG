@@ -7,7 +7,6 @@ inventorySpot = 0
 selectedItem = noone
 lastSpot = 0
 lastIndex = 0
-
 menuOptions = ["Inventory", "Key Items"]
 useOptions = ["Use", "Don't Use"]
 emptyPockets = ["Barely enough space for a gasp of air",
@@ -19,6 +18,11 @@ emptyPockets = ["Barely enough space for a gasp of air",
 				"I'm starting to get lost in here",
 				"See how far you can stick your hand in here",
 				"You wouldn't hear the screams"]
+
+
+characters = array_create(4, noone)
+characters[0] = new PlayerStats(chives, chives, 1, [], 25, 5, 5, 5, 20, 5, 
+								"You", "I have literally never met you before in my life")
 
 inventory = array_create(8, noone)
 inventory[0] = new Consumable(5, array_create(3, false), array_create(3, false), 2, 1, chives2, "Tuna Sandwich", "Its okay")
