@@ -9,10 +9,12 @@ function PlayerStats(_port, _walk, _wep, _spells, _health, _attack, _speed, _def
 	spellList = _spells
 	
 	baseHealth = _health
+	maxHealth = baseHealth
 	baseAttack = _attack
 	baseSpeed = _speed
 	baseDefense = _def
 	baseMana = _mana
+	maxMana = baseMana
 	baseMagic = _magic
 	
 }

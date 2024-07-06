@@ -32,11 +32,20 @@ if inventoryUp {
 		var charBoxOffset = (width/6) + width*(i)/6
 		
 		draw_set_color(c_black)
-		draw_rectangle(charBoxOffset, height*7/8, charBoxOffset+height/6, height*2, false)
+		draw_rectangle(charBoxOffset+2, height*7/8, charBoxOffset-2+height/6, height*2, false)
 		draw_set_color(c_white)
-		draw_text(charBoxOffset+height/12, height*7.4/8, characters[i].name)
+		draw_set_halign(fa_center)
+		draw_set_valign(fa_middle)
+		draw_text_transformed(charBoxOffset+height/12, height*7.2/8, characters[i].name, 2, 2, 0)
+		var drawHealth = "H: " + string(characters[i].baseHealth) + "/" + string(characters[i].maxHealth)
+		var drawMana = "M: " + string(characters[i].baseMana) + "/" + string(characters[i].maxMana)
+		draw_set_color(c_red)
+		draw_text_transformed(charBoxOffset+height/12, height*7.5/8, drawHealth, 2, 2, 0)
+		draw_set_color(c_teal)
+		draw_text_transformed(charBoxOffset+height/12, height*7.8/8, drawMana, 2, 2, 0)
 	}
 	
+	draw_set_color(c_white)
 	switch(inventorySpot) {
 		case 0:
 			for(var i = 0; i < array_length(menuOptions); i++) {
