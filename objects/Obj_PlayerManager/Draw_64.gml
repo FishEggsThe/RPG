@@ -22,10 +22,25 @@ if inventoryUp {
 		//draw_text(20+width/8, 40+height/6, inventory[0].description)
 	}
 	
+	var numOfCharacters = 0
+	for(var i = 0; i < 1; i++) {
+		if characters[i] == noone {break}
+		numOfCharacters++
+	}
+	
+	for(var i = 0; i < numOfCharacters; i++) {
+		var charBoxOffset = (width/6) + width*(i)/6
+		
+		draw_set_color(c_black)
+		draw_rectangle(charBoxOffset, height*7/8, charBoxOffset+height/6, height*2, false)
+		draw_set_color(c_white)
+		draw_text(charBoxOffset+height/12, height*7.4/8, characters[i].name)
+	}
+	
 	switch(inventorySpot) {
 		case 0:
 			for(var i = 0; i < array_length(menuOptions); i++) {
-				var offset = boxX1+(i+1)*(boxWidth*1/3)
+				var offset = boxX1+(i+1)*(boxWidth/3)
 				draw_text_transformed(offset, height/2, menuOptions[i], textSize, textSize, 0)
 				if inventoryIndex == i {
 					var lineWidthHalf = textSize*string_width(menuOptions[i])/2
