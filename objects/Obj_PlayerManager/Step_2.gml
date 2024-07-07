@@ -60,5 +60,20 @@ if inventoryUp {
 			}
 			if cancelInput {inventorySpot = lastSpot; inventoryIndex = lastIndex}
 			break
+			
+		case 4: // Characters
+			if horiInput != 0 {inventoryIndex += horiInput}
+			
+			if inventoryIndex >= array_length(characters) {inventoryIndex-=array_length(characters)}
+			else if inventoryIndex < 0 {inventoryIndex+=array_length(characters)}
+			
+			if acceptInput {selectedCharacter == characters[inventoryIndex]}
+			
+			if cancelInput {inventorySpot = 0; inventoryIndex = lastIndex}
+			break
+			
+		case 5: // Character Selected
+			if cancelInput {inventorySpot = 4; inventoryIndex = lastIndex}
+			break
 	}
 }
