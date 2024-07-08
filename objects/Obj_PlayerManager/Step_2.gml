@@ -18,8 +18,8 @@ if inventoryUp {
 		case 0: // Start
 			if vertInput != 0 {inventoryIndex += vertInput}
 			
-			if inventoryIndex >= array_length(inventory) {inventoryIndex-=array_length(inventory)}
-			else if inventoryIndex < 0 {inventoryIndex+=array_length(inventory)}
+			if inventoryIndex >= array_length(menuOptions) {inventoryIndex-=array_length(menuOptions)}
+			else if inventoryIndex < 0 {inventoryIndex+=array_length(menuOptions)}
 			
 			if acceptInput {inventorySpot = inventoryIndex+1; inventoryIndex = 0}
 			if cancelInput {inventoryUp = false; Obj_Player.canMove = true}
@@ -59,7 +59,7 @@ if inventoryUp {
 			if inventoryIndex >= array_length(characters) {inventoryIndex-=array_length(characters)}
 			else if inventoryIndex < 0 {inventoryIndex+=array_length(characters)}
 			
-			if acceptInput {selectedCharacter = characters[inventoryIndex]}
+			if acceptInput {selectedCharacter = characters[inventoryIndex]; inventorySpot = 5}
 			
 			if cancelInput {inventorySpot = 0; inventoryIndex = lastIndex}
 			break

@@ -90,6 +90,16 @@ if inventoryUp {
 			break
 		
 		case 3:
+			for(var i = 0; i < array_length(characters); i++) {
+				var xPos = boxY1+(boxWidth/5)+((i%4)*(boxWidth/5))
+				var boxWidthQuarter = boxWidth/8
+				var charName = (characters[i] != noone ? characters[i].name : "-")
+				
+				draw_text_transformed(boxWidthQuarter+(i*2*boxWidthQuarter), height/2, charName, textSize, textSize, 0)
+				if inventoryIndex == i {
+					draw_rectangle(xPos-boxWidthQuarter+2, boxY1+2, xPos+boxWidthQuarter-2, boxY2-2, true)
+				}
+			}
 			break
 		
 		case 4:
