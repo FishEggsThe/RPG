@@ -3,7 +3,7 @@ var height = display_get_gui_height()
 
 if inventoryUp {
 	draw_set_color(c_black)
-	var boxX1 = width/8; var boxY1 = height/6; var boxX2 = width*7/8; var boxY2 = height*5/6; 
+	var boxX1 = width/8; var boxY1 = height/6; var boxX2 = width*7/8; var boxY2 = height*5/6;
 	var boxWidth = boxX2-boxX1; var boxHeight = boxY2-boxY1
 	draw_rectangle(boxX1, boxY1, boxX2, boxY2, false)
 	
@@ -19,7 +19,15 @@ if inventoryUp {
 	draw_set_valign(fa_middle)
 	if global.debug {
 		draw_text(20+width/8, 20+height/6, string(inventorySpot) + " " + string(inventoryIndex))
+		
+		draw_text(boxX1, boxY1, "+"); draw_text(boxX2, boxY1, "+")
+		draw_text(boxX1, boxY2, "+"); draw_text(boxX2, boxY2, "+")
 		//draw_text(20+width/8, 40+height/6, inventory[0].description)
+		
+		draw_set_halign(fa_left)
+		for(var i = 0; i <= boxWidth; i+=boxWidth/8)
+			draw_text(boxX1+i-5, height*2/3, "|")
+		
 	}
 	
 	var numOfCharacters = 0
@@ -91,11 +99,11 @@ if inventoryUp {
 		
 		case 3:
 			for(var i = 0; i < array_length(characters); i++) {
-				var xPos = boxY1+(boxWidth/5)+((i%4)*(boxWidth/5))
+				var xPos = boxX1+(boxWidth/8)+(i*boxWidth/4)
 				var boxWidthQuarter = boxWidth/8
 				var charName = (characters[i] != noone ? characters[i].name : "-")
 				
-				draw_text_transformed(boxWidthQuarter+(i*2*boxWidthQuarter), height/2, charName, textSize, textSize, 0)
+				draw_text_transformed(xPos, height/2, charName, textSize, textSize, 0)
 				if inventoryIndex == i {
 					draw_rectangle(xPos-boxWidthQuarter+2, boxY1+2, xPos+boxWidthQuarter-2, boxY2-2, true)
 				}
