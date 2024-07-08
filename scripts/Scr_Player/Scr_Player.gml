@@ -2,7 +2,7 @@
 
 function PlayerStats(_port, _walk, _wep, _spells, _health, _attack, _speed, _def, _mana, _magic, _name, _desc) constructor {
 	name = _name
-	description = _desc
+	description = LayerDescription(_desc)
 	portraitSprites = _port
 	walkSprites = _walk
 	weaponChoice = _wep

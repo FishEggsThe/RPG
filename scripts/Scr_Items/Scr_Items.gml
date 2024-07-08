@@ -9,22 +9,7 @@ function Item(_buy, _sell, _image, _name, _desc) constructor {
 	buyPrice = _buy
 	sellPrice = _sell
 	itemImage = _image
-	
-	var layeredDesc = _desc
-	if string_length(_desc) > 33 {
-		layeredDesc = ""; var stringPos = 1
-		var splitDesc = string_split(_desc, " ")
-		
-		for(var i = 0; i < array_length(splitDesc); i++) {
-			//show_message(string_copy(layeredDesc, stringPos, 33))
-			if string_length(string_copy(layeredDesc, stringPos, 33)+splitDesc[i]) > 33 {
-				layeredDesc += "\n"
-				stringPos += 35
-			}
-			layeredDesc += (splitDesc[i]+" ")
-		}
-	}
-	description = string_trim(layeredDesc)
+	description = LayerDescription(_desc)
 }
 
 function Consumable(_heal, _cure, _buff, _buy, _sell, _image, _name, _desc) : Item(_buy, _sell, _image, _name, _desc) constructor {

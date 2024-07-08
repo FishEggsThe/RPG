@@ -77,7 +77,7 @@ if inventoryUp {
 			break
 			
 		case 5: // Character Selected
-			if cancelInput {inventorySpot = 3; inventoryIndex = lastIndex}
+			if cancelInput {inventorySpot = 3; inventoryIndex = 2}
 			break
 	}
 }
