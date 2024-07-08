@@ -23,7 +23,7 @@ emptyPockets = ["Barely enough space for a gasp of air",
 
 
 characters = array_create(4, noone)
-characters[0] = new PlayerStats(25, 15, chives, chives, 1, noone, noone, [], 5, 5, 5, 5, 
+characters[0] = new PlayerStats(25, 15, chives2, chives, 1, noone, noone, [], 5, 5, 5, 5, 
 								"You", "I have literally never met you before in my life")
 
 inventory = array_create(8, noone)

@@ -104,8 +104,11 @@ if inventoryUp {
 				var xPos = boxX1+(boxWidth/8)+(i*boxWidth/4)
 				var boxWidthQuarter = boxWidth/8
 				var charName = (characters[i] != noone ? characters[i].name : "-")
+				var charPort = (characters[i] != noone ? characters[i].portraitSprites : Spr_Nothing)
+
 				
-				draw_text_transformed(xPos, height/2, charName, textSize, textSize, 0)
+				draw_text_transformed(xPos, height*7/16, charName, textSize, textSize, 0)
+				draw_sprite(charPort, 0, xPos, height/2)
 				if inventoryIndex == i {
 					draw_rectangle(xPos-boxWidthQuarter+2, boxY1+2, xPos+boxWidthQuarter-2, boxY2-2, true)
 				}
