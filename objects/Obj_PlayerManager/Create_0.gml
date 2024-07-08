@@ -5,9 +5,11 @@ inventoryUp = false
 inventoryIndex = 0
 inventorySpot = 0
 selectedItem = noone
+selectedCharacter = noone
+
 lastSpot = 0
 lastIndex = 0
-menuOptions = ["Inventory", "Key Items"]
+menuOptions = ["Inventory", "Key Items", "Characters"]
 useOptions = ["Use", "Don't Use"]
 emptyPockets = ["Barely enough space for a gasp of air",
 				"Could probably fit some change in here",

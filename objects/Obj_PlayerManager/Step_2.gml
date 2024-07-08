@@ -16,7 +16,11 @@ if inventoryUp {
 	
 	switch(inventorySpot) {
 		case 0: // Start
-			if horiInput != 0 {inventoryIndex = (inventoryIndex == 1 ? 0 : 1)}
+			if vertInput != 0 {inventoryIndex += vertInput}
+			
+			if inventoryIndex >= array_length(inventory) {inventoryIndex-=array_length(inventory)}
+			else if inventoryIndex < 0 {inventoryIndex+=array_length(inventory)}
+			
 			if acceptInput {inventorySpot = inventoryIndex+1; inventoryIndex = 0}
 			if cancelInput {inventoryUp = false; Obj_Player.canMove = true}
 			break
@@ -31,7 +35,7 @@ if inventoryUp {
 			if acceptInput {
 				selectedItem = inventory[inventoryIndex]
 				lastSpot = 1; lastIndex = inventoryIndex
-				inventorySpot = 3; inventoryIndex = 1}
+				inventorySpot = 4; inventoryIndex = 1}
 			if cancelInput {inventorySpot = 0; inventoryIndex = 0}
 			break
 			
@@ -45,35 +49,35 @@ if inventoryUp {
 			if acceptInput {
 				selectedItem = keyItems[inventoryIndex]
 				lastSpot = 2; lastIndex = inventoryIndex
-				inventorySpot = 3; inventoryIndex = 1}
+				inventorySpot = 4; inventoryIndex = 1}
 			if cancelInput {inventorySpot = 0; inventoryIndex = 1}
 			break
 			
-		case 3: // Selected Item
+		case 3: // Characters
+			if horiInput != 0 {inventoryIndex += horiInput}
+			
+			if inventoryIndex >= array_length(characters) {inventoryIndex-=array_length(characters)}
+			else if inventoryIndex < 0 {inventoryIndex+=array_length(characters)}
+			
+			if acceptInput {selectedCharacter = characters[inventoryIndex]}
+			
+			if cancelInput {inventorySpot = 0; inventoryIndex = lastIndex}
+			break
+			
+		case 4: // Selected Item
 			if horiInput != 0 {inventoryIndex = (inventoryIndex == 1 ? 0 : 1)}
 			
 			if acceptInput {
 				if (inventoryIndex == 1 || lastSpot = 2 ||selectedItem == noone)
 				{inventorySpot = lastSpot; inventoryIndex = lastIndex}
 				else if inventoryIndex == 0 {show_message("Imagine actually doing the thing\n\ncouldn't be me")} // Do thing
-				
 			}
+			
 			if cancelInput {inventorySpot = lastSpot; inventoryIndex = lastIndex}
 			break
 			
-		case 4: // Characters
-			if horiInput != 0 {inventoryIndex += horiInput}
-			
-			if inventoryIndex >= array_length(characters) {inventoryIndex-=array_length(characters)}
-			else if inventoryIndex < 0 {inventoryIndex+=array_length(characters)}
-			
-			if acceptInput {selectedCharacter == characters[inventoryIndex]}
-			
-			if cancelInput {inventorySpot = 0; inventoryIndex = lastIndex}
-			break
-			
 		case 5: // Character Selected
-			if cancelInput {inventorySpot = 4; inventoryIndex = lastIndex}
+			if cancelInput {inventorySpot = 3; inventoryIndex = lastIndex}
 			break
 	}
 }

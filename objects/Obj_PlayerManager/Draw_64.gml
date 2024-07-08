@@ -49,12 +49,12 @@ if inventoryUp {
 	switch(inventorySpot) {
 		case 0:
 			for(var i = 0; i < array_length(menuOptions); i++) {
-				var offset = boxX1+(i+1)*(boxWidth/3)
-				draw_text_transformed(offset, height/2, menuOptions[i], textSize, textSize, 0)
+				var offset = boxX1+((i+1)*boxHeight*2/7)
+				draw_text_transformed(width/2, offset, menuOptions[i], textSize, textSize, 0)
 				if inventoryIndex == i {
 					var lineWidthHalf = textSize*string_width(menuOptions[i])/2
-					var lineFloor = ((height/2)+(textSize*string_height(menuOptions[i]))/2)
-					draw_line(offset-lineWidthHalf, lineFloor, offset+lineWidthHalf, lineFloor)
+					var lineFloor = (offset+(textSize*string_height(menuOptions[i]))/2)
+					draw_line((width/2)-lineWidthHalf, lineFloor, (width/2)+lineWidthHalf, lineFloor)
 				}
 			}
 			break
@@ -90,6 +90,9 @@ if inventoryUp {
 			break
 		
 		case 3:
+			break
+		
+		case 4:
 			if selectedItem == noone {
 				var array = (lastSpot == 1 ? inventory : keyItems)
 				var arraySize = array_length(array); var emptySlots = 0
@@ -103,7 +106,7 @@ if inventoryUp {
 				draw_text_transformed(width/2, boxY1+boxHeight*5/8, selectedItem.description, textSize, textSize, 0)
 				
 				if selectedItem.itemType != 0 {
-					for(var i = 0; i < array_length(menuOptions); i++) {
+					for(var i = 0; i < array_length(useOptions); i++) {
 						var offset = boxX1+(i+1)*(boxWidth*1/3)
 						draw_text_transformed(offset, boxY1+boxHeight*7/8, useOptions[i], textSize, textSize, 0)
 						if inventoryIndex == i {
