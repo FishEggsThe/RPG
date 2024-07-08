@@ -136,5 +136,15 @@ if inventoryUp {
 				}
 			}
 			break
+			
+		case 5:
+			if selectedCharacter == noone {
+				draw_text_transformed(width/2, height/2, "Its a ghost!\n\noOOooOOoOoOOO", textSize, textSize, 0)
+			}
+			else {
+				draw_text_transformed(width/2, boxY1+boxHeight/8, selectedCharacter.name, textSize, textSize, 0)
+				draw_sprite(selectedCharacter.portraitSprites, 0, width/2, boxY1+boxHeight*3/8)
+				draw_text_transformed(width/2, boxY1+boxHeight*5/8, selectedCharacter.description, textSize, textSize, 0)
+			}
 	}
 }
