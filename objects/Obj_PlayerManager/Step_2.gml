@@ -61,7 +61,7 @@ if inventoryUp {
 			
 			if acceptInput {selectedCharacter = characters[inventoryIndex]; inventorySpot = 5}
 			
-			if cancelInput {inventorySpot = 0; inventoryIndex = lastIndex}
+			if cancelInput {inventorySpot = 0; inventoryIndex = 2}
 			break
 			
 		case 4: // Selected Item
@@ -86,8 +86,12 @@ if inventoryUp {
 			if inventoryIndex >= array_length(characters) {inventoryIndex-=array_length(characters)}
 			else if inventoryIndex < 0 {inventoryIndex+=array_length(characters)}
 			
-			if acceptInput {UseItem(selectedItem, characters[inventoryIndex])
-							inventoryUp = false; Obj_Player.canMove = true}
+			if acceptInput {
+				if characters[inventoryIndex] != noone {
+					UseItem(selectedItem, characters[inventoryIndex])
+					inventoryUp = false; Obj_Player.canMove = true
+				}
+			}
 			
 			if cancelInput {inventorySpot = lastSpot; inventoryIndex = lastIndex}
 			break

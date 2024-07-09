@@ -25,6 +25,8 @@ emptyPockets = ["Barely enough space for a gasp of air",
 characters = array_create(4, noone)
 characters[0] = new PlayerStats(25, 15, chives2, chives, 1, noone, noone, [], 5, 5, 5, 5, 
 								"You", "I have literally never met you before in my life")
+characters[0].weapon = new Weapon(1, 0.00000000001, 1, 0, chives2, "Stick", "At least's it's a neat stick")
+characters[0].armor = new Armor(1, 1, 0, chives2, "Stick Armor", "The unworthy sticks get sewn into armor")
 
 inventory = array_create(8, noone)
 inventory[0] = new Consumable(5, array_create(3, false), array_create(3, false), 2, 1, chives2, "Tuna Sandwich", "Its okay")
