@@ -38,19 +38,19 @@ function UseItem(item, character) {
 		case 1:
 			character.currHealth = clamp(character.currHealth+item.healing, 0, character.maxHealth)
 			inventory[lastIndex] = noone
-			show_message("yum!")
+			//show_message("yum!")
 			break
 		case 2:
 			if character.weapon != noone {inventory[lastIndex] = character.weapon}
 			else {inventory[lastIndex] = noone}
 			character.weapon = item
-			show_message("cool weapon")
+			//show_message("cool weapon")
 			break
 		case 3:
 			if character.armor != noone {inventory[lastIndex] = character.armor}
 			else {inventory[lastIndex] = noone}
 			character.armor = item
-			show_message("fancy armor")
+			//show_message("fancy armor")
 			break
 	}
 }

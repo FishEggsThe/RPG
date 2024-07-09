@@ -19,10 +19,10 @@ if inventoryUp {
 	draw_set_valign(fa_middle)
 	if global.debug {
 		draw_text(20+width/8, 20+height/6, string(inventorySpot) + " " + string(inventoryIndex))
+		if acceptInput {show_message(acceptInput)}
 		
-		draw_text(boxX1, boxY1, "+"); draw_text(boxX2, boxY1, "+")
-		draw_text(boxX1, boxY2, "+"); draw_text(boxX2, boxY2, "+")
-		//draw_text(20+width/8, 40+height/6, inventory[0].description)
+		//draw_text(boxX1, boxY1, "+"); draw_text(boxX2, boxY1, "+")
+		//draw_text(boxX1, boxY2, "+"); draw_text(boxX2, boxY2, "+")
 		
 		draw_set_halign(fa_left)
 		for(var i = 0; i <= boxWidth; i+=boxWidth/8)
@@ -32,15 +32,17 @@ if inventoryUp {
 	
 	// Character boxes on bottom
 	var numOfCharacters = 0
-	for(var i = 0; i < 1; i++) {
+	for(var i = 0; i < array_length(characters); i++) {
 		if characters[i] == noone {break}
 		numOfCharacters++
 	}
 	for(var i = 0; i < numOfCharacters; i++) {
-		var charBoxOffset = (width/6) + width*(i)/6
+		//var charBoxOffset = (width/6) + width*(i)/6
+		var charBoxOffset = (width/(2*numOfCharacters)) + width*(1+i)/6 - width/12
+
 		// Box
 		draw_set_color(c_black)
-		draw_rectangle(charBoxOffset+2, height*7/8, charBoxOffset-2+height/6, height*2, false)
+		draw_rectangle(charBoxOffset+2, height*7/8, charBoxOffset-2+width/6, height*2, false)
 		// Name
 		draw_set_color(c_white)
 		draw_set_halign(fa_center)

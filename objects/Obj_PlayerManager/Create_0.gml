@@ -28,6 +28,9 @@ characters[0] = new PlayerStats(25, 15, chives2, chives, 1, noone, noone, [], 5,
 characters[0].weapon = new Weapon(1, 0.00000000001, 1, 0, chives2, "Stick", "At least's it's a neat stick")
 characters[0].armor = new Armor(1, 1, 0, chives2, "Stick Armor", "The unworthy sticks get sewn into armor")
 
+//characters[1] = new PlayerStats(15, 25, chives2, chives, 2, noone, noone, [], 5, 5, 5, 5, 
+//								"Slime", "Tired of working the grueling 9-5, this slime is looking for a more meaningful purpose")
+
 inventory = array_create(8, noone)
 inventory[0] = new Consumable(5, array_create(3, false), array_create(3, false), 2, 1, chives2, "Tuna Sandwich", "Its okay")
 inventory[1] = new Weapon(5, 0.1, 3, 2, chives2, "Dinky Sword", "If you swing this too hard, it might fall apart")
