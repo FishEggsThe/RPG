@@ -70,7 +70,7 @@ if inventoryUp {
 			if acceptInput {
 				if (inventoryIndex == 1 || lastSpot = 2 ||selectedItem == noone)
 				{inventorySpot = lastSpot; inventoryIndex = lastIndex}
-				else if inventoryIndex == 0 {show_message("Imagine actually doing the thing\n\ncouldn't be me")} // Do thing
+				else if inventoryIndex == 0 {inventorySpot = 6; inventoryIndex = 0} // Do thingshow_message("Imagine actually doing the thing\n\ncouldn't be me")
 			}
 			
 			if cancelInput {inventorySpot = lastSpot; inventoryIndex = lastIndex}
@@ -78,6 +78,18 @@ if inventoryUp {
 			
 		case 5: // Character Selected
 			if cancelInput {inventorySpot = 3; inventoryIndex = 2}
+			break
+		
+		case 6:
+			if horiInput != 0 {inventoryIndex += horiInput}
+			
+			if inventoryIndex >= array_length(characters) {inventoryIndex-=array_length(characters)}
+			else if inventoryIndex < 0 {inventoryIndex+=array_length(characters)}
+			
+			if acceptInput {UseItem(selectedItem, characters[inventoryIndex])
+							inventoryUp = false; Obj_Player.canMove = true}
+			
+			if cancelInput {inventorySpot = lastSpot; inventoryIndex = lastIndex}
 			break
 	}
 }
