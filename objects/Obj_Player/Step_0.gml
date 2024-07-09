@@ -1,1 +1,2 @@
 MovePlayer()
+InteractWithOverworld()

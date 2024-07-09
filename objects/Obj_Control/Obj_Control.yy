@@ -9,8 +9,8 @@
   "name":"Obj_Control",
   "overriddenProperties":[],
   "parent":{
-    "name":"Objects",
-    "path":"folders/Objects.yy",
+    "name":"Backend",
+    "path":"folders/Objects/Backend.yy",
   },
   "parentObjectId":null,
   "persistent":true,

@@ -1,16 +1,13 @@
 {
   "$GMObject":"",
-  "%Name":"Obj_Player",
-  "eventList":[
-    {"$GMEvent":"v1","%Name":"","collisionObjectId":null,"eventNum":0,"eventType":0,"isDnD":false,"name":"","resourceType":"GMEvent","resourceVersion":"2.0",},
-    {"$GMEvent":"v1","%Name":"","collisionObjectId":null,"eventNum":0,"eventType":3,"isDnD":false,"name":"","resourceType":"GMEvent","resourceVersion":"2.0",},
-  ],
+  "%Name":"Obj_Dialogue",
+  "eventList":[],
   "managed":true,
-  "name":"Obj_Player",
+  "name":"Obj_Dialogue",
   "overriddenProperties":[],
   "parent":{
-    "name":"Overworld",
-    "path":"folders/Objects/Overworld.yy",
+    "name":"Backend",
+    "path":"folders/Objects/Backend.yy",
   },
   "parentObjectId":null,
   "persistent":false,
@@ -30,10 +27,7 @@
   "resourceType":"GMObject",
   "resourceVersion":"2.0",
   "solid":false,
-  "spriteId":{
-    "name":"chives",
-    "path":"sprites/chives/chives.yy",
-  },
+  "spriteId":null,
   "spriteMaskId":null,
   "visible":true,
 }
