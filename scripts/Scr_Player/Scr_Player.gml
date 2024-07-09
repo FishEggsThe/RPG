@@ -72,5 +72,6 @@ function TileCollision(xDir, yDir) {
 	var data = tilemap_get(map_id, px, py);
 	
 	if data >= 2 {return true}
+	if instance_position(xGoto+tile/2, yGoto+tile/2, Obj_NPC) != noone {return true}
 	return false
 }
