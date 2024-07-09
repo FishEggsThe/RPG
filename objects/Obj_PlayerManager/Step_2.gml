@@ -77,10 +77,10 @@ if inventoryUp {
 			break
 			
 		case 5: // Character Selected
-			if cancelInput {inventorySpot = 3; inventoryIndex = 2}
+			if cancelInput {inventorySpot = 3; inventoryIndex = 0}
 			break
 		
-		case 6:
+		case 6: // 
 			if horiInput != 0 {inventoryIndex += horiInput}
 			
 			if inventoryIndex >= array_length(characters) {inventoryIndex-=array_length(characters)}

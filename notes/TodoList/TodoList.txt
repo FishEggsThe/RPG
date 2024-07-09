@@ -1,6 +1,7 @@
 To-Do List:
 
 - Inventory -
+ * Move down list when an item is used and gone from the inventory
  * Increase size mayhaps
  * Add statuses and items being able to cure them
 

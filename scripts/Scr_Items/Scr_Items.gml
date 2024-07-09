@@ -19,14 +19,16 @@ function Consumable(_heal, _cure, _buff, _buy, _sell, _image, _name, _desc) : It
 	buffStats = _buff // same as _cure but with numbers
 }
 
-function Weapon(_attack, _crit, _buy, _sell, _image, _name, _desc) : Item(_buy, _sell, _image, _name, _desc) constructor {
+function Weapon(_type, _attack, _crit, _buy, _sell, _image, _name, _desc) : Item(_buy, _sell, _image, _name, _desc) constructor {
 	itemType = 2
+	wepType = _type
 	damage = _attack
 	critChance = _crit
 }
 
-function Armor(_def, _buy, _sell, _image, _name, _desc) : Item(_buy, _sell, _image, _name, _desc) constructor {
+function Armor(_type, _def, _buy, _sell, _image, _name, _desc) : Item(_buy, _sell, _image, _name, _desc) constructor {
 	itemType = 3
+	armorType = _type
 	protection = _def
 	
 }
@@ -41,16 +43,20 @@ function UseItem(item, character) {
 			//show_message("yum!")
 			break
 		case 2:
-			if character.weapon != noone {inventory[lastIndex] = character.weapon}
-			else {inventory[lastIndex] = noone}
-			character.weapon = item
-			//show_message("cool weapon")
+			if character.equipmentChoice == item.wepType {
+				if character.weapon != noone {inventory[lastIndex] = character.weapon}
+				else {inventory[lastIndex] = noone}
+				character.weapon = item
+				//show_message("cool weapon")
+			}
 			break
 		case 3:
-			if character.armor != noone {inventory[lastIndex] = character.armor}
-			else {inventory[lastIndex] = noone}
-			character.armor = item
-			//show_message("fancy armor")
+			if character.equipmentChoice == item.armorType {
+				if character.armor != noone {inventory[lastIndex] = character.armor}
+				else {inventory[lastIndex] = noone}
+				character.armor = item
+				//show_message("fancy armor")
+			}
 			break
 	}
 }

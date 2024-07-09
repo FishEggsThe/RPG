@@ -36,10 +36,11 @@ if inventoryUp {
 		if characters[i] == noone {break}
 		numOfCharacters++
 	}
+	
 	for(var i = 0; i < numOfCharacters; i++) {
-		//var charBoxOffset = (width/6) + width*(i)/6
-		var charBoxOffset = (width/(2*numOfCharacters)) + (width*i)/(numOfCharacters) - width/12
-		//var charBoxOffset = (width/2) + (width*(i+1-numOfCharacters)//(numOfCharacters) - width/12
+		var charBoxOffset = (width/6) + width*(i)/6
+		//var charBoxOffset = (width/(2*numOfCharacters)) + (width*i)/(numOfCharacters) - width/12
+		//var charBoxOffset = (width/2) + ((width*i)/(numOfCharacters*2)) - (width/12)
 
 		// Box
 		draw_set_color(c_black)
