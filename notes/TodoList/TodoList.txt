@@ -1,0 +1,17 @@
+To-Do List:
+
+- Inventory -
+ * Increase size mayhaps
+ * Add statuses and items being able to cure them
+
+- Dialogue -
+ * erm, doing it
+ * Dialogue options are nice
+ * Figure out how to store them
+ * Allow mischief to happen after dialogue finishes
+
+- Battle -
+ * Funky battle screen, good time to lear shaders
+
+- Cutscenes -
+ * oh dear god I'm dreading this part

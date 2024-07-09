@@ -1,0 +1,39 @@
+Characters:
+* Knight
+	- Basic self identifier guy, going on an adventure for the hell of it
+	- Good ol' sword and shield
+	- Team-oriented spells like rallying defense and attack
+* Working Man Slime
+	- Distinct cigarette and heavy eyebrows, tired of the minion 9-5 and is looking for a new purpose in life
+	- Supportive slime-based abilities that inflict status effects and stat downs on enemies
+* Dinosaur
+	- Someone in a dinosaur costume that gnaws on people, very content with their life
+	- Damage dealer of the group
+	- Uses those sticks with dino heads that can clamp down and fake teeth as weapons
+* Mysterious third character
+	- figure out the identity of this individual
+
+Weapons:
+* Vampire Teeth / Dinosaur
+	- Chance to steal enemy health for yourself on hit
+* Biting Dinosaur Stick / Dinosaur
+	- Starting weapon for the Dinosaur
+* 
+
+Enemies:
+* Termites
+	- Little bug guy
+* Flying Termites
+	- stronger termites that fly a wright brothers plane
+* Quarterback tackler
+	- bull type enemy
+* Techbro
+	- Inflicts debilitating stat downs to simulate the lack of value nft's hold
+* Robot with Legs 
+	- Knocks you down with the support of the techbros
+* Robot with Legs and GUNS
+	- Self explanatory
+* Haunted Floor Mat
+	- Surprise miniboss!!
+* Chandelier
+	- Final boss at the end of a murder mystery where they're the murderer

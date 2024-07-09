@@ -36,7 +36,7 @@ function UseItem(item, character) {
 	
 	switch(item.itemType) {
 		case 1:
-			character.currHealth += item.healing
+			character.currHealth = clamp(character.currHealth+item.healing, 0, character.maxHealth)
 			inventory[lastIndex] = noone
 			show_message("yum!")
 			break

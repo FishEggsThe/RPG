@@ -78,6 +78,8 @@
   },
   "name":"RPG",
   "resources":[
+    {"id":{"name":"IdeasList","path":"notes/IdeasList/IdeasList.yy",},},
+    {"id":{"name":"TodoList","path":"notes/TodoList/TodoList.yy",},},
     {"id":{"name":"input_controller_object","path":"objects/input_controller_object/input_controller_object.yy",},},
     {"id":{"name":"Obj_Camera","path":"objects/Obj_Camera/Obj_Camera.yy",},},
     {"id":{"name":"Obj_Control","path":"objects/Obj_Control/Obj_Control.yy",},},

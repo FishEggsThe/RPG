@@ -6,6 +6,10 @@ function PlayerStats(_health, _mana, _port, _walk, _equip, _wep, _armor, _spells
 	portraitSprites = _port
 	walkSprites = _walk
 	
+	// 0 = Swords & Shields
+	// 1 = idk
+	// 2 = Fake Teeth and Shinguards
+	// 3 = something
 	equipmentChoice = _equip
 	weapon = _wep
 	armor = _armor
