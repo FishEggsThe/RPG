@@ -89,7 +89,7 @@ if inventoryUp {
 			if acceptInput {
 				if characters[inventoryIndex] != noone {
 					UseItem(selectedItem, characters[inventoryIndex])
-					inventoryUp = false; Obj_Player.canMove = true
+					inventorySpot = lastSpot; inventoryIndex = lastIndex
 				}
 			}
 			
