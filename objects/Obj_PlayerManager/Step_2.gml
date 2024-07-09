@@ -89,7 +89,6 @@ if inventoryUp {
 			if acceptInput {
 				if characters[inventoryIndex] != noone {
 					UseItem(selectedItem, characters[inventoryIndex])
-					inventorySpot = lastSpot; inventoryIndex = lastIndex
 				}
 			}
 			

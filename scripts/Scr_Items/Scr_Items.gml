@@ -48,6 +48,7 @@ function UseItem(item, character) {
 				else {inventory[lastIndex] = noone}
 				character.weapon = item
 				//show_message("cool weapon")
+				inventorySpot = lastSpot; inventoryIndex = lastIndex
 			}
 			break
 		case 3:
@@ -56,6 +57,7 @@ function UseItem(item, character) {
 				else {inventory[lastIndex] = noone}
 				character.armor = item
 				//show_message("fancy armor")
+				inventorySpot = lastSpot; inventoryIndex = lastIndex
 			}
 			break
 	}
