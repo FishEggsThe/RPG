@@ -76,7 +76,7 @@ function TileCollision(xDir, yDir) {
 }
 
 function InteractWithOverworld() {
-	if (moveTime <= 0 && input_check_pressed("action")) {
+	if (canMove && input_check_pressed("action")) {
 		var facingAngle = degtorad(facing*90)
 		var facingDir = [cos(facingAngle), -sin(facingAngle)]
 		var xPos = x+facingDir[0]*tile+(tile/2); var yPos = y+facingDir[1]*tile+(tile/2)
@@ -88,7 +88,8 @@ function InteractWithOverworld() {
 			for(var i = 0; i < array_length(layeredDialogue); i++)
 				LayerDescription(interactable.dialogue[i])
 			BeginDialogue(interactable.dialogue)
+			
+			if interactable == Obj_NPC {interactable.facing = facing}
 		}
-		if interactable == Obj_NPC {interactable.facing = facing}
 	}
 }

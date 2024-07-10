@@ -1,6 +1,8 @@
 if onDialogue {
 	var width = display_get_gui_width()
 	var height = display_get_gui_height()
+	var acceptInput = input_check_pressed(["action", "accept"]) - startAcceptBuffer
+	if startAcceptBuffer > 0 {startAcceptBuffer--}
 	
 	var dialogueLength = array_length(dialogue)
 	Obj_Player.canMove = false
@@ -14,9 +16,13 @@ if onDialogue {
 	
 	if letterIndex <= string_length(dialogue[dialogueIndex]) {letterIndex++}
 	var lineToDraw = string_copy(dialogue[dialogueIndex], 1, letterIndex)
-	lineToDraw = 
 	
 	draw_text_transformed(10, (height*2/3)+10, lineToDraw, 2, 2, 0)
+	
+	if acceptInput {
+		dialogueIndex++
+		letterIndex = 0
+	}
 	
 	if dialogueIndex >= dialogueLength {
 		onDialogue = false
