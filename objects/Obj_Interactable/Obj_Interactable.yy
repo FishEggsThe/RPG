@@ -1,11 +1,11 @@
 {
   "$GMObject":"",
-  "%Name":"Object8",
+  "%Name":"Obj_Interactable",
   "eventList":[
     {"$GMEvent":"v1","%Name":"","collisionObjectId":null,"eventNum":0,"eventType":0,"isDnD":false,"name":"","resourceType":"GMEvent","resourceVersion":"2.0",},
   ],
   "managed":true,
-  "name":"Object8",
+  "name":"Obj_Interactable",
   "overriddenProperties":[],
   "parent":{
     "name":"Overworld",
@@ -29,7 +29,10 @@
   "resourceType":"GMObject",
   "resourceVersion":"2.0",
   "solid":false,
-  "spriteId":null,
+  "spriteId":{
+    "name":"chives",
+    "path":"sprites/chives/chives.yy",
+  },
   "spriteMaskId":null,
   "visible":true,
 }

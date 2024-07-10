@@ -71,7 +71,7 @@ function TileCollision(xDir, yDir) {
 	var data = tilemap_get(map_id, px, py);
 	
 	if data >= 2 {return true}
-	if instance_position(xGoto+tile/2, yGoto+tile/2, Obj_NPC) != noone {return true}
+	if instance_position(xGoto+tile/2, yGoto+tile/2, Obj_Interactable) != noone {return true}
 	return false
 }
 
@@ -81,7 +81,7 @@ function InteractWithOverworld() {
 		var facingDir = [cos(facingAngle), -sin(facingAngle)]
 		var xPos = x+facingDir[0]*tile+(tile/2); var yPos = y+facingDir[1]*tile+(tile/2)
 		
-		var interactable = instance_position(xPos, yPos, Obj_NPC)
+		var interactable = instance_position(xPos, yPos, Obj_Interactable)
 		
 		if interactable != noone {
 			var layeredDialogue = array_create(array_length(interactable.dialogue), "")
@@ -89,7 +89,25 @@ function InteractWithOverworld() {
 				LayerText(display_get_gui_width()-15, interactable.dialogue[i])
 			BeginDialogue(interactable.dialogue)
 			
-			if interactable == Obj_NPC {interactable.facing = facing}
+			show_message(interactable.id)
+			show_message(Obj_NPC)
+			show_message(interactable == Obj_NPC)
+			
+			switch(interactable){
+				case Obj_NPC: 
+					interactable.facing = facing
+					break
+				case Obj_Pickup:
+					show_message("Yes this is happening")
+					PickupItem(interactable)
+					break
+			}
+			//if interactable == Obj_NPC { 
+			//	interactable.facing = facing
+			//} else if interactable == Obj_Pickup {
+			//	show_message("Yes this is happening")
+			//	PickupItem(interactable)
+			//}
 		}
 	}
 }

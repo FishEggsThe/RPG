@@ -33,6 +33,30 @@ function Armor(_type, _def, _buy, _sell, _image, _name, _desc) : Item(_buy, _sel
 	
 }
 
+function PickupItem(pickup) {
+	with Obj_PlayerManager {
+		if pickup.item.itemType == 0 {
+			for(var i = 0; i < array_length(keyItems); i++){
+				if keyItems[i] == noone {
+					keyItems[i] = pickup.item
+					instance_destroy(pickup)
+					return
+				}
+			}
+			show_message("You're holding too many key items!")
+		} else {
+			for(var i = 0; i < array_length(inventory); i++){
+				if inventory[i] == noone {
+					inventory[i] = pickup.item
+					instance_destroy(pickup)
+					return
+				}
+			}
+			show_message("Inventory full!")
+		}
+	}
+}
+
 function UseItem(item, character) {
 	if item == noone {show_message("How the hell did you select nothing"); return;}
 	

@@ -1,11 +1,11 @@
 {
   "$GMObject":"",
-  "%Name":"Obj_NPC",
+  "%Name":"Obj_Pickup",
   "eventList":[
     {"$GMEvent":"v1","%Name":"","collisionObjectId":null,"eventNum":0,"eventType":0,"isDnD":false,"name":"","resourceType":"GMEvent","resourceVersion":"2.0",},
   ],
   "managed":true,
-  "name":"Obj_NPC",
+  "name":"Obj_Pickup",
   "overriddenProperties":[],
   "parent":{
     "name":"Overworld",
