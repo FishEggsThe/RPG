@@ -27,35 +27,37 @@ function PlayerStats(_health, _mana, _port, _walk, _equip, _wep, _armor, _spells
 }
 
 function MovePlayer() {
-	if moveTime <= 0 {
-		var xDirection = input_check("right")-input_check("left")
-		var yDirection = input_check("down")-input_check("up")
-		
-		if (xDirection != 0 || yDirection != 0) {
-			var last_input = input_check_press_most_recent(["right", "left", "up", "down"])
-			var hOrV = (last_input == "right" || last_input == "left")
-			var moveOrder = [hOrV, !hOrV]
-				
-			for(var i = 0; i < array_length(moveOrder); i++) {
-				if (moveOrder[i] && !TileCollision(xDirection, 0))
-				{xMove = xDirection; yMove = 0; facing = 1-xDirection; break}
-				if (!moveOrder[i] && !TileCollision(0, yDirection))
-				{yMove = yDirection; xMove = 0; facing = 2 + yDirection; break}
-			}
-				
-			if TileCollision(xMove, yMove) {xMove = 0; yMove = 0; return}
-			moveTime = moveTimeSet
-		}
-		
-	} if moveTime > 0 {
-		var moveSpeed = tile/moveTimeSet
-			
-		x += moveSpeed*xMove
-		y += moveSpeed*yMove
-		moveTime--
-			
+	if canMove {
 		if moveTime <= 0 {
-			x = round(x); y = round(y)
+			var xDirection = input_check("right")-input_check("left")
+			var yDirection = input_check("down")-input_check("up")
+		
+			if (xDirection != 0 || yDirection != 0) {
+				var last_input = input_check_press_most_recent(["right", "left", "up", "down"])
+				var hOrV = (last_input == "right" || last_input == "left")
+				var moveOrder = [hOrV, !hOrV]
+				
+				for(var i = 0; i < array_length(moveOrder); i++) {
+					if (moveOrder[i] && !TileCollision(xDirection, 0))
+					{xMove = xDirection; yMove = 0; facing = 1-xDirection; break}
+					if (!moveOrder[i] && !TileCollision(0, yDirection))
+					{yMove = yDirection; xMove = 0; facing = 2 + yDirection; break}
+				}
+				
+				if TileCollision(xMove, yMove) {xMove = 0; yMove = 0; return}
+				moveTime = moveTimeSet
+			}
+		
+		} if moveTime > 0 {
+			var moveSpeed = tile/moveTimeSet
+			
+			x += moveSpeed*xMove
+			y += moveSpeed*yMove
+			moveTime--
+			
+			if moveTime <= 0 {
+				x = round(x); y = round(y)
+			}
 		}
 	}
 }
@@ -79,6 +81,14 @@ function InteractWithOverworld() {
 		var facingDir = [cos(facingAngle), -sin(facingAngle)]
 		var xPos = x+facingDir[0]*tile+(tile/2); var yPos = y+facingDir[1]*tile+(tile/2)
 		
-		if instance_position(xPos, yPos, Obj_NPC) {show_message("hello")}
+		var interactable = instance_position(xPos, yPos, Obj_NPC)
+		
+		if interactable != noone {
+			var layeredDialogue = array_create(array_length(interactable.dialogue), "")
+			for(var i = 0; i < array_length(layeredDialogue); i++)
+				LayerDescription(interactable.dialogue[i])
+			BeginDialogue(interactable.dialogue)
+		}
+		if interactable == Obj_NPC {interactable.facing = facing}
 	}
 }

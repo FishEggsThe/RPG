@@ -1,20 +1,17 @@
 {
   "$GMObject":"",
-  "%Name":"Obj_NPC",
+  "%Name":"Obj_Interactable",
   "eventList":[
     {"$GMEvent":"v1","%Name":"","collisionObjectId":null,"eventNum":0,"eventType":0,"isDnD":false,"name":"","resourceType":"GMEvent","resourceVersion":"2.0",},
   ],
   "managed":true,
-  "name":"Obj_NPC",
+  "name":"Obj_Interactable",
   "overriddenProperties":[],
   "parent":{
     "name":"Overworld",
     "path":"folders/Objects/Overworld.yy",
   },
-  "parentObjectId":{
-    "name":"Obj_Interactable",
-    "path":"objects/Obj_Interactable/Obj_Interactable.yy",
-  },
+  "parentObjectId":null,
   "persistent":false,
   "physicsAngularDamping":0.1,
   "physicsDensity":0.5,
@@ -32,10 +29,7 @@
   "resourceType":"GMObject",
   "resourceVersion":"2.0",
   "solid":false,
-  "spriteId":{
-    "name":"chives",
-    "path":"sprites/chives/chives.yy",
-  },
+  "spriteId":null,
   "spriteMaskId":null,
   "visible":true,
 }

@@ -1,7 +1,9 @@
 var playerCheck = false
 if instance_exists(Obj_Player) {playerCheck = Obj_Player.moveTime <= 0}
+var dialogueCheck = false
+if instance_exists(Obj_Dialogue) {dialogueCheck = !Obj_Dialogue.onDialogue}
 
-if (input_check_pressed("inventory") && playerCheck) {
+if (input_check_pressed("inventory") && playerCheck && dialogueCheck) {
 	inventoryUp = !inventoryUp
 	Obj_Player.canMove = !inventoryUp
 	inventorySpot = 0; inventoryIndex = 0; selectedItem = false
