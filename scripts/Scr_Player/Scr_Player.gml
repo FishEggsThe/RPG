@@ -89,11 +89,11 @@ function InteractWithOverworld() {
 				LayerText(display_get_gui_width()-15, interactable.dialogue[i])
 			BeginDialogue(interactable.dialogue)
 			
-			show_message(interactable.id)
-			show_message(Obj_NPC)
-			show_message(interactable == Obj_NPC)
+			//show_message(interactable.object_index)
+			//show_message(Obj_NPC)
+			//show_message(interactable == Obj_NPC)
 			
-			switch(interactable){
+			switch(interactable.object_index){
 				case Obj_NPC: 
 					interactable.facing = facing
 					break
