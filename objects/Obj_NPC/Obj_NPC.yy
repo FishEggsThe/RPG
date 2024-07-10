@@ -12,8 +12,8 @@
     "path":"folders/Objects/Overworld.yy",
   },
   "parentObjectId":{
-    "name":"Obj_Interactable",
-    "path":"objects/Obj_Interactable/Obj_Interactable.yy",
+    "name":"Object8",
+    "path":"objects/Object8/Object8.yy",
   },
   "persistent":false,
   "physicsAngularDamping":0.1,

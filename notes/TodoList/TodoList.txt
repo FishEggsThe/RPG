@@ -1,12 +1,10 @@
 To-Do List:
 
 - Inventory -
- * Move down list when an item is used and gone from the inventory
  * Increase size mayhaps
  * Add statuses and items being able to cure them
 
 - Dialogue -
- * erm, doing it
  * Dialogue options are nice
  * Figure out how to store them
  * Allow mischief to happen after dialogue finishes
@@ -16,3 +14,7 @@ To-Do List:
 
 - Cutscenes -
  * oh dear god I'm dreading this part
+ 
+- Finished Stuff -
+ * erm, doing it (Dialogue)
+ * Move down list when an item is used and gone from the inventory (Inventory)

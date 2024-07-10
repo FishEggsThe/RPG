@@ -2,7 +2,7 @@
 
 function PlayerStats(_health, _mana, _port, _walk, _equip, _wep, _armor, _spells, _attack, _speed, _def, _magic, _name, _desc) constructor {
 	name = _name
-	description = LayerDescription(_desc)
+	description = LayerText(30, _desc)
 	portraitSprites = _port
 	walkSprites = _walk
 	
@@ -86,7 +86,7 @@ function InteractWithOverworld() {
 		if interactable != noone {
 			var layeredDialogue = array_create(array_length(interactable.dialogue), "")
 			for(var i = 0; i < array_length(layeredDialogue); i++)
-				LayerDescription(interactable.dialogue[i])
+				LayerText(display_get_gui_width()-15, interactable.dialogue[i])
 			BeginDialogue(interactable.dialogue)
 			
 			if interactable == Obj_NPC {interactable.facing = facing}

@@ -9,7 +9,7 @@ function Item(_buy, _sell, _image, _name, _desc) constructor {
 	buyPrice = _buy
 	sellPrice = _sell
 	itemImage = _image
-	description = LayerDescription(_desc)
+	description = LayerText(30, _desc)
 }
 
 function Consumable(_heal, _cure, _buff, _buy, _sell, _image, _name, _desc) : Item(_buy, _sell, _image, _name, _desc) constructor {
@@ -48,8 +48,7 @@ function UseItem(item, character) {
 				else {inventory[lastIndex] = noone}
 				character.weapon = item
 				//show_message("cool weapon")
-				inventorySpot = lastSpot; inventoryIndex = lastIndex
-			}
+			} else {return}
 			break
 		case 3:
 			if character.equipmentChoice == item.armorType {
@@ -57,8 +56,9 @@ function UseItem(item, character) {
 				else {inventory[lastIndex] = noone}
 				character.armor = item
 				//show_message("fancy armor")
-				inventorySpot = lastSpot; inventoryIndex = lastIndex
-			}
+			} else {return}
 			break
 	}
+	MoveDownList()
+	inventorySpot = lastSpot; inventoryIndex = lastIndex
 }

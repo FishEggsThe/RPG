@@ -1,7 +1,7 @@
 Characters:
 * Knight
 	- Basic self identifier guy, going on an adventure for the hell of it
-	- Good ol' sword and shield
+	- All manners of medieval weaponry, like longswords, flails, morning stars, halberds, maces
 	- Team-oriented spells like rallying defense and attack
 * Working Man Slime
 	- Distinct cigarette and heavy eyebrows, tired of the minion 9-5 and is looking for a new purpose in life
@@ -18,7 +18,8 @@ Weapons:
 	- Chance to steal enemy health for yourself on hit
 * Biting Dinosaur Stick / Dinosaur
 	- Starting weapon for the Dinosaur
-* 
+* Morning Star - Knight
+	- Cracked skull effect
 
 Enemies:
 * Termites
@@ -37,3 +38,5 @@ Enemies:
 	- Surprise miniboss!!
 * Chandelier
 	- Final boss at the end of a murder mystery where they're the murderer
+* Swamp Witch
+	- Casts swamp-themed spells like turn target into frog and hands from the bog
