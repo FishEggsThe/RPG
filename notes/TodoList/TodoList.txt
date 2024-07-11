@@ -10,7 +10,7 @@ To-Do List:
  * Allow mischief to happen after dialogue finishes
 
 - Battle -
- * Funky battle screen, good time to lear shaders
+ * Funky battle screen, good time to learn shaders
 
 - Cutscenes -
  * oh dear god I'm dreading this part
