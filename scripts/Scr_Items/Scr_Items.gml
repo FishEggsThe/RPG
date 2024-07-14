@@ -40,13 +40,7 @@ function PickupItem(pickup) {
 				if keyItems[i] == noone {
 					keyItems[i] = pickup.item
 					
-					var entityList = global.roomStates[? room]
-					for(var j = 0; j < array_length(entityList); j++) {
-						//show_message(pickup.roomStateID)
-						//show_message(entityList[j][0])
-						if pickup.roomStateID == entityList[j][0]
-							array_delete(global.roomStates[? room], j, 1)
-					}					
+					RemoveFromRoomState(pickup.roomStateID)
 					
 					instance_destroy(pickup)
 					return
@@ -58,13 +52,7 @@ function PickupItem(pickup) {
 				if inventory[i] == noone {
 					inventory[i] = pickup.item
 					
-					var entityList = global.roomStates[? room]
-					for(var j = 0; j < array_length(entityList); j++) {
-						//show_message(pickup.roomStateID)
-						//show_message(entityList[j][0])
-						if pickup.roomStateID == entityList[j][0]
-							array_delete(global.roomStates[? room], j, 1)
-					}
+					RemoveFromRoomState(pickup.roomStateID)
 					
 					instance_destroy(pickup)
 					return
@@ -73,6 +61,16 @@ function PickupItem(pickup) {
 			show_message("Inventory full!")
 		}
 	}
+}
+
+function RemoveFromRoomState(rsID) {
+	var entityList = global.roomStates[? room]
+		for(var j = 0; j < array_length(entityList); j++) {
+			//show_message(pickup.roomStateID)
+			//show_message(entityList[j][0])
+			if rsID == entityList[j][0]
+				array_delete(global.roomStates[? room], j, 1)
+		}	
 }
 
 function UseItem(item, character) {
