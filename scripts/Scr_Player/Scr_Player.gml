@@ -55,7 +55,7 @@ function MovePlayer() {
 			y += moveSpeed*yMove
 			moveTime--
 			
-			if moveTime <= 0 {
+			if (instance_exists(Obj_Enemy) && moveTime <= 0) {
 				x = round(x); y = round(y)
 				var enemyNear = instance_nearest(x, y, Obj_Enemy)
 				var enemyDistance = point_distance(x, y, enemyNear.x, enemyNear.y)

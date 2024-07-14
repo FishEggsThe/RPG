@@ -21,7 +21,7 @@ if !ds_map_exists(roomStates, room) {
 	with Obj_Interactable {instance_destroy()}
 	
 	var entityList = roomStates[? room]
-	for(var i = 0; i < ds_map_size(roomStates); i++) {
+	for(var i = 0; i < array_length(entityList); i++) {
 		var entity = entityList[i]
 		instance_create_layer(entity[1], entity[2], "Instances", entity[0])
 	}
