@@ -98,10 +98,10 @@ function InteractWithOverworld() {
 			
 			switch(interactable.object_index){
 				case Obj_NPC: 
-					interactable.facing = facing
+					interactable.facing = facing+2
+					if interactable.facing >= 4 {interactable.facing -= 4}
 					break
 				case Obj_Pickup:
-					show_message("Yes this is happening")
 					PickupItem(interactable)
 					break
 			}
