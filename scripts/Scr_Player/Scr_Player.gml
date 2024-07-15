@@ -41,7 +41,11 @@ function MovePlayer() {
 					if (moveOrder[i] && !TileCollision(xDirection, 0))
 					{xMove = xDirection; yMove = 0; facing = 1-xDirection; break}
 					if (!moveOrder[i] && !TileCollision(0, yDirection))
-					{yMove = yDirection; xMove = 0; facing = 2 + yDirection; break}
+					{yMove = yDirection; xMove = 0; facing = 2+yDirection; break}
+				}
+				
+				if (xMove == 0 && yMove == 0) {
+					facing = (moveOrder[0] ? 1-xDirection : 2+yDirection)
 				}
 				
 				if TileCollision(xMove, yMove) {xMove = 0; yMove = 0; return}
@@ -81,8 +85,11 @@ function TileCollision(xDir, yDir) {
 function InteractWithOverworld() {
 	if (canMove && input_check_pressed("action")) {
 		var facingAngle = degtorad(facing*90)
+		show_debug_message(facingAngle)
 		var facingDir = [cos(facingAngle), -sin(facingAngle)]
+		show_debug_message(facingDir)
 		var xPos = x+facingDir[0]*tile+(tile/2); var yPos = y+facingDir[1]*tile+(tile/2)
+		drawXFace = xPos; drawYFace = yPos
 		
 		var interactable = instance_position(xPos, yPos, Obj_Interactable)
 		
