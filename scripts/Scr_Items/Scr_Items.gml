@@ -64,13 +64,17 @@ function PickupItem(pickup) {
 }
 
 function RemoveFromRoomState(rsID) {
+	var reduceIDs = false
 	var entityList = global.roomStates[? room]
-		for(var j = 0; j < array_length(entityList); j++) {
-			//show_message(pickup.roomStateID)
-			//show_message(entityList[j][0])
-			if rsID == entityList[j][0]
-				array_delete(global.roomStates[? room], j, 1)
-		}	
+	for(var j = 0; j < array_length(entityList); j++) {
+		//show_message(pickup.roomStateID)
+		//show_message(entityList[j][0])
+		if rsID == entityList[j][0] {
+			array_delete(global.roomStates[? room], j, 1)
+			reduceIDs = true
+		}
+		if reduceIDs {global.roomStates[? room][j][0]--}
+	}
 }
 
 function UseItem(item, character) {

@@ -19,7 +19,7 @@ if inventoryUp {
 	draw_set_valign(fa_middle)
 	if global.debug {
 		draw_text(20+width/8, 20+height/6, string(inventorySpot) + " " + string(inventoryIndex))
-		if acceptInput {show_message(acceptInput)}
+		//if acceptInput {show_message(acceptInput)}
 		
 		//draw_text(boxX1, boxY1, "+"); draw_text(boxX2, boxY1, "+")
 		//draw_text(boxX1, boxY2, "+"); draw_text(boxX2, boxY2, "+")
