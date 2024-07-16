@@ -11,7 +11,7 @@ Characters:
 	- Someone in a dinosaur costume that gnaws on people, very content with their life
 	- Damage dealer of the group
 	- Uses those sticks with dino heads that can clamp down and fake teeth as weapons
-* Mysterious third character
+* Mysterious fourth character
 	- figure out the identity of this individual
 
 Weapons:
@@ -19,7 +19,7 @@ Weapons:
 	- Chance to steal enemy health for yourself on hit
 * Biting Dinosaur Stick / Dinosaur
 	- Starting weapon for the Dinosaur
-* Morning Star - Knight
+* Morning Star / Knight
 	- Cracked skull effect
 
 Enemies:

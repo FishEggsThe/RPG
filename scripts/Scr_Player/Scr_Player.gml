@@ -63,7 +63,7 @@ function MovePlayer() {
 				x = round(x); y = round(y)
 				var enemyNear = instance_nearest(x, y, Obj_Enemy)
 				var enemyDistance = point_distance(x, y, enemyNear.x, enemyNear.y)
-				if enemyDistance <= sqrt(tile*tile*2) {StartBattle()}
+				if enemyDistance <= sqrt(tile*tile*2) {StartBattle([])}
 			}
 		}
 	}
