@@ -1,6 +1,7 @@
 To-Do List:
 
 - Inventory -
+ * Fuck I forgot spells okay do that
  * Increase size mayhaps
  * Add statuses and items being able to cure them
 
