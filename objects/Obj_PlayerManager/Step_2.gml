@@ -1,3 +1,5 @@
+#macro finalSpot 7
+
 var playerCheck = false
 if instance_exists(Obj_Player) {playerCheck = Obj_Player.moveTime <= 0}
 var dialogueCheck = false
