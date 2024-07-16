@@ -4,7 +4,8 @@ Characters:
 	- All manners of medieval weaponry, like longswords, flails, morning stars, halberds, maces
 	- Team-oriented spells like rallying defense and attack
 * Working Man Slime
-	- Distinct cigarette and heavy eyebrows, tired of the minion 9-5 and is looking for a new purpose in life
+	- Distinct cigarette and heavy eyebrows, tired of the minion 9-5 and is looking for a new purpose 
+		in life
 	- Supportive slime-based abilities that inflict status effects and stat downs on enemies
 * Dinosaur
 	- Someone in a dinosaur costume that gnaws on people, very content with their life
@@ -40,3 +41,15 @@ Enemies:
 	- Final boss at the end of a murder mystery where they're the murderer
 * Swamp Witch
 	- Casts swamp-themed spells like turn target into frog and hands from the bog
+
+World:
+* The Cheese Man
+	- Village of folk that worship the Cheese Man
+	- Individual who while delirious on a hiking trip, was assisted by a yellow person who they 
+		interpreted to be made cheese, this is what the religion is based on
+	- Rival church that worships the Diarreha Man
+	- You venture into the woods to discover the Cheese Man is real and is just a chill hippie 
+		who lives in the woods
+	- Climax has both churches arguing or something and the Cheese Man comes in to tell them off 
+		and also Diarreha Man is there and they kiss, shocking both sides
+	- The two churches come together at the end to form the Cheese x Diarreha Church with yaoi art
