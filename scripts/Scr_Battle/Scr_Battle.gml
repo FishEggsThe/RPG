@@ -1,9 +1,8 @@
 function StartBattle(encounter){
+	if instance_exists(Obj_Battle) {return}
 	with instance_create_layer(0, 0, "Instances", Obj_Battle) {
 		
 	}
-	
-	room_goto(Rm_Battle)
 }
 
 function LeaveBattle(roomIndex){

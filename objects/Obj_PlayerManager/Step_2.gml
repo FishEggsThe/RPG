@@ -1,11 +1,13 @@
-#macro finalSpot 7
+#macro finalSpot 6
 
 var playerCheck = false
 if instance_exists(Obj_Player) {playerCheck = Obj_Player.moveTime <= 0}
 var dialogueCheck = false
 if instance_exists(Obj_Dialogue) {dialogueCheck = !Obj_Dialogue.onDialogue}
+var battleCheck = !instance_exists(Obj_Battle)
+//if instance_exists(Obj_Battle) {dialogueCheck = !Obj_Battle.onDialogue}
 
-if (input_check_pressed("inventory") && playerCheck && dialogueCheck) {
+if (input_check_pressed("inventory") && playerCheck && dialogueCheck && battleCheck) {
 	inventoryUp = !inventoryUp
 	Obj_Player.canMove = !inventoryUp
 	inventorySpot = 0; inventoryIndex = 0; selectedItem = false
@@ -74,7 +76,7 @@ if inventoryUp {
 			if acceptInput {
 				if (inventoryIndex == 1 || lastSpot = 2 ||selectedItem == noone)
 				{inventorySpot = lastSpot; inventoryIndex = lastIndex}
-				else if inventoryIndex == 0 {inventorySpot = 6; inventoryIndex = 0} // Do thingshow_message("Imagine actually doing the thing\n\ncouldn't be me")
+				else if inventoryIndex == 0 {inventorySpot = finalSpot; inventoryIndex = 0} // Do thingshow_message("Imagine actually doing the thing\n\ncouldn't be me")
 			}
 			
 			if cancelInput {inventorySpot = lastSpot; inventoryIndex = lastIndex}
@@ -84,7 +86,7 @@ if inventoryUp {
 			if cancelInput {inventorySpot = 3; inventoryIndex = 0}
 			break
 		
-		case 6: // 
+		case 6: // Use Selected Item
 			if horiInput != 0 {inventoryIndex += horiInput}
 			
 			if inventoryIndex >= array_length(characters) {inventoryIndex-=array_length(characters)}

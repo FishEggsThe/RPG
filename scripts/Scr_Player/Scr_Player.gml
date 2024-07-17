@@ -59,11 +59,17 @@ function MovePlayer() {
 			y += moveSpeed*yMove
 			moveTime--
 			
-			if (instance_exists(Obj_Enemy) && moveTime <= 0) {
+			if moveTime <= 0 {
 				x = round(x); y = round(y)
-				var enemyNear = instance_nearest(x, y, Obj_Enemy)
-				var enemyDistance = point_distance(x, y, enemyNear.x, enemyNear.y)
-				if enemyDistance <= sqrt(tile*tile*2) {StartBattle([])}
+				if instance_exists(Obj_Enemy) {
+					var enemyNear = instance_nearest(x, y, Obj_Enemy)
+					var enemyDistance = point_distance(x, y, enemyNear.x, enemyNear.y)
+					if enemyDistance <= sqrt(tile*tile*2) {
+						//show_message("Balls")
+						StartBattle([])
+						canMove = false
+					}
+				}
 			}
 		}
 	}
