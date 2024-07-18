@@ -1,5 +1,5 @@
 if instance_number(Obj_PlayerManager) > 1 {instance_destroy()}
-
+show_message("Manager")
 
 inventoryUp = false
 inventoryIndex = 0
@@ -21,23 +21,25 @@ emptyPockets = ["Barely enough space for a gasp of air",
 				"See how far you can stick your hand in here",
 				"You wouldn't hear the screams"]
 
-
+// Playable Characters
 characters = array_create(4, noone)
-characters[0] = new PlayerStats(25, 15, chives2, chives, 0, noone, noone, [], 5, 5, 5, 5, 
+var walkSprites = [Spr_PersonWalk0, Spr_PersonWalk1, Spr_PersonWalk2, Spr_PersonWalk3]
+characters[0] = new PlayerStats(25, 15, chives2, walkSprites, 0, noone, noone, [], 5, 5, 5, 5, 
 								"You", "I have literally never met you before in my life")
 characters[0].weapon = new Weapon(0, 1, 0.00000000001, 1, 0, chives2, "Stick", "At least's it's a neat stick")
 characters[0].armor = new Armor(0, 1, 1, 0, chives2, "Stick Armor", "The unworthy sticks get sewn into armor")
 
 
-characters[1] = new PlayerStats(15, 25, chives2, chives, 1, noone, noone, [], 5, 5, 5, 5, 
+characters[1] = new PlayerStats(15, 25, chives2, walkSprites, 1, noone, noone, [], 5, 5, 5, 5, 
 								"Slime", "Tired of working the grueling 9-5, this slime is looking for a more meaningful purpose")
 
 
-characters[2] = new PlayerStats(15, 25, chives2, chives, 2, noone, noone, [], 5, 5, 5, 5, 
+characters[2] = new PlayerStats(15, 25, chives2, walkSprites, 2, noone, noone, [], 5, 5, 5, 5, 
 								"Dinosaur", "Has found its calling to life, which involves a lot of biting")
 characters[2].weapon = new Weapon(2, 5, 0.05, 1, 1, chives2, "Dino Pincher Toy", "Bought on clearance")
 characters[2].armor = new Weapon(2, 5, 0.05, 1, 1, chives2, "Green Dino Onesie", "Bought on clearance")
-								
+
+// Inventory Stuff
 inventory = array_create(8, noone)
 inventory[0] = new Consumable(5, array_create(3, false), array_create(3, false), 2, 1, chives2, "Tuna Sandwich", "Its okay")
 inventory[1] = new Weapon(0, 5, 0.1, 3, 2, chives2, "Dinky Sword", "If you swing this too hard, it might fall apart")
