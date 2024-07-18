@@ -1,7 +1,8 @@
-function StartBattle(encounter){
+function StartBattle(enemy, encounter){
 	if instance_exists(Obj_Battle) {return}
 	with instance_create_layer(0, 0, "Instances", Obj_Battle) {
-		
+		xFade = 32+enemy.x; yFade = 32+enemy.y
+
 	}
 }
 

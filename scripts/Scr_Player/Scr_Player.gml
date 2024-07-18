@@ -66,7 +66,9 @@ function MovePlayer() {
 					var enemyDistance = point_distance(x, y, enemyNear.x, enemyNear.y)
 					if enemyDistance <= sqrt(tile*tile*2) {
 						//show_message("Balls")
-						StartBattle([])
+						depth = -1000
+						enemyNear.depth = -1000
+						StartBattle(enemyNear, [])
 						canMove = false
 					}
 				}
