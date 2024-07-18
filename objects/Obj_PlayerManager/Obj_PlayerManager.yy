@@ -31,7 +31,10 @@
   "resourceType":"GMObject",
   "resourceVersion":"2.0",
   "solid":false,
-  "spriteId":null,
+  "spriteId":{
+    "name":"Spr_PersonWalk3",
+    "path":"sprites/Spr_PersonWalk3/Spr_PersonWalk3.yy",
+  },
   "spriteMaskId":null,
   "visible":true,
 }

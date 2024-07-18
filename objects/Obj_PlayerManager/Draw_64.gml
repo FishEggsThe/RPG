@@ -1,10 +1,5 @@
-var width = display_get_gui_width()
-var height = display_get_gui_height()
-
 if inventoryUp {
-	draw_set_color(c_black)
-	var boxX1 = width/8; var boxY1 = height/6; var boxX2 = width*7/8; var boxY2 = height*5/6;
-	var boxWidth = boxX2-boxX1; var boxHeight = boxY2-boxY1
+	draw_set_color(c_maroon)
 	draw_rectangle(boxX1, boxY1, boxX2, boxY2, false)
 	
 	var acceptInput = input_check_pressed("accept")
@@ -43,10 +38,10 @@ if inventoryUp {
 		//var charBoxOffset = (width/2) + ((width*i)/(numOfCharacters*2)) - (width/12)
 
 		// Box
-		draw_set_color(c_black)
+		draw_set_color(c_maroon)
 		draw_rectangle(charBoxOffset+2, height*7/8, charBoxOffset-2+width/6, height*2, false)
 		// Name
-		draw_set_color(c_white)
+		draw_set_color(c_black)
 		draw_set_halign(fa_center)
 		draw_set_valign(fa_middle)
 		draw_text_transformed(charBoxOffset+height/12, height*7.2/8, characters[i].name, 2, 2, 0)
@@ -59,7 +54,7 @@ if inventoryUp {
 		draw_text_transformed(charBoxOffset+height/12, height*7.8/8, drawMana, 2, 2, 0)
 	}
 	
-	draw_set_color(c_white)
+	draw_set_color(c_black)
 	switch(inventorySpot) {
 		case 0:
 			for(var i = 0; i < array_length(menuOptions); i++) {
@@ -104,19 +99,7 @@ if inventoryUp {
 			break
 		
 		case 3:
-			for(var i = 0; i < array_length(characters); i++) {
-				var xPos = boxX1+(boxWidth/8)+(i*boxWidth/4)
-				var boxWidthQuarter = boxWidth/8
-				var charName = (characters[i] != noone ? characters[i].name : "-")
-				var charPort = (characters[i] != noone ? characters[i].portraitSprites : Spr_Nothing)
-
-				
-				draw_text_transformed(xPos, height*7/16, charName, textSize, textSize, 0)
-				draw_sprite(charPort, 0, xPos, height/2)
-				if inventoryIndex == i {
-					draw_rectangle(xPos-boxWidthQuarter+2, boxY1+2, xPos+boxWidthQuarter-2, boxY2-2, true)
-				}
-			}
+			DrawCharactersLineup(textSize)
 			break
 		
 		case 4:
@@ -168,19 +151,7 @@ if inventoryUp {
 			}
 			break
 		case 6:
-			for(var i = 0; i < array_length(characters); i++) {
-				var xPos = boxX1+(boxWidth/8)+(i*boxWidth/4)
-				var boxWidthQuarter = boxWidth/8
-				var charName = (characters[i] != noone ? characters[i].name : "-")
-				var charPort = (characters[i] != noone ? characters[i].portraitSprites : Spr_Nothing)
-
-				
-				draw_text_transformed(xPos, height*7/16, charName, textSize, textSize, 0)
-				draw_sprite(charPort, 0, xPos, height/2)
-				if inventoryIndex == i {
-					draw_rectangle(xPos-boxWidthQuarter+2, boxY1+2, xPos+boxWidthQuarter-2, boxY2-2, true)
-				}
-			}
+			DrawCharactersLineup(textSize)
 			break
 	}
 }
