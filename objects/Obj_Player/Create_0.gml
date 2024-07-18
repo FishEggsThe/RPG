@@ -1,6 +1,7 @@
 //if instance_number(Obj_PlayerManager) <= 0
 //{instance_create_layer(0, 0, "Instances", Obj_PlayerManager)}
-show_message("Player")
+//show_message("Player")
+
 leaderSprites = Obj_PlayerManager.characters[0].walkSprites
 
 xMove = 0; yMove = 0

@@ -1,5 +1,5 @@
 if instance_number(Obj_PlayerManager) > 1 {instance_destroy()}
-show_message("Manager")
+//show_message("Manager")
 
 inventoryUp = false
 inventoryIndex = 0

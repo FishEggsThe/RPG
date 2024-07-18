@@ -1,0 +1,1 @@
+draw_sprite(npcSprites[facing], sprIndex, x, y)
