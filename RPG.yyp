@@ -446,6 +446,7 @@
     {"id":{"name":"chives","path":"sprites/chives/chives.yy",},},
     {"id":{"name":"chives2","path":"sprites/chives2/chives2.yy",},},
     {"id":{"name":"Spr_Nothing","path":"sprites/Spr_Nothing/Spr_Nothing.yy",},},
+    {"id":{"name":"Spr_Pickup","path":"sprites/Spr_Pickup/Spr_Pickup.yy",},},
     {"id":{"name":"Spr_TestTiles","path":"sprites/Spr_TestTiles/Spr_TestTiles.yy",},},
     {"id":{"name":"Ts_Test","path":"tilesets/Ts_Test/Ts_Test.yy",},},
   ],
