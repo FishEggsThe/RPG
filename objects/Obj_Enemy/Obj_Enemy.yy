@@ -31,8 +31,8 @@
   "resourceVersion":"2.0",
   "solid":false,
   "spriteId":{
-    "name":"chives",
-    "path":"sprites/chives/chives.yy",
+    "name":"Spr_Spider",
+    "path":"sprites/Spr_Spider/Spr_Spider.yy",
   },
   "spriteMaskId":null,
   "visible":true,
