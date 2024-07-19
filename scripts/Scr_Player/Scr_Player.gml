@@ -44,12 +44,15 @@ function MovePlayer() {
 					{yMove = yDirection; xMove = 0; facing = 2+yDirection; break}
 				}
 				
-				if (xMove == 0 && yMove == 0) {
-					facing = (moveOrder[0] ? 1-xDirection : 2+yDirection)
-				}
 				
-				if TileCollision(xMove, yMove) {xMove = 0; yMove = 0; return}
-				moveTime = moveTimeSet
+				
+				if TileCollision(xMove, yMove) {
+					xMove = 0; yMove = 0
+				} else if (xMove == 0 && yMove == 0) {
+					facing = (moveOrder[0] ? 1-xDirection : 2+yDirection)
+				} else {
+					moveTime = moveTimeSet
+				}
 			}
 		
 		} if moveTime > 0 {
