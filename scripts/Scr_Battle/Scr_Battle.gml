@@ -10,7 +10,7 @@ function LeaveBattle(roomIndex){
 	room_goto(roomIndex)
 }
 
-function Enemy(_health, _sprite, _attacks, _attack, _speed, _def, _magic, _name) constructor {
+function Enemy(_health, _sprite, _attacks, _speed, _def, _name) constructor {
 	name = _name
 	//description = LayerText(30, _desc) //, _desc
 	battleSprite = _sprite

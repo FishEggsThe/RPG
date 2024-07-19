@@ -456,6 +456,7 @@
     {"id":{"name":"Spr_PersonWalk3","path":"sprites/Spr_PersonWalk3/Spr_PersonWalk3.yy",},},
     {"id":{"name":"Spr_Pickup","path":"sprites/Spr_Pickup/Spr_Pickup.yy",},},
     {"id":{"name":"Spr_Spider","path":"sprites/Spr_Spider/Spr_Spider.yy",},},
+    {"id":{"name":"Spr_SpiderBattle","path":"sprites/Spr_SpiderBattle/Spr_SpiderBattle.yy",},},
     {"id":{"name":"Spr_TestTiles","path":"sprites/Spr_TestTiles/Spr_TestTiles.yy",},},
     {"id":{"name":"Ts_Test","path":"tilesets/Ts_Test/Ts_Test.yy",},},
   ],
