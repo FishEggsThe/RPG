@@ -21,6 +21,7 @@ Weapons:
 	- Starting weapon for the Dinosaur
 * Morning Star / Knight
 	- Cracked skull effect
+* Empty Handgun / Knight(?)
 
 Enemies:
 * Termites
