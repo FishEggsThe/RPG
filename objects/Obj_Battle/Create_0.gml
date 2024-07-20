@@ -8,3 +8,6 @@ xFade = 0; yFade = 0
 enemyList = []
 turnOrder = []
 turnIndex = 0
+
+curves = []
+percent = 0
