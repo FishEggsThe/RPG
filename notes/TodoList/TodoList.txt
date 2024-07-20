@@ -11,6 +11,7 @@ To-Do List:
  * Allow mischief to happen after dialogue finishes
 
 - Battle -
+ * Create battle system
  * Funky battle screen, good time to learn shaders
 
 - Cutscenes -
