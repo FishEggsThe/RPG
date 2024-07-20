@@ -22,6 +22,8 @@ Weapons:
 * Morning Star / Knight
 	- Cracked skull effect
 * Empty Handgun / Knight(?)
+	- One time use item is loaded gun where you miss the only shot in it, then it turns into a decent weapon
+
 
 Enemies:
 * Termites

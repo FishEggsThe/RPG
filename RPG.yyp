@@ -84,6 +84,7 @@
   },
   "name":"RPG",
   "resources":[
+    {"id":{"name":"AnCv_Spider","path":"animcurves/AnCv_Spider/AnCv_Spider.yy",},},
     {"id":{"name":"IdeasList","path":"notes/IdeasList/IdeasList.yy",},},
     {"id":{"name":"TodoList","path":"notes/TodoList/TodoList.yy",},},
     {"id":{"name":"input_controller_object","path":"objects/input_controller_object/input_controller_object.yy",},},
