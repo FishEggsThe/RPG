@@ -28,8 +28,9 @@ emptyPockets = ["Barely enough space for a gasp of air",
 // Playable Characters
 characters = array_create(4, noone)
 var walkSprites = [Spr_PersonWalk0, Spr_PersonWalk1, Spr_PersonWalk2, Spr_PersonWalk3]
-characters[0] = new PlayerStats(25, 15, chives2, walkSprites, 0, noone, noone, 
-								[new Spell(15, [], "Skull Bash", "Brutal")], 5, 5, 5, 5, 
+var spells = [new Spell(15, [], "Skull Bash", "Do big damage"),
+			  new Spell(35, [], "Skull Bash II", "Do BIGGER damage")]
+characters[0] = new PlayerStats(25, 15, chives2, walkSprites, 0, noone, noone, spells, 5, 5, 5, 5, 
 								"You", "I have literally never met you before in my life")
 characters[0].weapon = new Weapon(0, 1, 0.00000000001, 1, 0, chives2, "Stick", "At least's it's a neat stick")
 characters[0].armor = new Armor(0, 1, 1, 0, chives2, "Stick Armor", "The unworthy sticks get sewn into armor")

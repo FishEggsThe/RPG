@@ -1,4 +1,4 @@
-#macro finalSpot 6
+#macro finalSpot 7
 
 var playerCheck = false
 if instance_exists(Obj_Player) {playerCheck = Obj_Player.moveTime <= 0}
@@ -91,7 +91,14 @@ if inventoryUp {
 			if cancelInput {inventorySpot = 3; inventoryIndex = 0}
 			break
 			
-		case 6: // Character Selected
+		case 6: // Character Spells
+			if vertInput != 0 {inventoryIndex = (inventoryIndex == 1 ? 0 : 1)}
+			
+			if inventoryIndex >= array_length(selectedCharacter.spellList) 
+			{inventoryIndex-=array_length(selectedCharacter.spellList)}
+			else if inventoryIndex < 0 
+			{inventoryIndex+=array_length(selectedCharacter.spellList)}
+			
 			if cancelInput {inventorySpot = 5; inventoryIndex = 0}
 			break
 		

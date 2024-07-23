@@ -169,6 +169,10 @@ if inventoryUp {
 					}
 				}
 				
+				draw_set_halign(fa_center)
+				draw_set_valign(fa_middle)
+				draw_text_transformed(boxX1+(boxX2-boxX1)*3/4, boxY1+(boxY2-boxY1)/4, selectedSpell.name, textSize, textSize, 0)
+				draw_text_transformed(boxX1+(boxX2-boxX1)*3/4, boxY1+(boxY2-boxY1)/2, selectedSpell.description, textSize, textSize, 0)
 			}
 			break
 			
