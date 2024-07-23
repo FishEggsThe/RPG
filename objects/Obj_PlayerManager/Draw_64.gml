@@ -144,13 +144,30 @@ if inventoryUp {
 				draw_set_halign(fa_right)
 				draw_text_transformed(boxX2-10, boxY1+10, selectedCharacter.name, textSize, textSize, 0)
 				var charWep = (selectedCharacter.weapon != noone ? selectedCharacter.weapon.name : "-")
-				draw_text_transformed(boxX2-10, boxY1+40, charWep, textSize, textSize, 0)
+				draw_text_transformed(boxX2-10, boxY1+60, charWep, textSize, textSize, 0)
 				var charArmor = (selectedCharacter.armor != noone ? selectedCharacter.armor.name : "-")
-				draw_text_transformed(boxX2-10, boxY1+70, charArmor, textSize, textSize, 0)
+				draw_text_transformed(boxX2-10, boxY1+100, charArmor, textSize, textSize, 0)
 				//draw_sprite(selectedCharacter.portraitSprites, 0, boxX2-10, boxY1-20*textSize)
 			}
 			break
+			
 		case 6:
+			if array_length(selectedCharacter.spellList) <= 0 {
+				draw_text_transformed(width/2, height/2, "Nothing yet", textSize, textSize, 0)
+			}
+			else {
+				draw_text_transformed(width/2, boxY1+boxHeight*5/8, selectedCharacter.description, textSize, textSize, 0)
+				
+				draw_set_halign(fa_left)
+				draw_set_valign(fa_top)
+				for(var i = 0; i < array_length(selectedCharacter.spellList); i++) {
+					draw_text_transformed(boxX1 + 10, (i*50)+(boxY1+10), selectedCharacter.name, textSize, textSize, 0)
+				}
+				
+			}
+			break
+			
+		case 7:
 			DrawCharactersLineup(textSize)
 			break
 	}

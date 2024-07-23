@@ -14,6 +14,10 @@ if (input_check_pressed("inventory") && playerCheck && dialogueCheck && battleCh
 }
 
 if inventoryUp {
+	width = display_get_gui_width(); height = display_get_gui_height()
+	boxX1 = width/8; boxY1 = height/6; boxX2 = width*7/8; boxY2 = height*5/6;
+	boxWidth = boxX2-boxX1; boxHeight = boxY2-boxY1
+	
 	var acceptInput = input_check_pressed("accept")
 	var cancelInput = input_check_pressed("cancel")
 	
@@ -83,10 +87,15 @@ if inventoryUp {
 			break
 			
 		case 5: // Character Selected
+			if acceptInput {inventorySpot = 6; inventoryIndex = 0}
 			if cancelInput {inventorySpot = 3; inventoryIndex = 0}
 			break
+			
+		case 6: // Character Selected
+			if cancelInput {inventorySpot = 5; inventoryIndex = 0}
+			break
 		
-		case 6: // Use Selected Item
+		case 7: // Use Selected Item
 			if horiInput != 0 {inventoryIndex += horiInput}
 			
 			if inventoryIndex >= array_length(characters) {inventoryIndex-=array_length(characters)}
