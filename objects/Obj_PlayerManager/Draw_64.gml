@@ -1,5 +1,6 @@
 if inventoryUp {
 	draw_set_color(c_maroon)
+	show_message(boxY2)
 	draw_rectangle(boxX1, boxY1, boxX2, boxY2, false)
 	
 	var acceptInput = input_check_pressed("accept")
@@ -148,6 +149,13 @@ if inventoryUp {
 				var charArmor = (selectedCharacter.armor != noone ? selectedCharacter.armor.name : "-")
 				draw_text_transformed(boxX2-10, boxY1+150, charArmor, textSize, textSize, 0)
 				//draw_sprite(selectedCharacter.portraitSprites, 0, boxX2-10, boxY1-20*textSize)
+				
+				draw_set_valign(fa_bottom)
+				var spellsText = "Spells"
+				draw_text_transformed(boxX2-10, boxY2-10, spellsText, textSize, textSize, 0)
+				var lineWidth = textSize*string_width(spellsText)
+				//var lineFloor = boxY2//((boxY2)+(textSize*string_height(spellsText)))
+				//draw_line(boxX2-10, boxY2, boxX2-10-lineWidth, boxY2)
 			}
 			break
 			
