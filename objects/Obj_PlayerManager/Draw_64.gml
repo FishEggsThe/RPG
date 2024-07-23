@@ -156,12 +156,17 @@ if inventoryUp {
 				draw_text_transformed(width/2, height/2, "Nothing yet", textSize, textSize, 0)
 			}
 			else {
-				draw_text_transformed(width/2, boxY1+boxHeight*5/8, selectedCharacter.description, textSize, textSize, 0)
-				
+				var selectedSpell = selectedCharacter.spellList[inventoryIndex]
 				draw_set_halign(fa_left)
 				draw_set_valign(fa_top)
 				for(var i = 0; i < array_length(selectedCharacter.spellList); i++) {
-					draw_text_transformed(boxX1 + 10, (i*50)+(boxY1+10), selectedCharacter.name, textSize, textSize, 0)
+					var xPos = boxX1 + 10; var yPos = (i*50)+(boxY1+10)
+					draw_text_transformed(boxX1 + 10, yPos, selectedCharacter.spellList[i].name, textSize, textSize, 0)
+					if i == inventoryIndex {
+						var lineWidth = textSize*string_width(selectedSpell.name)
+						var lineFloor = (yPos+(textSize*string_height(selectedSpell.name)))
+						draw_line(xPos, lineFloor, xPos+lineWidth, lineFloor)
+					}
 				}
 				
 			}
