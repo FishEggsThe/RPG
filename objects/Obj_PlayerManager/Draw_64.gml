@@ -144,9 +144,9 @@ if inventoryUp {
 				draw_set_halign(fa_right)
 				draw_text_transformed(boxX2-10, boxY1+10, selectedCharacter.name, textSize, textSize, 0)
 				var charWep = (selectedCharacter.weapon != noone ? selectedCharacter.weapon.name : "-")
-				draw_text_transformed(boxX2-10, boxY1+60, charWep, textSize, textSize, 0)
+				draw_text_transformed(boxX2-10, boxY1+80, charWep, textSize, textSize, 0)
 				var charArmor = (selectedCharacter.armor != noone ? selectedCharacter.armor.name : "-")
-				draw_text_transformed(boxX2-10, boxY1+100, charArmor, textSize, textSize, 0)
+				draw_text_transformed(boxX2-10, boxY1+150, charArmor, textSize, textSize, 0)
 				//draw_sprite(selectedCharacter.portraitSprites, 0, boxX2-10, boxY1-20*textSize)
 			}
 			break
@@ -160,7 +160,7 @@ if inventoryUp {
 				draw_set_halign(fa_left)
 				draw_set_valign(fa_top)
 				for(var i = 0; i < array_length(selectedCharacter.spellList); i++) {
-					var xPos = boxX1 + 10; var yPos = (i*50)+(boxY1+10)
+					var xPos = boxX1 + 10; var yPos = (i*70)+(boxY1+10)
 					draw_text_transformed(boxX1 + 10, yPos, selectedCharacter.spellList[i].name, textSize, textSize, 0)
 					if i == inventoryIndex {
 						var lineWidth = textSize*string_width(selectedSpell.name)
