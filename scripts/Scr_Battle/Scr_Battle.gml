@@ -14,7 +14,8 @@ function LeaveBattle(roomIndex){
 	room_goto(roomIndex)
 }
 
-function Spell(_damage, _heal, _status, _name, _desc) constructor{
+function Spell(_cost, _damage, _heal, _status, _name, _desc) constructor{
+	cost = _cost
 	damage = _damage
 	heal = _heal
 	statuses = _status
