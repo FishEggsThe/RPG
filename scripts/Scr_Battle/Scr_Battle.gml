@@ -14,22 +14,24 @@ function LeaveBattle(roomIndex){
 	room_goto(roomIndex)
 }
 
-function Spell(_cost, _name, _desc) constructor{
+function Spell(_cost, _range, _name, _desc) constructor{
 	cost = _cost
 	// 0 = Ally | 1 = Enemy
 	target = 1
+	// 0 = Single | 1 = All
+	range = _range
 	
 	name = _name
 	description = _desc
 }
 
-function OffenseSpell(_damage, _status, _cost, _name, _desc) : Spell(_cost, _name, _desc) constructor{
+function OffenseSpell(_damage, _status, _cost, _range, _name, _desc) : Spell(_cost, _range, _name, _desc) constructor{
 	target = 1
 	damage = _damage
 	statuses = _status
 }
 
-function SupportSpell(_heal, _cure, _boost, _cost, _name, _desc) : Spell(_cost, _name, _desc) constructor{
+function SupportSpell(_heal, _cure, _boost, _cost, _range, _name, _desc) : Spell(_cost, _range, _name, _desc) constructor{
 	target = 0
 	heal = _heal
 	cures = _cure
