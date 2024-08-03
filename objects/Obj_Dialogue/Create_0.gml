@@ -4,5 +4,7 @@ dialogue = ["Who are you"]
 onDialogue = false
 dialogueIndex = 0
 
+enemyCheck = noone
+
 letterIndex = 0
 startAcceptBuffer = 1

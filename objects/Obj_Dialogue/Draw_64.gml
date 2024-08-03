@@ -26,6 +26,9 @@ if onDialogue {
 	
 	if dialogueIndex >= dialogueLength {
 		onDialogue = false
-		Obj_Player.canMove = true
+		if enemyCheck != noone
+			StartBattle(enemyCheck, enemyCheck.enemyInfo)
+		else
+			Obj_Player.canMove = true
 	}
 }

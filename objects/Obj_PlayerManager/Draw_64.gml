@@ -1,6 +1,6 @@
 if inventoryUp {
 	draw_set_color(c_maroon)
-	show_message(boxY2)
+	//show_message(boxY2)
 	draw_rectangle(boxX1, boxY1, boxX2, boxY2, false)
 	
 	var acceptInput = input_check_pressed("accept")

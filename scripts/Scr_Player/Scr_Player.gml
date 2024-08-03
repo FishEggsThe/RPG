@@ -71,8 +71,8 @@ function MovePlayer() {
 						//show_message("Balls")
 						depth = -1000
 						enemyNear.depth = -1000
-						StartBattle(enemyNear, enemyNear.enemyInfo)
-						canMove = false
+						BeginDialogue(enemyNear.dialogue, enemyNear)
+						//StartBattle(enemyNear, enemyNear.enemyInfo)
 					}
 				}
 			}
