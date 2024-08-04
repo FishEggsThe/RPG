@@ -2,17 +2,8 @@ function StartBattle(enemy, encounter){
 	if instance_exists(Obj_Battle) {return}
 	with instance_create_layer(0, 0, "Instances", Obj_Battle) {
 		xFade = 32+enemy.x; yFade = 32+enemy.y
+		enemyIDSave = enemy.roomStateID
 		enemyList = encounter
-		
-		RemoveFromRoomState(enemy.roomStateID)
-		//var entityList = global.roomStates[? room]
-		//for(var i = 0; i < array_length(entityList); i++) {
-		//	var entityData = entityList[i]
-		//	if enemy.roomStateID == entityData[0] {
-		//		array_delete(global.roomStates[? room], i, 1)
-		//		break
-		//	}
-		//}
 		
 		SetPlayerState()
 		//curves = array_create(array_length(enemyList), noone)
@@ -23,6 +14,8 @@ function StartBattle(enemy, encounter){
 }
 
 function EndBattle(roomIndex){
+	RemoveFromRoomState(enemyIDSave, roomIndex)
+	enemyIDSave = -1
 	room_goto(roomIndex)
 }
 

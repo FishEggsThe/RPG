@@ -4,6 +4,8 @@ if keyboard_check_pressed(ord("I")) {
 }
 
 if global.debug {
-	if keyboard_check_pressed(vk_enter)
-		EndBattle(0)
+	if keyboard_check_pressed(vk_enter) {
+		if instance_exists(Obj_Battle)
+			with Obj_Battle {EndBattle(0)}
+	}
 }

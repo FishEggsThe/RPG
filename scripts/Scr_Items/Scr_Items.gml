@@ -63,25 +63,6 @@ function PickupItem(pickup) {
 	}
 }
 
-function RemoveFromRoomState(rsID) {
-	var reduceIDs = false; var index = -1
-	var entityList = global.roomStates[? room]
-	for(var i = 0; i < array_length(entityList); i++) {
-		//show_message(pickup.roomStateID)
-		//show_message(entityList[j][0])
-		if rsID == entityList[i][0] {
-			index = i
-			reduceIDs = true
-		}
-		if reduceIDs {global.roomStates[? room][i][0]--}
-	}
-	if index == -1 {
-		show_debug_message("*******************************************************\nThere's nothing to remove ya dinky shminky\n*******************************************************")
-		return
-	}
-	array_delete(global.roomStates[? room], index, 1)
-}
-
 function UseItem(item, character) {
 	if item == noone {show_message("How the hell did you select nothing"); return;}
 	

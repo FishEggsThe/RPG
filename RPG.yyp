@@ -444,6 +444,7 @@
     {"id":{"name":"input_xy","path":"scripts/input_xy/input_xy.yy",},},
     {"id":{"name":"input_y","path":"scripts/input_y/input_y.yy",},},
     {"id":{"name":"Scr_Battle","path":"scripts/Scr_Battle/Scr_Battle.yy",},},
+    {"id":{"name":"Scr_Control","path":"scripts/Scr_Control/Scr_Control.yy",},},
     {"id":{"name":"Scr_Dialogue","path":"scripts/Scr_Dialogue/Scr_Dialogue.yy",},},
     {"id":{"name":"Scr_Inventory","path":"scripts/Scr_Inventory/Scr_Inventory.yy",},},
     {"id":{"name":"Scr_Items","path":"scripts/Scr_Items/Scr_Items.yy",},},
