@@ -5,7 +5,7 @@ if onDialogue {
 	if startAcceptBuffer > 0 {startAcceptBuffer--}
 	
 	var dialogueLength = array_length(dialogue)
-	Obj_Player.canMove = false
+	if instance_exists(Obj_Player) {Obj_Player.canMove = false}
 	
 	draw_set_color(c_black)
 	draw_rectangle(5, height*2/3, width-5, height-5, false)
@@ -29,6 +29,6 @@ if onDialogue {
 		if enemyCheck != noone
 			StartBattle(enemyCheck, enemyCheck.enemyInfo)
 		else
-			Obj_Player.canMove = true
+			if instance_exists(Obj_Player) {Obj_Player.canMove = true}
 	}
 }

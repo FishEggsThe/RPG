@@ -1,6 +1,7 @@
 if instance_number(Obj_Battle) > 1 {instance_destroy()}
 
 enemyIDSave = -1
+encounterText = "Oh Shit!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!"
 
 depth = -999
 setTransitionTime = 120
