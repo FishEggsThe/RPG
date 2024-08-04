@@ -6,11 +6,12 @@ if alarm[0] > -1 {
 	draw_set_color(c_red)
 	draw_circle(xFade, yFade, scale, false)
 } else {
-	percent += 1/30
-	if percent >= 1 {percent--}
+	//percent += 1/30
+	//if percent >= 1 {percent--}
 	for(var i = 0; i < array_length(enemyList); i++) {
-		var xPos = (room_width/2)//+animcurve_channel_evaluate(curves[i], percent)
-		var yPos = (room_height/2)-animcurve_channel_evaluate(curves[i], percent)
-		draw_sprite(enemyList[i].battleSprite, 0, xPos, yPos)
+		enemyList[i].DrawEnemy()
+		//var xPos = (room_width/2)//+animcurve_channel_evaluate(curves[i], percent)
+		//var yPos = (room_height/2)-animcurve_channel_evaluate(curves[i], percent)
+		//draw_sprite(enemyList[i].battleSprite, 0, xPos, yPos)
 	}
 }

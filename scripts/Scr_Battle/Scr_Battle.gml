@@ -3,10 +3,10 @@ function StartBattle(enemy, encounter){
 	with instance_create_layer(0, 0, "Instances", Obj_Battle) {
 		xFade = 32+enemy.x; yFade = 32+enemy.y
 		enemyList = encounter
-		curves = array_create(array_length(enemyList), noone)
-		for(var i = 0; i < array_length(curves); i++) {
-			curves[i] = animcurve_get_channel(enemyList[i].animCurve, "yCurve")
-		}
+		//curves = array_create(array_length(enemyList), noone)
+		//for(var i = 0; i < array_length(curves); i++) {
+		//	curves[i] = animcurve_get_channel(enemyList[i].animCurve, "yCurve")
+		//}
 	}
 }
 
@@ -38,12 +38,14 @@ function SupportSpell(_heal, _cure, _boost, _cost, _range, _name, _desc) : Spell
 	boosts = _boost
 }
 
-function Enemy(_health, _sprite, _attacks, _speed, _def, _name, _curve, _percent) constructor {
+function Enemy(_health, _sprite, _attacks, _speed, _def, _name, _curve, _percent = 1/60) constructor {
 	name = _name
 	//description = LayerText(30, _desc) //, _desc
 	battleSprite = _sprite
-	animCurve = _curve
-	curvePercent = _percent
+	//animCurve = _curve
+	animCurve = animcurve_get_channel(_curve, "yCurve")
+	curvePercent = 0
+	curvePercentIncrease = _percent
 	
 	attackList = _attacks
 	
@@ -52,4 +54,12 @@ function Enemy(_health, _sprite, _attacks, _speed, _def, _name, _curve, _percent
 	baseSpeed = _speed
 	baseDefense = _def
 	
+	static DrawEnemy = function() {
+		curvePercent += curvePercentIncrease
+		if curvePercent >= 1 {curvePercent--}
+		//for(var i = 0; i < array_length(enemyList); i++) {
+		var xPos = (room_width/2)//+animcurve_channel_evaluate(curves[i], percent)
+		var yPos = (room_height/2)-animcurve_channel_evaluate(animCurve, curvePercent)
+		draw_sprite(battleSprite, 0, xPos, yPos)
+	}
 }
