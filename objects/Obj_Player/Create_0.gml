@@ -15,3 +15,11 @@ facing = 0
 
 partyPos = [[0,0], [0,0], [0,0]]
 partyGoto = partyPos
+
+if Obj_Control.playerStateSave != noone {
+	var c = Obj_Control
+	x = c.playerStateSave[0]
+	y = c.playerStateSave[1]
+	facing = c.playerStateSave[2]
+	c.playerStateSave = noone
+}

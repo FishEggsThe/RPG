@@ -3,6 +3,7 @@ function StartBattle(enemy, encounter){
 	with instance_create_layer(0, 0, "Instances", Obj_Battle) {
 		xFade = 32+enemy.x; yFade = 32+enemy.y
 		enemyList = encounter
+		SetPlayerState()
 		//curves = array_create(array_length(enemyList), noone)
 		//for(var i = 0; i < array_length(curves); i++) {
 		//	curves[i] = animcurve_get_channel(enemyList[i].animCurve, "yCurve")
@@ -10,7 +11,7 @@ function StartBattle(enemy, encounter){
 	}
 }
 
-function LeaveBattle(roomIndex){
+function EndBattle(roomIndex){
 	room_goto(roomIndex)
 }
 

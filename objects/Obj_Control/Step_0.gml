@@ -5,5 +5,5 @@ if keyboard_check_pressed(ord("I")) {
 
 if global.debug {
 	if keyboard_check_pressed(vk_enter)
-		LeaveBattle(0)
+		EndBattle(0)
 }

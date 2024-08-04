@@ -132,3 +132,15 @@ function InteractWithOverworld() {
 		}
 	}
 }
+
+function SetPlayerState() {
+	with (Obj_Control) {
+		if instance_exists(Obj_Player) {
+			var p = Obj_Player
+			playerStateSave = [p.x, p.y, p.facing]
+		}
+	}
+}
+//function TakePlayerState() {
+	
+//}

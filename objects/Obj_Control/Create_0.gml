@@ -1,5 +1,7 @@
 if instance_number(Obj_Control) > 1 {instance_destroy()}
 
+playerStateSave = noone
+
 global.debug = false
 global.tileSize = 64
 global.paused = false
