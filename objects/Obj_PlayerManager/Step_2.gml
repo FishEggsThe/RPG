@@ -78,7 +78,7 @@ if inventoryUp {
 			if horiInput != 0 {inventoryIndex = (inventoryIndex == 1 ? 0 : 1)}
 			
 			if acceptInput {
-				if (inventoryIndex == 1 || lastSpot = 2 ||selectedItem == noone)
+				if (inventoryIndex == 1 || lastSpot = 2 || selectedItem == noone)
 				{inventorySpot = lastSpot; inventoryIndex = lastIndex}
 				else if inventoryIndex == 0 {inventorySpot = finalSpot; inventoryIndex = 0} // Do thingshow_message("Imagine actually doing the thing\n\ncouldn't be me")
 			}
@@ -87,7 +87,7 @@ if inventoryUp {
 			break
 			
 		case 5: // Character Selected
-			if acceptInput {inventorySpot = 6; inventoryIndex = 0}
+			if (acceptInput && selectedCharacter != noone) {inventorySpot = 6; inventoryIndex = 0}
 			if cancelInput {inventorySpot = 3; inventoryIndex = 0}
 			break
 			

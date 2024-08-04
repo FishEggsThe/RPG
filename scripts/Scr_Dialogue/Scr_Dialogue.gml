@@ -1,7 +1,9 @@
 function BeginDialogue(dialogueList, enemy = noone){
 	with Obj_Dialogue {
 		startAcceptBuffer = 1
-		dialogue = dialogueList
+		if typeof(dialogueList) == "string" {dialogue = [dialogueList]}
+		else {dialogue = dialogueList}
+		
 		dialogueIndex = 0
 		letterIndex = 0
 		onDialogue = true
