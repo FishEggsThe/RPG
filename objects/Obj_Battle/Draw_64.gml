@@ -1,4 +1,4 @@
-if true {
+if room == Rm_Battle {
 	var pm = Obj_PlayerManager
 	
 	draw_set_color(c_maroon)
