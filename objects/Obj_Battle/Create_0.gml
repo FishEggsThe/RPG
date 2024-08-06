@@ -9,6 +9,8 @@ alarm[0] = setTransitionTime
 xFade = 0; yFade = 0
 
 characterIndex = 0
+battleOptions =  ["Attack", "Spells", "Items", "Nada"]
+
 enemyList = []
 turnOrder = []
 turnIndex = 0
