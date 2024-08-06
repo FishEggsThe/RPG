@@ -8,6 +8,7 @@ setTransitionTime = 120
 alarm[0] = setTransitionTime
 xFade = 0; yFade = 0
 
+characterIndex = 0
 enemyList = []
 turnOrder = []
 turnIndex = 0
