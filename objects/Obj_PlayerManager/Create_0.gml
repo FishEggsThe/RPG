@@ -32,16 +32,15 @@ var spells = [new OffenseSpell(15, [], 5, 1, "Skull Bash", "Do big damage"),
 			  new OffenseSpell(35, [], 8, 1, "Skull Bash II", "Do BIGGER damage")]
 characters[0] = new PlayerStats(25, 15, chives2, walkSprites, 0, noone, noone, spells, 5, 5, 5, 5, 
 								"You", "I have literally never met you before in my life")
-characters[0].weapon = new Weapon(0, 1, 0.00000000001, 1, 0, chives2, "Stick", "At least's it's a neat stick")
-characters[0].armor = new Armor(0, 1, 1, 0, chives2, "Stick Armor", "The unworthy sticks get sewn into armor")
-
-
 characters[1] = new PlayerStats(15, 25, chives2, walkSprites, 1, noone, noone, [], 5, 5, 5, 5, 
 								"Slime", "Tired of working the grueling 9-5, this slime is looking for a more meaningful purpose")
-
-
 characters[2] = new PlayerStats(15, 25, chives2, walkSprites, 2, noone, noone, [], 5, 5, 5, 5, 
 								"Dinosaur", "Has found its calling to life, which involves a lot of biting")
+characters[3] = new PlayerStats(1, 1, chives2, walkSprites, 3, noone, noone, [], 0, 0, 0, 0, 
+								"Pet Rock", "Does nothing for the team")
+								
+characters[0].weapon = new Weapon(0, 1, 0.00000000001, 1, 0, chives2, "Stick", "At least's it's a neat stick")
+characters[0].armor = new Armor(0, 1, 1, 0, chives2, "Stick Armor", "The unworthy sticks get sewn into armor")
 characters[2].weapon = new Weapon(2, 5, 0.05, 1, 1, chives2, "Dino Pincher Toy", "Bought on clearance")
 characters[2].armor = new Weapon(2, 5, 0.05, 1, 1, chives2, "Green Dino Onesie", "Bought on clearance")
 
@@ -53,3 +52,5 @@ inventory[2] = new Armor(0, 3, 3, 2, chives2, "Dinky Armor", "You can feel the w
 
 keyItems = array_create(8, noone)
 keyItems[0] = new Item(0, -4, chives, "The Bible", "The whole thing")
+//characters[1] = noone
+//characters[2] = noone
