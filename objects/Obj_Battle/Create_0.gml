@@ -10,6 +10,7 @@ xFade = 0; yFade = 0
 
 characterIndex = 0
 menuIndex = 0
+menuSpot = 0
 battleOptions =  ["Attack", "Spells", "Items", "Nada"]
 
 enemyList = []
