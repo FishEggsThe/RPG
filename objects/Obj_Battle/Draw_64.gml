@@ -29,8 +29,8 @@ if room == Rm_Battle {
 		draw_text_transformed(offset, boxY1 + boxHeight/2, battleOptions[i], textSize, textSize, 0)
 		if menuIndex == i {
 			var lineWidthHalf = textSize*string_width(battleOptions[i])/2
-			var lineFloor = (offset+(textSize*string_height(battleOptions[i]))/2)
-			draw_line((width/2)-lineWidthHalf, lineFloor, (width/2)+lineWidthHalf, lineFloor)
+			var lineFloor = (boxY1+boxHeight/2+(textSize*string_height(battleOptions[i]))/2)
+			draw_line(offset-lineWidthHalf, lineFloor, offset+lineWidthHalf, lineFloor)
 		}
 	}
 }
