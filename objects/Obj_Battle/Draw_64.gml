@@ -20,4 +20,17 @@ if room == Rm_Battle {
 	//}
 	
 	DrawCharactersBoxes()
+	
+	draw_set_color(c_white)
+	draw_set_halign(fa_center)
+	draw_set_valign(fa_middle)
+	for(var i = 0; i < array_length(battleOptions); i++) {
+		var offset = boxX1+((i+2)*boxWidth/5)
+		draw_text_transformed(offset, boxY1 + boxHeight/2, battleOptions[i], textSize, textSize, 0)
+		if menuIndex == i {
+			var lineWidthHalf = textSize*string_width(battleOptions[i])/2
+			var lineFloor = (offset+(textSize*string_height(battleOptions[i]))/2)
+			draw_line((width/2)-lineWidthHalf, lineFloor, (width/2)+lineWidthHalf, lineFloor)
+		}
+	}
 }

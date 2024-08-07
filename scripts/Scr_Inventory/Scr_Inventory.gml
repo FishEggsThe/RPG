@@ -30,9 +30,6 @@ function DrawCharactersBoxes(){
 	}
 	
 	for(var i = 0; i < numOfCharacters; i++) {
-		//var charBoxOffset = (width/6) + width*(i)/6
-		//var charBoxOffset = (width/(2*numOfCharacters)) + (width*i)/(numOfCharacters) - width/12
-		//var charBoxOffset = (width/2) + ((width*i)/(numOfCharacters*2)) - (width/12)
 		var charBoxOffset = ((width*(i+1))/(numOfCharacters+1)) - (width/12)
 
 		// Box
