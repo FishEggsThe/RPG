@@ -20,6 +20,11 @@ function EndBattle(roomIndex){
 	room_goto(roomIndex)
 }
 
+function NextCharacter() {
+	characterIndex++
+	if characterIndex >= NumOfCharacters() {x=x}
+}
+
 function Spell(_cost, _range, _name, _desc) constructor{
 	cost = _cost
 	// 0 = Ally | 1 = Enemy

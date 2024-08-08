@@ -22,12 +22,18 @@ function DrawCharactersLineup(textSize){
 	}
 }
 
+function NumOfCharacters() {
+	var num = 0
+	for(var i = 0; i < array_length(Obj_PlayerManager.characters); i++) {
+		if Obj_PlayerManager.characters[i] == noone {break}
+		num++
+	}
+	return num
+}
+
 function DrawCharactersBoxes(){
 	var numOfCharacters = 0; var pm = Obj_PlayerManager
-	for(var i = 0; i < array_length(pm.characters); i++) {
-		if pm.characters[i] == noone {break}
-		numOfCharacters++
-	}
+	numOfCharacters = NumOfCharacters()
 	
 	for(var i = 0; i < numOfCharacters; i++) {
 		var charBoxOffset = ((width*(i+1))/(numOfCharacters+1)) - (width/12)

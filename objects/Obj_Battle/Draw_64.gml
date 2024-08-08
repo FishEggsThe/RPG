@@ -21,7 +21,7 @@ if room == Rm_Battle {
 	draw_set_halign(fa_center)
 	draw_set_valign(fa_middle)
 	switch(menuSpot) {
-		case 0:
+		case 0: // Start
 			for(var i = 0; i < array_length(battleOptions); i++) {
 				var offset = boxX1+((i+1)*(boxWidth/5))
 				draw_text_transformed(offset, boxY1 + boxHeight/2, battleOptions[i], textSize, textSize, 0)
