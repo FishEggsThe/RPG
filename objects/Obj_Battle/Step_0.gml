@@ -17,7 +17,7 @@ if room == Rm_Battle {
 			if acceptInput {
 				switch(menuIndex) {
 					case 0:
-						NextCharacter()
+						menuIndex = 0; menuSpot = 3 //NextCharacter()
 						break
 					case 1:
 						menuSpot = 1
@@ -36,20 +36,34 @@ if room == Rm_Battle {
 						NextCharacter()
 						break
 				}
+				lastBattleIndex = menuIndex
 			}
-			if cancelInput {show_message("bruh")}
+			if cancelInput {
+				if characterIndex <= 0 {show_message("bruh")}
+				else {characterIndex--}
+			}
 			break
 		case 1: // Spell Menu
 			if acceptInput {
 				show_message(pm.selectedCharacter.spellList[pm.inventoryIndex])
 				pm.inventoryUp = false
-				NextCharacter()
+				menuIndex = 0; menuSpot = 3 //NextCharacter()
 			}
-			if cancelInput {menuSpot = 0; Obj_PlayerManager.inventoryUp = false}
+			if cancelInput {menuSpot = 0; menuIndex = lastMenuIndex
+							Obj_PlayerManager.inventoryUp = false}
 			break
 		case 2: // Item Menu
 			//if acceptInput {show_message(pm.selectedCharacter.spellList[pm.inventoryIndex])}
-			if cancelInput {menuSpot = 0; Obj_PlayerManager.inventoryUp = false}
+			if cancelInput {menuSpot = 0; menuIndex = lastMenuIndex
+							Obj_PlayerManager.inventoryUp = false}
+			break
+		case 3: // Enemy Select
+			if acceptInput {
+				show_message(enemyList[menuIndex])
+				NextCharacter()
+			}
+			if cancelInput {menuSpot = 0; menuIndex = lastMenuIndex
+							Obj_PlayerManager.inventoryUp = false}
 			break
 	}
 }

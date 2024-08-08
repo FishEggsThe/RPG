@@ -32,5 +32,14 @@ if room == Rm_Battle {
 				}
 			}
 			break
+		case 3:
+			for(var i = 0; i < array_length(enemyList); i++) {
+				if i == menuIndex {
+					var enemy = enemyList[i]
+					draw_set_color(c_green)
+					var yPosTop = enemy.yPos - sprite_get_yoffset(enemy.battleSprite)
+					draw_arrow(enemy.xPos, yPosTop-1, enemy.xPos, yPosTop, 10)
+				}
+			}
 	}
 }

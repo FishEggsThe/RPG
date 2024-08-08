@@ -50,7 +50,7 @@ function SupportSpell(_heal, _cure, _boost, _cost, _range, _name, _desc) : Spell
 	boosts = _boost
 }
 
-function Enemy(_health, _sprite, _attacks, _speed, _def, _name, _curve, _percent = 1/60) constructor {
+function Enemy(_health, _sprite, _attacks, _speed, _def, _name, _pos, _curve, _percent = 1/60) constructor {
 	name = _name
 	//description = LayerText(30, _desc) //, _desc
 	battleSprite = _sprite
@@ -59,6 +59,8 @@ function Enemy(_health, _sprite, _attacks, _speed, _def, _name, _curve, _percent
 				 animcurve_get_channel(_curve, "yCurve")]
 	curvePercent = 0
 	curvePercentIncrease = _percent
+	xPos = _pos[0]
+	yPos = _pos[1]
 	
 	attackList = _attacks
 	
@@ -71,8 +73,8 @@ function Enemy(_health, _sprite, _attacks, _speed, _def, _name, _curve, _percent
 		curvePercent += curvePercentIncrease
 		if curvePercent >= 1 {curvePercent--}
 		//for(var i = 0; i < array_length(enemyList); i++) {
-		var xPos = (room_width/2)+animcurve_channel_evaluate(animCurve[0], curvePercent)
-		var yPos = (room_height/2)-animcurve_channel_evaluate(animCurve[1], curvePercent)
-		draw_sprite(battleSprite, 0, xPos, yPos)
+		var xPosNew = (xPos)+animcurve_channel_evaluate(animCurve[0], curvePercent)
+		var yPosNew = (yPos)-animcurve_channel_evaluate(animCurve[1], curvePercent)
+		draw_sprite(battleSprite, 0, xPosNew, yPosNew)
 	}
 }

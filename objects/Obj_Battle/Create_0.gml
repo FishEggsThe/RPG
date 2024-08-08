@@ -12,6 +12,7 @@ characterIndex = 0
 menuIndex = 0
 menuSpot = 0
 battleOptions =  ["Attack", "Spells", "Items", "Nada"]
+lastBattleIndex = 0
 
 enemyList = []
 turnOrder = []
