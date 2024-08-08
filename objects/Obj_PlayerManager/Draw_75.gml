@@ -24,7 +24,7 @@ if inventoryUp {
 	
 	draw_set_color(c_black)
 	switch(inventorySpot) {
-		case 0:
+		case 0: // Start
 			for(var i = 0; i < array_length(menuOptions); i++) {
 				var offset = boxX1+((i+1)*boxHeight*2/7)
 				draw_text_transformed(width/2, offset, menuOptions[i], textSize, textSize, 0)
@@ -36,7 +36,7 @@ if inventoryUp {
 			}
 			break
 			
-		case 1:
+		case 1: // Inventory
 			for(var i = 0; i < array_length(inventory); i++) {
 				var xPos = boxX1+(boxWidth/4)+(floor(i/4))*(boxWidth*1/2)
 				var yPos = boxY1+((i%4)+1)*(boxHeight/5)
@@ -51,7 +51,7 @@ if inventoryUp {
 			}
 			break
 			
-		case 2:
+		case 2: // Key Items
 			for(var i = 0; i < array_length(keyItems); i++) {
 				var xPos = boxX1+(boxWidth/4)+(floor(i/4))*(boxWidth*1/2)
 				var yPos = boxY1+((i%4)+1)*(boxHeight/5)
@@ -66,11 +66,11 @@ if inventoryUp {
 			}
 			break
 		
-		case 3:
+		case 3: // Characters
 			DrawCharactersLineup(textSize)
 			break
 		
-		case 4:
+		case 4: // Selected Item
 			if selectedItem == noone {
 				var array = (lastSpot == 1 ? inventory : keyItems)
 				var arraySize = array_length(array); var emptySlots = 0
@@ -97,7 +97,7 @@ if inventoryUp {
 			}
 			break
 			
-		case 5:
+		case 5: // Character Selected
 			if selectedCharacter == noone {
 				draw_text_transformed(width/2, height/2, "Its a ghost!\n\noOOooOOoOoOOO", textSize, textSize, 0)
 			}
@@ -126,7 +126,7 @@ if inventoryUp {
 			}
 			break
 			
-		case 6:
+		case 6: // Character Spells
 			if array_length(selectedCharacter.spellList) <= 0 {
 				draw_text_transformed(width/2, height/2, "Nothing yet", textSize, textSize, 0)
 			}
@@ -151,7 +151,7 @@ if inventoryUp {
 			}
 			break
 			
-		case 7:
+		case 7: // Use Selected Item
 			DrawCharactersLineup(textSize)
 			break
 	}
