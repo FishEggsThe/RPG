@@ -21,8 +21,9 @@ function EndBattle(roomIndex){
 }
 
 function NextCharacter() {
+	menuSpot = 0
 	characterIndex++
-	if characterIndex >= NumOfCharacters() {x=x}
+	if characterIndex >= NumOfCharacters() {characterIndex = 0}
 }
 
 function Spell(_cost, _range, _name, _desc) constructor{

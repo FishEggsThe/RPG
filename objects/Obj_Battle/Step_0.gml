@@ -17,6 +17,7 @@ if room == Rm_Battle {
 			if acceptInput {
 				switch(menuIndex) {
 					case 0:
+						NextCharacter()
 						break
 					case 1:
 						menuSpot = 1
@@ -32,13 +33,18 @@ if room == Rm_Battle {
 						pm.inventorySpot = 0
 						break
 					case 3:
+						NextCharacter()
 						break
 				}
 			}
 			if cancelInput {show_message("bruh")}
 			break
 		case 1: // Spell Menu
-			//if acceptInput {show_message(pm.selectedCharacter.spellList[pm.inventoryIndex])}
+			if acceptInput {
+				show_message(pm.selectedCharacter.spellList[pm.inventoryIndex])
+				pm.inventoryUp = false
+				NextCharacter()
+			}
 			if cancelInput {menuSpot = 0; Obj_PlayerManager.inventoryUp = false}
 			break
 		case 2: // Item Menu

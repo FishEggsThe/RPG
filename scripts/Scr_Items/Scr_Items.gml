@@ -90,5 +90,8 @@ function UseItem(item, character) {
 			break
 	}
 	MoveDownList()
-	inventorySpot = lastSpot; inventoryIndex = lastIndex
+	if room == Rm_Battle {
+		inventoryUp = false
+		with Obj_Battle {NextCharacter()}
+	} else {inventorySpot = lastSpot; inventoryIndex = lastIndex}
 }
