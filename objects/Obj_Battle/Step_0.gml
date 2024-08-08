@@ -6,7 +6,7 @@ var vertInput = input_check_pressed("down") - input_check_pressed("up")
 
 var pm = Obj_PlayerManager
 
-if room == Rm_Battle {
+if room == Rm_Battle && !Obj_Dialogue.onDialogue {
 	switch(menuSpot) {
 		case 0: // Start
 			if horiInput != 0 {menuIndex += horiInput}
@@ -45,9 +45,11 @@ if room == Rm_Battle {
 			break
 		case 1: // Spell Menu
 			if acceptInput {
-				show_message(pm.selectedCharacter.spellList[pm.inventoryIndex])
-				pm.inventoryUp = false
-				menuIndex = 0; menuSpot = 3 //NextCharacter()
+				if array_length(pm.selectedCharacter.spellList) > 0 {
+					show_message(pm.selectedCharacter.spellList[pm.inventoryIndex])
+					pm.inventoryUp = false
+					menuIndex = 0; menuSpot = 3 //NextCharacter()
+				}
 			}
 			if cancelInput {menuSpot = 0; menuIndex = lastMenuIndex
 							Obj_PlayerManager.inventoryUp = false}
