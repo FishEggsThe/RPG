@@ -15,7 +15,7 @@ if room == Rm_Battle {
 		draw_text(5, 5, string(input_check("right")) + " - " + string(input_check("left")) + " = " + string(horiInput))
 	}
 	
-	DrawCharactersBoxes()
+	DrawCharactersBoxes(characterIndex)
 	
 	draw_set_color(c_white)
 	draw_set_halign(fa_center)
