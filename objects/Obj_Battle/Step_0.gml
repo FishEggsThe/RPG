@@ -15,6 +15,7 @@ if room == Rm_Battle {
 			else if menuIndex < 0 {menuIndex+=options}
 			
 			if acceptInput {
+				lastMenuIndex = menuIndex
 				switch(menuIndex) {
 					case 0:
 						menuIndex = 0; menuSpot = 3 //NextCharacter()
@@ -36,7 +37,6 @@ if room == Rm_Battle {
 						NextCharacter()
 						break
 				}
-				lastBattleIndex = menuIndex
 			}
 			if cancelInput {
 				if characterIndex <= 0 {show_message("bruh")}
@@ -58,8 +58,14 @@ if room == Rm_Battle {
 							Obj_PlayerManager.inventoryUp = false}
 			break
 		case 3: // Enemy Select
+			if horiInput != 0 {menuIndex += horiInput}
+			var enemies = array_length(enemyList)
+			if menuIndex >= enemies {menuIndex-=enemies}
+			else if menuIndex < 0 {menuIndex+=enemies}
+			
 			if acceptInput {
-				show_message(enemyList[menuIndex])
+				//show_message(enemyList[menuIndex])
+				menuIndex = 0
 				NextCharacter()
 			}
 			if cancelInput {menuSpot = 0; menuIndex = lastMenuIndex

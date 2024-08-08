@@ -20,7 +20,7 @@ if inventoryUp {
 		
 	}
 	
-	DrawCharactersBoxes()
+	if room != Rm_Battle {DrawCharactersBoxes()}
 	
 	draw_set_color(c_black)
 	switch(inventorySpot) {

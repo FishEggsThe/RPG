@@ -3,7 +3,8 @@ if room == Rm_Battle {
 	
 	draw_set_color(c_maroon)
 	//show_message(boxY2)
-	draw_rectangle(boxX1, boxY1, boxX2, boxY2, false)
+	if menuSpot != 3
+		draw_rectangle(boxX1, boxY1, boxX2, boxY2, false)
 	var textSize = 3
 	
 	draw_set_color(c_white)
@@ -37,8 +38,8 @@ if room == Rm_Battle {
 				if i == menuIndex {
 					var enemy = enemyList[i]
 					draw_set_color(c_green)
-					var yPosTop = enemy.yPos - sprite_get_yoffset(enemy.battleSprite)
-					draw_arrow(enemy.xPos, yPosTop-1, enemy.xPos, yPosTop, 10)
+					var yPosTop = Obj_Camera.window_scale*(enemy.yPos-sprite_get_yoffset(enemy.battleSprite)-50)
+					draw_sprite(chives2, 0, Obj_Camera.window_scale*enemy.xPos, yPosTop)
 				}
 			}
 	}
