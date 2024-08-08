@@ -111,6 +111,10 @@ if inventoryUp {
 			if acceptInput {
 				if characters[inventoryIndex] != noone {
 					UseItem(selectedItem, characters[inventoryIndex])
+					if room == Rm_Battle {
+						inventoryUp = false
+						with Obj_Battle {NextCharacter()}
+					}
 				}
 			}
 			

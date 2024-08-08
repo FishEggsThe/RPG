@@ -20,13 +20,16 @@ if room == Rm_Battle {
 						break
 					case 1:
 						menuSpot = 1
-						Obj_PlayerManager.selectedCharacter = pm.characters[characterIndex]
-						Obj_PlayerManager.inventoryUp = true
-						Obj_PlayerManager.inventoryIndex = 0
-						Obj_PlayerManager.inventorySpot = 6
+						pm.selectedCharacter = pm.characters[characterIndex]
+						pm.inventoryUp = true
+						pm.inventoryIndex = characterIndex
+						pm.inventorySpot = 5 // Don't worry it works out
 						break
 					case 2:
-						menuSpot = 1
+						menuSpot = 2
+						pm.inventoryUp = true
+						pm.inventoryIndex = 0
+						pm.inventorySpot = 0
 						break
 					case 3:
 						break
