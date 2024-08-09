@@ -42,11 +42,7 @@ if room == Rm_Battle && !Obj_Dialogue.onDialogue {
 				if characterIndex <= 0 {show_message("bruh")}
 				else {
 					characterIndex--
-					show_message(inventorySave[characterIndex][0])
-					show_message(pm.inventory)
 					pm.inventory = inventorySave[characterIndex][0]
-					show_message(inventorySave[characterIndex][0])
-					show_message(pm.inventory)
 					for(var i = 0; i < array_length(inventorySave[characterIndex]); i++)
 						inventorySave[characterIndex][i] = noone
 				}

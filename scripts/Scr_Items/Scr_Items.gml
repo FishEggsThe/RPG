@@ -69,10 +69,7 @@ function InventoryFigureItem(item, character, index = lastIndex) {
 		for(var i = 0; i < array_length(inventory); i++)
 			invSave[i] = inventory[i]
 		Obj_Battle.inventorySave[Obj_Battle.characterIndex][0] = invSave
-		show_message(Obj_Battle.inventorySave[Obj_Battle.characterIndex][0])
-		show_message(inventory)
 	}
-	//var invSave = inventory
 	
 	switch(item.itemType) {
 		case 1:
