@@ -65,7 +65,10 @@ function PickupItem(pickup) {
 
 function InventoryFigureItem(item, character, index = lastIndex) {
 	if room == Rm_Battle {
-		Obj_Battle.inventorySave[Obj_Battle.characterIndex][0] = inventory
+		var invSave = array_create(4, noone)
+		for(var i = 0; i < array_length(inventory); i++)
+			invSave[i] = inventory[i]
+		Obj_Battle.inventorySave[Obj_Battle.characterIndex][0] = invSave
 		show_message(Obj_Battle.inventorySave[Obj_Battle.characterIndex][0])
 		show_message(inventory)
 	}

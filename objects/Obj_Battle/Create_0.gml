@@ -14,7 +14,7 @@ menuSpot = 0
 battleOptions =  ["Attack", "Spells", "Items", "Nada"]
 lastMenuIndex = 0
 inventorySave = array_create_ext(4, function() {
-	return array_create(3, noone) // Wasn't recognizing variable here in script for whatever reason so back here it goes
+	return array_create(3, noone)
 })
 
 enemyList = []
