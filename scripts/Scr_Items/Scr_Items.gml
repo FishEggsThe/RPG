@@ -65,6 +65,13 @@ function PickupItem(pickup) {
 
 function UseItem(item, character) {
 	if item == noone {show_message("How the hell did you select nothing"); return;}
+	if room == Rm_Battle {
+		inventoryUp = false
+		if Obj_Battle.characterIndex < NumOfCharacters() {
+			with Obj_Battle {NextCharacter()}
+			return
+		}
+	}
 	
 	switch(item.itemType) {
 		case 1:
@@ -88,10 +95,8 @@ function UseItem(item, character) {
 				//show_message("fancy armor")
 			} else {return}
 			break
+			
 	}
 	MoveDownList()
-	if room == Rm_Battle {
-		inventoryUp = false
-		with Obj_Battle {NextCharacter()}
-	} else {inventorySpot = lastSpot; inventoryIndex = lastIndex}
+	inventorySpot = lastSpot; inventoryIndex = lastIndex
 }
