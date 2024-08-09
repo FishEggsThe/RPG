@@ -21,6 +21,9 @@ function EndBattle(roomIndex){
 }
 
 function NextCharacter() {
+	if inventorySave[characterIndex][0] == noone
+		inventorySave[characterIndex][0] = Obj_PlayerManager.inventory
+	
 	menuSpot = 0
 	characterIndex++
 	if characterIndex >= NumOfCharacters() {

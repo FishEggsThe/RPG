@@ -64,7 +64,13 @@ function PickupItem(pickup) {
 }
 
 function InventoryFigureItem(item, character, index = lastIndex) {
-	var invSave = inventory
+	if room == Rm_Battle {
+		Obj_Battle.inventorySave[Obj_Battle.characterIndex][0] = inventory
+		show_message(Obj_Battle.inventorySave[Obj_Battle.characterIndex][0])
+		show_message(inventory)
+	}
+	//var invSave = inventory
+	
 	switch(item.itemType) {
 		case 1:
 			inventory[index] = noone
@@ -86,9 +92,10 @@ function InventoryFigureItem(item, character, index = lastIndex) {
 	if room == Rm_Battle {
 		inventoryUp = false; var battle = Obj_Battle
 		
-		battle.inventorySave[battle.characterIndex][0] = invSave
+		//battle.inventorySave[battle.characterIndex][0] = invSave
 		battle.inventorySave[battle.characterIndex][1] = item
 		battle.inventorySave[battle.characterIndex][2] = character
+		show_debug_message(battle.inventorySave[0])
 		
 		with Obj_Battle {NextCharacter()}
 		
