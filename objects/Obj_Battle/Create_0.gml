@@ -13,13 +13,13 @@ menuIndex = 0
 menuSpot = 0
 battleOptions =  ["Attack", "Spells", "Items", "Nada"]
 lastMenuIndex = 0
+inventorySave = array_create_ext(4, function() {
+	return array_create(3, noone) // Wasn't recognizing variable here in script for whatever reason so back here it goes
+})
 
 enemyList = []
 turnOrder = []
 turnIndex = 0
-
-curves = []
-percent = 0
 
 width = display_get_gui_width(); height = display_get_gui_height()
 boxX1 = width/8; boxY1 = height*4/6; boxX2 = width*7/8; boxY2 = height*5/6;

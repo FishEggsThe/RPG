@@ -23,7 +23,12 @@ function EndBattle(roomIndex){
 function NextCharacter() {
 	menuSpot = 0
 	characterIndex++
-	if characterIndex >= NumOfCharacters() {characterIndex = 0}
+	if characterIndex >= NumOfCharacters() {
+		// Actually do the thing later
+		characterIndex = 0
+		
+		inventorySave = array_create(4, noone)
+	}
 }
 
 function Spell(_cost, _range, _name, _desc) constructor{

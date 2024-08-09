@@ -40,7 +40,11 @@ if room == Rm_Battle && !Obj_Dialogue.onDialogue {
 			}
 			if cancelInput {
 				if characterIndex <= 0 {show_message("bruh")}
-				else {characterIndex--}
+				else {
+					characterIndex--
+					if inventorySave[characterIndex][0] != noone
+						pm.inventory = inventorySave[characterIndex][0]
+				}
 			}
 			break
 		case 1: // Spell Menu

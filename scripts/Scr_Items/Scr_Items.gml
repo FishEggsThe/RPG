@@ -63,40 +63,34 @@ function PickupItem(pickup) {
 	}
 }
 
-function UseItem(item, character) {
+function UseItem(item, character, index = lastIndex) {
 	if item == noone {show_message("How the hell did you select nothing"); return;}
-	if room == Rm_Battle {
-		inventoryUp = false
-		if Obj_Battle.characterIndex < NumOfCharacters() {
-			with Obj_Battle {NextCharacter()}
-			return
-		}
-	}
+	if room = Rm_Battle {Obj_Battle.inventorySave[characterIndex][0] = inventory}
 	
 	switch(item.itemType) {
 		case 1:
 			character.currHealth = clamp(character.currHealth+item.healing, 0, character.maxHealth)
 			inventory[lastIndex] = noone
 			//show_message("yum!")
-			break
 		case 2:
 			if character.equipmentChoice == item.wepType {
-				if character.weapon != noone {inventory[lastIndex] = character.weapon}
-				else {inventory[lastIndex] = noone}
+				if character.weapon != noone {inventory[index] = character.weapon}
+				else {inventory[index] = noone}
 				character.weapon = item
 				//show_message("cool weapon")
 			} else {return}
 			break
 		case 3:
 			if character.equipmentChoice == item.armorType {
-				if character.armor != noone {inventory[lastIndex] = character.armor}
-				else {inventory[lastIndex] = noone}
+				if character.armor != noone {inventory[index] = character.armor}
+				else {inventory[index] = noone}
 				character.armor = item
 				//show_message("fancy armor")
 			} else {return}
 			break
-			
 	}
-	MoveDownList()
-	inventorySpot = lastSpot; inventoryIndex = lastIndex
+	if room == Rm_Battle {
+		inventoryUp = false
+		with Obj_Battle {NextCharacter()}
+	} else {inventorySpot = lastSpot; inventoryIndex = index; MoveDownList()}
 }
