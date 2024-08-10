@@ -21,13 +21,6 @@ function EndBattle(roomIndex){
 }
 
 function NextCharacter() {
-	if inventorySave[characterIndex][0] == noone {
-		var invSave = noone
-		for(var i = 0; i < array_length(Obj_PlayerManager.inventory); i++)
-			invSave[i] = Obj_PlayerManager.inventory[i]
-		inventorySave[characterIndex][0] = invSave
-	}
-	
 	menuSpot = 0
 	characterIndex++
 	if characterIndex >= NumOfCharacters() {
@@ -38,6 +31,34 @@ function NextCharacter() {
 			return array_create(3, noone)
 		})
 	}
+	
+	//if inventorySave[characterIndex][0] == noone {
+	var invSave = noone
+	for(var i = 0; i < array_length(Obj_PlayerManager.inventory); i++)
+		invSave[i] = Obj_PlayerManager.inventory[i]
+	inventorySave[characterIndex][0] = invSave
+	//}
+	
+	// Debugging
+	DebugShowInventorySaves()
+}
+
+function DebugShowInventorySaves() {
+	for(var i = 0; i < array_length(inventorySave); i++) {
+		var names = ""
+		if inventorySave[i][0] == noone
+			names = " -"
+		else {
+			for(var j = 0; j < array_length(inventorySave[i][0]); j++){
+				var name = "none"
+				if inventorySave[i][0][j] != noone
+					name = inventorySave[i][0][j].name
+				names+=(name + ", ")
+			}
+		}
+		show_debug_message(string(i) + ": " + names)
+	}
+	show_debug_message("")	
 }
 
 function StartTurn() {

@@ -64,12 +64,12 @@ function PickupItem(pickup) {
 }
 
 function InventoryFigureItem(item, character, index = lastIndex) {
-	if room == Rm_Battle {
-		var invSave = array_create(4, noone)
-		for(var i = 0; i < array_length(inventory); i++)
-			invSave[i] = inventory[i]
-		Obj_Battle.inventorySave[Obj_Battle.characterIndex][0] = invSave
-	}
+	//if room == Rm_Battle {
+	//	var invSave = array_create(4, noone)
+	//	for(var i = 0; i < array_length(inventory); i++)
+	//		invSave[i] = inventory[i]
+	//	Obj_Battle.inventorySave[Obj_Battle.characterIndex][0] = invSave
+	//}
 	
 	switch(item.itemType) {
 		case 1:
@@ -95,7 +95,6 @@ function InventoryFigureItem(item, character, index = lastIndex) {
 		//battle.inventorySave[battle.characterIndex][0] = invSave
 		battle.inventorySave[battle.characterIndex][1] = item
 		battle.inventorySave[battle.characterIndex][2] = character
-		show_debug_message(battle.inventorySave[0])
 		
 		with Obj_Battle {NextCharacter()}
 		

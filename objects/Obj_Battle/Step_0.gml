@@ -41,17 +41,18 @@ if room == Rm_Battle && !Obj_Dialogue.onDialogue {
 			if cancelInput {
 				if characterIndex <= 0 {show_message("bruh")}
 				else {
-					characterIndex--
-					pm.inventory = inventorySave[characterIndex][0]
 					for(var i = 0; i < array_length(inventorySave[characterIndex]); i++)
 						inventorySave[characterIndex][i] = noone
+					characterIndex--
+					for(var i = 0; i < array_length(pm.inventory); i++	)
+						pm.inventory[i] = inventorySave[characterIndex][0][i]
 				}
+				DebugShowInventorySaves()
 			}
 			break
 		case 1: // Spell Menu
 			if acceptInput {
 				if array_length(pm.selectedCharacter.spellList) > 0 {
-					show_message(pm.selectedCharacter.spellList[pm.inventoryIndex])
 					pm.inventoryUp = false
 					menuIndex = 0; menuSpot = 3 //NextCharacter()
 				}
