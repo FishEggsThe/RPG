@@ -33,10 +33,10 @@ function NextCharacter() {
 	}
 	
 	//if inventorySave[characterIndex][0] == noone {
-	var invSave = noone
-	for(var i = 0; i < array_length(Obj_PlayerManager.inventory); i++)
-		invSave[i] = Obj_PlayerManager.inventory[i]
-	inventorySave[characterIndex][0] = invSave
+	//var invSave = noone
+	//for(var i = 0; i < array_length(Obj_PlayerManager.inventory); i++)
+	//	invSave[i] = Obj_PlayerManager.inventory[i]
+	inventorySave[characterIndex][0] = ReplaceArray(Obj_PlayerManager.inventory)
 	//}
 	
 	// Debugging

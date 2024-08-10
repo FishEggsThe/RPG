@@ -6,6 +6,13 @@ function DrawChoiceText(){
 	// i'll do it later maybe
 }
 
+function ReplaceArray(array){
+	var replace = array_create(array_length(array), noone)
+	for(var i = 0; i < array_length(replace); i++	)
+		replace[i] = array[i]
+	return replace
+}
+
 function DrawCharactersLineup(textSize){
 	for(var i = 0; i < array_length(characters); i++) {
 		var xPos = boxX1+(boxWidth/8)+(i*boxWidth/4)

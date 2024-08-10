@@ -44,8 +44,7 @@ if room == Rm_Battle && !Obj_Dialogue.onDialogue {
 					for(var i = 0; i < array_length(inventorySave[characterIndex]); i++)
 						inventorySave[characterIndex][i] = noone
 					characterIndex--
-					for(var i = 0; i < array_length(pm.inventory); i++	)
-						pm.inventory[i] = inventorySave[characterIndex][0][i]
+					pm.inventory = ReplaceArray(inventorySave[characterIndex][0])
 				}
 				DebugShowInventorySaves()
 			}
