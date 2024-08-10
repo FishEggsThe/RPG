@@ -40,6 +40,16 @@ function NextCharacter() {
 	}
 }
 
+function StartTurn() {
+	var chars = NumOfCharacters(); var enems = array_length(enemyList)
+	var numOfTurns = chars + enems
+	turnOrder = array_create(numOfTurns, noone)
+	for(var i = 0; i < chars; i++) {turnOrder[i] = Obj_PlayerManager.characters[i]}
+	for(var i = 0; i < enems; i++) {turnOrder[chars+i] = enemyList[i]}
+	
+	characterIndex = 0
+}
+
 function Spell(_cost, _range, _name, _desc) constructor{
 	cost = _cost
 	// 0 = Ally | 1 = Enemy
