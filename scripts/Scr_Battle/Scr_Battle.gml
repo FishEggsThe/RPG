@@ -42,10 +42,14 @@ function NextCharacter() {
 
 function StartTurn() {
 	var chars = NumOfCharacters(); var enems = array_length(enemyList)
-	var numOfTurns = chars + enems
+	var numOfTurns = chars + enems; var orderTemp = array_create(numOfTurns, noone)
+	for(var i = 0; i < chars; i++) {orderTemp[i] = Obj_PlayerManager.characters[i]}
+	for(var i = 0; i < enems; i++) {orderTemp[chars+i] = enemyList[i]}
+	
 	turnOrder = array_create(numOfTurns, noone)
-	for(var i = 0; i < chars; i++) {turnOrder[i] = Obj_PlayerManager.characters[i]}
-	for(var i = 0; i < enems; i++) {turnOrder[chars+i] = enemyList[i]}
+	for(var i = 0; i < numOfTurns; i++) {
+		
+	}
 	
 	characterIndex = 0
 }
