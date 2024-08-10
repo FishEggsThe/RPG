@@ -21,8 +21,12 @@ function EndBattle(roomIndex){
 }
 
 function NextCharacter() {
-	if inventorySave[characterIndex][0] == noone
-		inventorySave[characterIndex][0] = Obj_PlayerManager.inventory
+	if inventorySave[characterIndex][0] == noone {
+		var invSave = noone
+		for(var i = 0; i < array_length(Obj_PlayerManager.inventory); i++)
+			invSave[i] = Obj_PlayerManager.inventory[i]
+		inventorySave[characterIndex][0] = invSave
+	}
 	
 	menuSpot = 0
 	characterIndex++
