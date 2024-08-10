@@ -30,14 +30,10 @@ function NextCharacter() {
 		inventorySave = array_create_ext(4, function() {
 			return array_create(3, noone)
 		})
+		StartTurn()
 	}
 	
-	//if inventorySave[characterIndex][0] == noone {
-	//var invSave = noone
-	//for(var i = 0; i < array_length(Obj_PlayerManager.inventory); i++)
-	//	invSave[i] = Obj_PlayerManager.inventory[i]
 	inventorySave[characterIndex][0] = ReplaceArray(Obj_PlayerManager.inventory)
-	//}
 	
 	// Debugging
 	DebugShowInventorySaves()
@@ -68,9 +64,24 @@ function StartTurn() {
 	for(var i = 0; i < enems; i++) {orderTemp[chars+i] = enemyList[i]}
 	
 	turnOrder = array_create(numOfTurns, noone)
-	for(var i = 0; i < numOfTurns; i++) {
+	for(var i = 0; i <= numOfTurns; i++) {
+		var maxSpeed = orderTemp[i].baseSpeed
 		
+		for(var j = i+1; j < numOfTurns; j++) {
+			
+			if orderTemp[j].baseSpeed > maxSpeed {
+				maxSpeed = orderTemp[j].baseSpeed
+				
+				var temp = orderTemp[i]
+				orderTemp[i] = orderTemp[j]
+				orderTemp[j] = temp
+				
+			}
+			turnOrder[i] = orderTemp[i]
+			show_debug_message(string(turnOrder[i].baseSpeed) + " - " + turnOrder[i].name)
+		}
 	}
+		
 	
 	characterIndex = 0
 }
