@@ -66,22 +66,19 @@ function StartTurn() {
 	for(var i = 0; i < enems; i++) {orderTemp[chars+i] = enemyList[i]}
 	
 	turnOrder = array_create(numOfTurns, noone)
-	for(var i = 0; i < numOfTurns-1; i++) {
-		var maxSpeed = orderTemp[i].baseSpeed
+	for(var i = 0; i < numOfTurns; i++) {
+		var maxSpeed = orderTemp[0].baseSpeed; var maxSpeedI = 0
 		
-		for(var j = i+1; j < numOfTurns; j++) {
+		for(var j = 0; j < numOfTurns-i; j++) {
 			if orderTemp[j].baseSpeed > maxSpeed {
 				maxSpeed = orderTemp[j].baseSpeed
-				
-				var temp = orderTemp[i]
-				orderTemp[i] = orderTemp[j]
-				orderTemp[j] = temp
+				maxSpeedI = j
 				
 			}
 		}
-		turnOrder[i] = orderTemp[i]
+		turnOrder[i] = orderTemp[maxSpeedI]
+		array_delete(orderTemp, maxSpeedI, 1)
 	}
-	turnOrder[numOfTurns-1] = orderTemp[numOfTurns-1]
 	
 	for(var i = 0; i < numOfTurns; i++)
 		show_debug_message(string(turnOrder[i].baseSpeed) + " - " + turnOrder[i].name)
