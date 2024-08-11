@@ -9,7 +9,7 @@
   "overriddenProperties":[],
   "parent":{
     "name":"NPCs",
-    "path":"folders/Objects/Overworld/NPCs.yy",
+    "path":"folders/Objects/Overworld/Interactables/NPCs.yy",
   },
   "parentObjectId":{
     "name":"Obj_NPC",

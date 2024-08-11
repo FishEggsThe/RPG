@@ -10,8 +10,8 @@
   "name":"Obj_NPC",
   "overriddenProperties":[],
   "parent":{
-    "name":"Overworld",
-    "path":"folders/Objects/Overworld.yy",
+    "name":"Interactables",
+    "path":"folders/Objects/Overworld/Interactables.yy",
   },
   "parentObjectId":{
     "name":"Obj_Interactable",

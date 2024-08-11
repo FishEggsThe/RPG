@@ -8,8 +8,8 @@
   "name":"Obj_Interactable",
   "overriddenProperties":[],
   "parent":{
-    "name":"Overworld",
-    "path":"folders/Objects/Overworld.yy",
+    "name":"Interactables",
+    "path":"folders/Objects/Overworld/Interactables.yy",
   },
   "parentObjectId":null,
   "persistent":false,

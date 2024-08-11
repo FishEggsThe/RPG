@@ -111,11 +111,7 @@ function InteractWithOverworld() {
 		var xPos = x+facingDir[0]*tile+(tile/2); var yPos = y+facingDir[1]*tile+(tile/2)
 		drawXFace = xPos; drawYFace = yPos
 		
-		show_message([xPos, yPos])
-		var interactable = instance_position(xPos, yPos, Obj_CastleSpiderWatcher)
-		//show_message([interactable.x, interactable.y])
-		//show_message(object_get_parent(interactable.object_index))
-		//show_message(object_is_ancestor(interactable.object_index, Obj_Interactable))
+		var interactable = instance_position(xPos, yPos, Obj_Interactable)
 		
 		if interactable != noone {
 			var layeredDialogue = array_create(array_length(interactable.dialogue), "")
@@ -123,18 +119,20 @@ function InteractWithOverworld() {
 				LayerText(display_get_gui_width()-15, interactable.dialogue[i])
 			BeginDialogue(interactable.dialogue)
 			
-			//show_message(interactable.object_index)
-			//show_message(Obj_NPC)
-			//show_message(interactable == Obj_NPC)
-			show_message(object_get_name(object_get_parent(interactable.object_index)))
-			switch(object_get_parent(interactable.object_index)){
-				case Obj_NPC: 
-					interactable.facing = facing+2
-					if interactable.facing >= 4 {interactable.facing -= 4}
-					break
-				case Obj_Pickup:
-					PickupItem(interactable)
-					break
+			//switch(interactable.object_index){
+			//	case Obj_NPC: 
+			//		interactable.facing = facing+2
+			//		if interactable.facing >= 4 {interactable.facing -= 4}
+			//		break
+			//	case Obj_Pickup:
+			//		PickupItem(interactable)
+			//		break
+			//}
+			if object_is_ancestor(interactable.object_index, Obj_NPC){ 
+				interactable.facing = facing+2
+				if interactable.facing >= 4 {interactable.facing -= 4}
+			} else if object_is_ancestor(interactable.object_index, Obj_Pickup){ 
+				PickupItem(interactable)
 			}
 			//if interactable == Obj_NPC { 
 			//	interactable.facing = facing
