@@ -75,6 +75,14 @@ function MovePlayer() {
 						//StartBattle(enemyNear, enemyNear.enemyInfo)
 					}
 				}
+				
+				if instance_exists(Obj_RoomEntrance) {
+					var entrance = instance_nearest(x, y, Obj_RoomEntrance)
+					if(x == entrance.x && y == entrance.y) {
+						EnterRoom(entrance.connecting)
+					}
+					//ReplaceArray(array)
+				}
 			}
 		}
 	}
@@ -133,9 +141,11 @@ function InteractWithOverworld() {
 	}
 }
 
-function SetPlayerState(pX = Obj_Player.x, pY = Obj_Player.y, pFace = Obj_Player.facing) {
-	Obj_Control.playerStateSave = [pX, pY, pFace]
+function SetPlayerState(position = [Obj_Player.x, Obj_Player.y, Obj_Player.facing]) {
+	Obj_Control.playerStateSave = [position[0], position[1], position[2]]
 }
-function EnterRoom() {
-	
+function EnterRoom(entrance) {
+	var goto = instance_create_depth(0, 0, 0, entrance)
+	SetPlayerState(goto.playerPosition)
+	room_goto(goto.roomIn)
 }
