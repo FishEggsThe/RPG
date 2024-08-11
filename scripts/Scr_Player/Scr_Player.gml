@@ -133,14 +133,9 @@ function InteractWithOverworld() {
 	}
 }
 
-function SetPlayerState() {
-	with (Obj_Control) {
-		if instance_exists(Obj_Player) {
-			var p = Obj_Player
-			playerStateSave = [p.x, p.y, p.facing]
-		}
-	}
+function SetPlayerState(pX = Obj_Player.x, pY = Obj_Player.y, pFace = Obj_Player.facing) {
+	Obj_Control.playerStateSave = [pX, pY, pFace]
 }
-//function TakePlayerState() {
+function EnterRoom() {
 	
-//}
+}

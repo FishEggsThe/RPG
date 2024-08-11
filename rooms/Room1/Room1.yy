@@ -28,8 +28,8 @@
         {"$GMRInstance":"v1","%Name":"inst_54A1EA2F","colour":4294967295,"frozen":false,"hasCreationCode":false,"ignore":false,"imageIndex":0,"imageSpeed":1.0,"inheritCode":false,"inheritedItemId":null,"inheritItemSettings":false,"isDnd":false,"name":"inst_54A1EA2F","objectId":{"name":"Obj_Player","path":"objects/Obj_Player/Obj_Player.yy",},"properties":[],"resourceType":"GMRInstance","resourceVersion":"2.0","rotation":0.0,"scaleX":1.0,"scaleY":1.0,"x":192.0,"y":192.0,},
       ],"layers":[],"name":"Instances","properties":[],"resourceType":"GMRInstanceLayer","resourceVersion":"2.0","userdefinedDepth":false,"visible":true,},
     {"$GMRTileLayer":"","%Name":"Tiles","depth":100,"effectEnabled":true,"effectType":null,"gridX":50,"gridY":50,"hierarchyFrozen":false,"inheritLayerDepth":false,"inheritLayerSettings":false,"inheritSubLayers":true,"inheritVisibility":true,"layers":[],"name":"Tiles","properties":[],"resourceType":"GMRTileLayer","resourceVersion":"2.0","tiles":{"SerialiseHeight":20,"SerialiseWidth":20,"TileCompressedData":[
-          -21,2,-18,1,-2,2,-18,1,-2,2,-18,1,-2,2,-18,1,-2,2,-4,1,-4,2,-10,1,-2,2,-4,1,-4,2,-2,1,10,2,1,2,1,2,1,
-          2,1,2,2,-4,1,-4,2,-10,1,-2,2,-4,1,-4,2,-10,1,-2,2,-18,1,-2,2,-18,1,-10,2,-2,1,-10,2,-7,1,1,2,-10,1,-2,
+          -21,2,-18,1,-2,2,-18,1,1,2,-19,1,1,2,-19,1,-2,2,-4,1,-4,2,-10,1,-2,2,-4,1,-4,2,-2,1,10,2,1,2,1,2,1,2,
+          1,2,2,-4,1,-4,2,-10,1,-2,2,-4,1,-4,2,-10,1,-2,2,-18,1,-2,2,-18,1,-10,2,-2,1,-10,2,-7,1,1,2,-10,1,-2,
           2,-7,1,1,2,-10,1,-2,2,-2,1,-14,2,-2,1,-2,2,-2,1,-2,2,-5,1,1,2,-5,1,9,2,1,1,2,2,1,1,2,2,-5,1,1,2,-5,1,
           5,2,1,1,2,2,-6,1,1,2,-5,1,1,2,-5,1,-2,2,-6,1,1,2,-5,1,1,2,-5,1,-21,2,
         ],"TileDataFormat":1,},"tilesetId":{"name":"Ts_Test","path":"tilesets/Ts_Test/Ts_Test.yy",},"userdefinedDepth":false,"visible":true,"x":0,"y":0,},
