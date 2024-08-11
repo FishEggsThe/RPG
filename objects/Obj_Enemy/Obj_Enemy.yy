@@ -8,8 +8,8 @@
   "name":"Obj_Enemy",
   "overriddenProperties":[],
   "parent":{
-    "name":"Interactables",
-    "path":"folders/Objects/Overworld/Interactables.yy",
+    "name":"Enemies",
+    "path":"folders/Objects/Overworld/Interactables/Enemies.yy",
   },
   "parentObjectId":{
     "name":"Obj_Interactable",

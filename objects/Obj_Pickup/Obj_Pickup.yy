@@ -8,8 +8,8 @@
   "name":"Obj_Pickup",
   "overriddenProperties":[],
   "parent":{
-    "name":"Interactables",
-    "path":"folders/Objects/Overworld/Interactables.yy",
+    "name":"Pickups",
+    "path":"folders/Objects/Overworld/Interactables/Pickups.yy",
   },
   "parentObjectId":{
     "name":"Obj_Interactable",
