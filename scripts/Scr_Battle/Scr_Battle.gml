@@ -6,6 +6,8 @@ function StartBattle(enemy, encounter){
 		enemyList = encounter
 		
 		SetPlayerState()
+		NextCharacter()
+		StartTurn()
 		//curves = array_create(array_length(enemyList), noone)
 		//for(var i = 0; i < array_length(curves); i++) {
 		//	curves[i] = animcurve_get_channel(enemyList[i].animCurve, "yCurve")
@@ -64,11 +66,10 @@ function StartTurn() {
 	for(var i = 0; i < enems; i++) {orderTemp[chars+i] = enemyList[i]}
 	
 	turnOrder = array_create(numOfTurns, noone)
-	for(var i = 0; i <= numOfTurns; i++) {
+	for(var i = 0; i < numOfTurns-1; i++) {
 		var maxSpeed = orderTemp[i].baseSpeed
 		
 		for(var j = i+1; j < numOfTurns; j++) {
-			
 			if orderTemp[j].baseSpeed > maxSpeed {
 				maxSpeed = orderTemp[j].baseSpeed
 				
@@ -77,10 +78,13 @@ function StartTurn() {
 				orderTemp[j] = temp
 				
 			}
-			turnOrder[i] = orderTemp[i]
-			show_debug_message(string(turnOrder[i].baseSpeed) + " - " + turnOrder[i].name)
 		}
+		turnOrder[i] = orderTemp[i]
 	}
+	turnOrder[numOfTurns-1] = orderTemp[numOfTurns-1]
+	
+	for(var i = 0; i < numOfTurns; i++)
+		show_debug_message(string(turnOrder[i].baseSpeed) + " - " + turnOrder[i].name)
 		
 	
 	characterIndex = 0
