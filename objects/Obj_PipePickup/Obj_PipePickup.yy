@@ -1,19 +1,20 @@
 {
   "$GMObject":"",
-  "%Name":"Obj_Player",
+  "%Name":"Obj_PipePickup",
   "eventList":[
     {"$GMEvent":"v1","%Name":"","collisionObjectId":null,"eventNum":0,"eventType":0,"isDnD":false,"name":"","resourceType":"GMEvent","resourceVersion":"2.0",},
-    {"$GMEvent":"v1","%Name":"","collisionObjectId":null,"eventNum":0,"eventType":3,"isDnD":false,"name":"","resourceType":"GMEvent","resourceVersion":"2.0",},
-    {"$GMEvent":"v1","%Name":"","collisionObjectId":null,"eventNum":0,"eventType":8,"isDnD":false,"name":"","resourceType":"GMEvent","resourceVersion":"2.0",},
   ],
   "managed":true,
-  "name":"Obj_Player",
+  "name":"Obj_PipePickup",
   "overriddenProperties":[],
   "parent":{
-    "name":"Overworld",
-    "path":"folders/Objects/Overworld.yy",
+    "name":"Pickups",
+    "path":"folders/Objects/Overworld/Interactables/Pickups.yy",
   },
-  "parentObjectId":null,
+  "parentObjectId":{
+    "name":"Obj_Pickup",
+    "path":"objects/Obj_Pickup/Obj_Pickup.yy",
+  },
   "persistent":false,
   "physicsAngularDamping":0.1,
   "physicsDensity":0.5,
@@ -31,10 +32,7 @@
   "resourceType":"GMObject",
   "resourceVersion":"2.0",
   "solid":false,
-  "spriteId":{
-    "name":"Spr_PersonWalk0",
-    "path":"sprites/Spr_PersonWalk0/Spr_PersonWalk0.yy",
-  },
+  "spriteId":null,
   "spriteMaskId":null,
   "visible":true,
 }

@@ -106,6 +106,7 @@
     {"id":{"name":"Obj_Interactable","path":"objects/Obj_Interactable/Obj_Interactable.yy",},},
     {"id":{"name":"Obj_NPC","path":"objects/Obj_NPC/Obj_NPC.yy",},},
     {"id":{"name":"Obj_Pickup","path":"objects/Obj_Pickup/Obj_Pickup.yy",},},
+    {"id":{"name":"Obj_PipePickup","path":"objects/Obj_PipePickup/Obj_PipePickup.yy",},},
     {"id":{"name":"Obj_Player","path":"objects/Obj_Player/Obj_Player.yy",},},
     {"id":{"name":"Obj_PlayerManager","path":"objects/Obj_PlayerManager/Obj_PlayerManager.yy",},},
     {"id":{"name":"Obj_RoomEntrance","path":"objects/Obj_RoomEntrance/Obj_RoomEntrance.yy",},},

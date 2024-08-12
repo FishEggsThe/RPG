@@ -35,6 +35,11 @@ function Armor(_type, _def, _buy, _sell, _image, _name, _desc) : Item(_buy, _sel
 
 function PickupItem(pickup) {
 	with Obj_PlayerManager {
+		if pickup.item == noone {
+			PrintErrorDebug("Who let you make a pickup with no pickup?")
+			return
+		}
+		
 		if pickup.item.itemType == 0 {
 			for(var i = 0; i < array_length(keyItems); i++){
 				if keyItems[i] == noone {
