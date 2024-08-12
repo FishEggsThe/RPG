@@ -87,6 +87,11 @@ function MovePlayer() {
 		}
 	}
 }
+function EnterRoom(entrance) {
+	var goto = instance_create_depth(0, 0, 0, entrance)
+	SetPlayerState(goto.playerPosition)
+	room_goto(goto.roomIn)
+}
 
 function TileCollision(xDir, yDir) {
 	var xGoto = x+xDir*tile; var yGoto = y+yDir*tile
@@ -146,9 +151,4 @@ function InteractWithOverworld() {
 
 function SetPlayerState(position = [Obj_Player.x, Obj_Player.y, Obj_Player.facing]) {
 	Obj_Control.playerStateSave = [position[0], position[1], position[2]]
-}
-function EnterRoom(entrance) {
-	var goto = instance_create_depth(0, 0, 0, entrance)
-	SetPlayerState(goto.playerPosition)
-	room_goto(goto.roomIn)
 }

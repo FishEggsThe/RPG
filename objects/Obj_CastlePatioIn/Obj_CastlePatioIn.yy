@@ -8,8 +8,8 @@
   "name":"Obj_CastlePatioIn",
   "overriddenProperties":[],
   "parent":{
-    "name":"Debug",
-    "path":"folders/Objects/Backend/RoomEntrances/Debug.yy",
+    "name":"Test Room",
+    "path":"folders/Objects/Backend/RoomEntrances/Test Room.yy",
   },
   "parentObjectId":{
     "name":"Obj_RoomEntrance",
