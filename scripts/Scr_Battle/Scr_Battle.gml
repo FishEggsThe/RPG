@@ -111,7 +111,7 @@ function SupportSpell(_heal, _cure, _boost, _cost, _range, _name, _desc) : Spell
 	boosts = _boost
 }
 
-function Enemy(_health, _sprite, _attacks, _speed, _def, _name, _pos, _curve, _percent = 1/60) constructor {
+function Enemy(_health, _sprite, _attacks, _speed, _def, _exp, _name, _pos, _curve, _percent = 1/60) constructor {
 	name = _name
 	//description = LayerText(30, _desc) //, _desc
 	battleSprite = _sprite
@@ -129,6 +129,7 @@ function Enemy(_health, _sprite, _attacks, _speed, _def, _name, _pos, _curve, _p
 	currHealth = maxHealth
 	baseSpeed = _speed
 	baseDefense = _def
+	expPoints = _exp
 	
 	static DrawEnemy = function() {
 		curvePercent += curvePercentIncrease

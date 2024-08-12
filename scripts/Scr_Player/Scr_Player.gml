@@ -1,6 +1,6 @@
 #macro tile (global.tileSize)
 
-function PlayerStats(_health, _mana, _port, _walk, _equip, _wep, _armor, _spells, _attack, _speed, _def, _magic, _name, _desc) constructor {
+function PlayerStats(_health, _mana, _port, _walk, _equip, _wep, _armor, _spells, _attack, _speed, _def, _magic, _name, _desc, _level=0, _exp=0) constructor {
 	name = _name
 	description = LayerText(30, _desc)
 	portraitSprites = _port
@@ -14,6 +14,9 @@ function PlayerStats(_health, _mana, _port, _walk, _equip, _wep, _armor, _spells
 	weapon = _wep
 	armor = _armor
 	spellList = _spells
+	
+	level = _level
+	experience = _exp
 	
 	maxHealth = _health
 	currHealth = maxHealth
