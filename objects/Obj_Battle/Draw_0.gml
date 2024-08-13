@@ -1,4 +1,4 @@
-if alarm[0] > -1 {
+if room != Rm_Battle {//alarm[0] > -1 {
 	var scale = power(setTransitionTime-alarm[0], 2)/4
 	//var xCenter = camera_get_view_x(view_camera[0])
 	//var yCenter = 0

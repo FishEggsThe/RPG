@@ -28,8 +28,9 @@ if inventoryUp {
 		case 0: // Start
 			if vertInput != 0 {inventoryIndex += vertInput}
 			
-			if inventoryIndex >= array_length(menuOptions) {inventoryIndex-=array_length(menuOptions)}
-			else if inventoryIndex < 0 {inventoryIndex+=array_length(menuOptions)}
+			var numOfMenuOptions = array_length(menuOptions)
+			if inventoryIndex >= numOfMenuOptions {inventoryIndex-=numOfMenuOptions}
+			else if inventoryIndex < 0 {inventoryIndex+=numOfMenuOptions}
 			
 			if acceptInput {inventorySpot = inventoryIndex+1; inventoryIndex = 0}
 			if cancelInput {inventoryUp = false; Obj_Player.canMove = true}
@@ -39,8 +40,8 @@ if inventoryUp {
 			if horiInput != 0 {inventoryIndex += 4*horiInput}
 			if vertInput != 0 {inventoryIndex += vertInput}
 			
-			if inventoryIndex >= array_length(inventory) {inventoryIndex-=array_length(inventory)}
-			else if inventoryIndex < 0 {inventoryIndex+=array_length(inventory)}
+			if inventoryIndex >= inventoryLength {inventoryIndex-=inventoryLength}
+			else if inventoryIndex < 0 {inventoryIndex+=inventoryLength}
 			
 			if acceptInput {
 				selectedItem = inventory[inventoryIndex]
@@ -53,8 +54,9 @@ if inventoryUp {
 			if horiInput != 0 {inventoryIndex += 4*horiInput}
 			if vertInput != 0 {inventoryIndex += vertInput}
 			
-			if inventoryIndex >= array_length(keyItems) {inventoryIndex-=array_length(keyItems)}
-			else if inventoryIndex < 0 {inventoryIndex+=array_length(keyItems)}
+			var numOfKeyItems = array_length(keyItems)
+			if inventoryIndex >= numOfKeyItems {inventoryIndex-=numOfKeyItems}
+			else if inventoryIndex < 0 {inventoryIndex+=numOfKeyItems}
 			
 			if acceptInput {
 				selectedItem = keyItems[inventoryIndex]
@@ -66,8 +68,9 @@ if inventoryUp {
 		case 3: // Characters
 			if horiInput != 0 {inventoryIndex += horiInput}
 			
-			if inventoryIndex >= array_length(characters) {inventoryIndex-=array_length(characters)}
-			else if inventoryIndex < 0 {inventoryIndex+=array_length(characters)}
+			var numOfCharactersSlots = array_length(characters)
+			if inventoryIndex >= numOfCharactersSlots {inventoryIndex-=numOfCharactersSlots}
+			else if inventoryIndex < 0 {inventoryIndex+=numOfCharactersSlots}
 			
 			if acceptInput {selectedCharacter = characters[inventoryIndex]; inventorySpot = 5}
 			
@@ -80,7 +83,7 @@ if inventoryUp {
 			if acceptInput {
 				if (inventoryIndex == 1 || lastSpot = 2 || selectedItem == noone)
 				{inventorySpot = lastSpot; inventoryIndex = lastIndex}
-				else if inventoryIndex == 0 {inventorySpot = finalSpot; inventoryIndex = 0} // Do thingshow_message("Imagine actually doing the thing\n\ncouldn't be me")
+				else if inventoryIndex == 0 {inventorySpot = finalSpot; inventoryIndex = 0}
 			}
 			
 			if cancelInput {inventorySpot = lastSpot; inventoryIndex = lastIndex}
@@ -94,10 +97,9 @@ if inventoryUp {
 		case 6: // Character Spells
 			if vertInput != 0 {inventoryIndex = (inventoryIndex == 1 ? 0 : 1)}
 			
-			if inventoryIndex >= array_length(selectedCharacter.spellList) 
-			{inventoryIndex-=array_length(selectedCharacter.spellList)}
-			else if inventoryIndex < 0 
-			{inventoryIndex+=array_length(selectedCharacter.spellList)}
+			var numOfSpells = array_length(selectedCharacter.spellList)
+			if inventoryIndex >= numOfSpells {inventoryIndex-=numOfSpells}
+			else if inventoryIndex < 0 {inventoryIndex+=numOfSpells}
 			
 			if cancelInput {inventorySpot = 5; inventoryIndex = 0}
 			break
@@ -105,8 +107,9 @@ if inventoryUp {
 		case 7: // Use Selected Item
 			if horiInput != 0 {inventoryIndex += horiInput}
 			
-			if inventoryIndex >= array_length(characters) {inventoryIndex-=array_length(characters)}
-			else if inventoryIndex < 0 {inventoryIndex+=array_length(characters)}
+			numOfCharactersSlots = array_length(characters)
+			if inventoryIndex >= numOfCharactersSlots {inventoryIndex-=numOfCharactersSlots}
+			else if inventoryIndex < 0 {inventoryIndex+=numOfCharactersSlots}
 			
 			if acceptInput {
 				if characters[inventoryIndex] != noone {

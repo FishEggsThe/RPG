@@ -4,6 +4,8 @@ function StartBattle(enemy, encounter){
 		xFade = 32+enemy.x; yFade = 32+enemy.y
 		enemyIDSave = enemy.roomStateID
 		enemyList = encounter
+		for(var i = 0; i < array_length(enemyList); i++)
+			expReward += enemyList[i].expPoints
 		
 		SetPlayerState()
 		NextCharacter()

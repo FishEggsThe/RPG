@@ -5,6 +5,8 @@ else {
 	global.debug = false
 	global.tileSize = 64
 	global.paused = false
+	
+	global.levelRequirements = [0, 10, 30, 60, 100]
 
 	global.roomStates = ds_map_create()
 }

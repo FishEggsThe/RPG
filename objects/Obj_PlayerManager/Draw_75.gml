@@ -22,8 +22,8 @@ if inventoryUp {
 	
 	if room != Rm_Battle {DrawCharactersBoxes()}
 	
-	var inventoryLength = array_length(inventory)
-	var pageSize = 8; var pages = inventoryLength/pageSize
+	//var inventoryLength = array_length(inventory)
+	//var pageSize = 8; var pages = inventoryLength/pageSize
 	
 	draw_set_color(c_black)
 	switch(inventorySpot) {
@@ -146,14 +146,15 @@ if inventoryUp {
 			break
 			
 		case 6: // Character Spells
-			if array_length(selectedCharacter.spellList) <= 0 {
+			var numOfSpells = array_length(selectedCharacter.spellList)
+			if numOfSpells <= 0 {
 				draw_text_transformed(width/2, height/2, "Nothing yet", textSize, textSize, 0)
 			}
 			else {
 				var selectedSpell = selectedCharacter.spellList[inventoryIndex]
 				draw_set_halign(fa_left)
 				draw_set_valign(fa_top)
-				for(var i = 0; i < array_length(selectedCharacter.spellList); i++) {
+				for(var i = 0; i < numOfSpells; i++) {
 					var xPos = boxX1 + 10; var yPos = (i*70)+(boxY1+10)
 					draw_text_transformed(boxX1 + 10, yPos, selectedCharacter.spellList[i].name, textSize, textSize, 0)
 					if i == inventoryIndex {
