@@ -1,7 +1,6 @@
 To-Do List:
 
 - Inventory -
- * Increase size mayhaps
  * Add statuses and items being able to cure them
 
 - Dialogue -
@@ -17,6 +16,7 @@ To-Do List:
  * oh dear god I'm dreading this part
  
 - Finished Stuff -
+ * Increase size mayhaps
  * Fuck I forgot spells okay do that
  * erm, doing it (Dialogue)
  * Move down list when an item is used and gone from the inventory (Inventory)
