@@ -58,4 +58,6 @@ else {
 	keyItems[0] = new Item(0, -4, chives, "The Bible", "The whole thing")
 	//characters[1] = noone
 	//characters[2] = noone
-}
+	
+	//var inventoryLength = array_length(inventory)
+	//var pageSize = 8; var pages = inventoryLength/pageSize

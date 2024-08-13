@@ -66,6 +66,7 @@ if inventoryUp {
 		case 3: // Characters
 			if horiInput != 0 {inventoryIndex += horiInput}
 			
+			if inventoryLength > pageSize
 			if inventoryIndex >= array_length(characters) {inventoryIndex-=array_length(characters)}
 			else if inventoryIndex < 0 {inventoryIndex+=array_length(characters)}
 			
