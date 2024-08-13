@@ -46,10 +46,13 @@ else {
 	characters[2].armor = new Weapon(2, 5, 0.05, 1, 1, chives2, "Green Dino Onesie", "Bought on clearance")
 
 	// Inventory Stuff
-	inventory = array_create(8, noone)
+	inventory = array_create(16, noone)
 	inventory[0] = new Consumable(5, array_create(3, false), array_create(3, false), 2, 1, chives2, "Tuna Sandwich", "Its okay")
 	inventory[1] = new Weapon(0, 5, 0.1, 3, 2, chives2, "Dinky Sword", "If you swing this too hard, it might fall apart")
 	inventory[2] = new Armor(0, 3, 3, 2, chives2, "Dinky Armor", "You can feel the weldings coming undone")
+	
+	inventory[8] = new Consumable(0, [], [], 0, 0, chives2, "Dirt", "Dirt")
+	inventory[9] = new Consumable(0, [], [], 0, 0, chives2, "Dirt", "Dirt")
 
 	keyItems = array_create(8, noone)
 	keyItems[0] = new Item(0, -4, chives, "The Bible", "The whole thing")

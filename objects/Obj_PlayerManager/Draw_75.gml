@@ -22,6 +22,9 @@ if inventoryUp {
 	
 	if room != Rm_Battle {DrawCharactersBoxes()}
 	
+	var inventoryLength = array_length(inventory)
+	var pageSize = 8; var pages = inventoryLength/pageSize
+	
 	draw_set_color(c_black)
 	switch(inventorySpot) {
 		case 0: // Start
@@ -37,13 +40,19 @@ if inventoryUp {
 			break
 			
 		case 1: // Inventory
-			for(var i = 0; i < array_length(inventory); i++) {
+			var pageIncrement = 0
+			while pageIncrement+pageSize <= inventoryIndex {
+				pageIncrement+=pageSize
+			}
+			
+			for(var i = 0; i < pageSize; i++) {
 				var xPos = boxX1+(boxWidth/4)+(floor(i/4))*(boxWidth*1/2)
 				var yPos = boxY1+((i%4)+1)*(boxHeight/5)
+				var trueI = i + pageIncrement
 				
-				var invName = (inventory[i] == noone ? "-" : inventory[i].name)
+				var invName = (inventory[trueI] == noone ? "-" : inventory[trueI].name)
 				draw_text_transformed(xPos, yPos, invName, textSize, textSize, 0)
-				if inventoryIndex == i {
+				if inventoryIndex == trueI {
 					var lineWidthHalf = textSize*string_width(invName)/2
 					var lineFloor = (yPos+(textSize*string_height(invName))/2)
 					draw_line(xPos-lineWidthHalf, lineFloor, xPos+lineWidthHalf, lineFloor)
@@ -72,11 +81,11 @@ if inventoryUp {
 		
 		case 4: // Selected Item
 			if selectedItem == noone {
-				var array = (lastSpot == 1 ? inventory : keyItems)
+				var array = (lastSpot == 1 ? inventory : keyItems); var totalPages = (lastSpot == 1 ? pages : 1)
 				var arraySize = array_length(array); var emptySlots = 0
 				for(var i = 0; i < arraySize; i++) {if array[i] == noone {emptySlots++}}
-				var textScale = ((arraySize+1-emptySlots)/arraySize)*textSize
-				draw_text_transformed(width/2, height/2, emptyPockets[emptySlots], textScale, textScale, 0)
+				var textScale = ((arraySize+1-emptySlots/totalPages)/arraySize)*textSize
+				draw_text_transformed(width/2, height/2, emptyPockets[emptySlots/totalPages], textScale, textScale, 0)
 			}
 			else {
 				draw_text_transformed(width/2, boxY1+boxHeight/8, selectedItem.name, textSize, textSize, 0)
