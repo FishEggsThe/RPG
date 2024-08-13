@@ -62,10 +62,10 @@ if inventoryUp {
 			if inventoryLength > pageSize {
 				var pageIndent = inventoryIndex%pageSize
 				if (inventoryIndex-pageIndent) != 0 
-					draw_sprite_ext(Spr_Arrow, 0, boxX1, boxY2, -1, 1, 0, c_black, 1)
+					draw_sprite_ext(Spr_ArrowRight, 0, boxX1, boxY2, -1, 1, 0, c_black, 1)
 					//draw_arrow(boxX1+20, boxY2-10, boxX1+10, boxY2-10, 10)
 				if (inventoryIndex-pageIndent+pageSize) != inventoryLength 
-					draw_sprite_ext(Spr_Arrow, 0, boxX2, boxY2, 1, 1, 0, c_black, 1)
+					draw_sprite_ext(Spr_ArrowRight, 0, boxX2, boxY2, 1, 1, 0, c_black, 1)
 					//draw_arrow(boxX2-20, boxY2-10, boxX2-10, boxY2-10, 10)
 			}
 			break

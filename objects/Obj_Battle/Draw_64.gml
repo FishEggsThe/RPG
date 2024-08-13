@@ -39,7 +39,7 @@ if room == Rm_Battle {
 					var enemy = enemyList[i]
 					draw_set_color(c_green)
 					var yPosTop = Obj_Camera.window_scale*(enemy.yPos-sprite_get_yoffset(enemy.battleSprite)-50)
-					draw_sprite(chives2, 0, Obj_Camera.window_scale*enemy.xPos, yPosTop)
+					draw_sprite(Spr_ArrowDown, 0, Obj_Camera.window_scale*enemy.xPos, yPosTop)
 				}
 			}
 	}
