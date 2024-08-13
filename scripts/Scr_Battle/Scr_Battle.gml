@@ -29,13 +29,11 @@ function NextCharacter() {
 		// Actually do the thing later
 		characterIndex = 0
 		
-		inventorySave = array_create_ext(4, function() {
-			return array_create(3, noone)
-		})
+		inventorySave = array_create(4, [])
 		StartTurn()
 	}
 	
-	inventorySave[characterIndex][0] = ReplaceArray(Obj_PlayerManager.inventory)
+	inventorySave[characterIndex] = ReplaceArray(Obj_PlayerManager.inventory)
 	
 	// Debugging
 	DebugShowInventorySaves()
@@ -44,13 +42,13 @@ function NextCharacter() {
 function DebugShowInventorySaves() {
 	for(var i = 0; i < array_length(inventorySave); i++) {
 		var names = ""
-		if inventorySave[i][0] == noone
+		if inventorySave[i] == noone
 			names = " -"
 		else {
-			for(var j = 0; j < array_length(inventorySave[i][0]); j++){
+			for(var j = 0; j < array_length(inventorySave[i]); j++){
 				var name = "none"
-				if inventorySave[i][0][j] != noone
-					name = inventorySave[i][0][j].name
+				if inventorySave[i][j] != noone
+					name = inventorySave[i][j].name
 				names+=(name + ", ")
 			}
 		}

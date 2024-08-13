@@ -13,9 +13,7 @@ else {
 	menuSpot = 0
 	battleOptions =  ["Attack", "Spells", "Items", "Nada"]
 	lastMenuIndex = 0
-	inventorySave = array_create_ext(4, function() {
-		return array_create(3, noone)
-	})
+	inventorySave = array_create(4, [])
 
 	enemyList = []
 	turnOrder = []

@@ -61,3 +61,6 @@ else {
 	
 	//var inventoryLength = array_length(inventory)
 	//var pageSize = 8; var pages = inventoryLength/pageSize
+	
+	//for(var i = 0; i < NumOfCharacters(); i++){show_debug_message(characters[i].index)}
+}

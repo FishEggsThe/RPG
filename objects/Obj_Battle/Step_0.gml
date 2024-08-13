@@ -44,10 +44,9 @@ if characterIndex >= NumOfCharacters() {
 				if cancelInput {
 					if characterIndex <= 0 {show_message("bruh")}
 					else {
-						for(var i = 0; i < array_length(inventorySave[characterIndex]); i++)
-							inventorySave[characterIndex][i] = noone
+						inventorySave[characterIndex] = noone
 						characterIndex--
-						pm.inventory = ReplaceArray(inventorySave[characterIndex][0])
+						pm.inventory = ReplaceArray(inventorySave[characterIndex])
 					}
 					DebugShowInventorySaves()
 				}
