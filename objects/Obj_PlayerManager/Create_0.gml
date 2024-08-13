@@ -29,9 +29,10 @@ else {
 	// Playable Characters
 	characters = array_create(4, noone)
 	var walkSprites = [Spr_PersonWalk0, Spr_PersonWalk1, Spr_PersonWalk2, Spr_PersonWalk3]
+	var knightSprites = [Spr_Knight0, Spr_Knight1, Spr_Knight2, Spr_Knight3]
 	var spells = [new OffenseSpell(15, [], 5, 1, "Skull Bash", "Do big damage"),
 				  new OffenseSpell(35, [], 8, 1, "Skull Bash II", "Do BIGGER damage")]
-	characters[0] = new PlayerStats(25, 15, chives2, walkSprites, 0, noone, noone, spells, 5, 4, 5, 5, 
+	characters[0] = new PlayerStats(25, 15, chives2, knightSprites, 0, noone, noone, spells, 5, 4, 5, 5, 
 									"You", "I have literally never met you before in my life")
 	characters[1] = new PlayerStats(15, 25, chives2, walkSprites, 1, noone, noone, [], 5, 5, 5, 5, 
 									"Slime", "Tired of working the grueling 9-5, this slime is looking for a more meaningful purpose")
