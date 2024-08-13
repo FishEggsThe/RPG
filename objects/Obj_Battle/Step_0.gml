@@ -21,7 +21,8 @@ if characterIndex >= NumOfCharacters() {
 					lastMenuIndex = menuIndex
 					switch(menuIndex) {
 						case 0:
-							menuIndex = 0; menuSpot = 3 //NextCharacter()
+							menuIndex = 0; menuSpot = 3
+							willAttack = true
 							break
 						case 1:
 							menuSpot = 1
@@ -78,7 +79,8 @@ if characterIndex >= NumOfCharacters() {
 					NextCharacter()
 				}
 				if cancelInput {menuSpot = 0; menuIndex = lastMenuIndex
-								Obj_PlayerManager.inventoryUp = false}
+								Obj_PlayerManager.inventoryUp = false
+								willAttack = false}
 				break
 		}
 	}

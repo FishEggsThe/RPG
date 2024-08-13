@@ -14,9 +14,12 @@ else {
 	battleOptions =  ["Attack", "Spells", "Items", "Nada"]
 	lastMenuIndex = 0
 	inventorySave = array_create(4, [])
+	willAttack = false
 
 	enemyList = []
 	turnOrder = []
+	
+	// [index, character, "action", [array of things for action]]
 	actionOrder = []
 	turnIndex = 0
 
