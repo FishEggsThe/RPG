@@ -31,11 +31,13 @@ function NextCharacter() {
 		// Actually do the thing later
 		characterIndex = 0
 		
-		inventorySave = array_create(4, [])
+		inventorySave = array_create(4, noone)
+		for(var i = 0; i < 4; i++) {inventorySave[i] = [noone, noone, noone]}
 		StartTurn()
 	}
 	
-	inventorySave[characterIndex] = ReplaceArray(Obj_PlayerManager.inventory)
+	inventorySave[characterIndex][0] = ReplaceArray(Obj_PlayerManager.inventory)
+	//show_message(inventorySave[characterIndex][0])
 	
 	// Debugging
 	DebugShowInventorySaves()
@@ -44,19 +46,19 @@ function NextCharacter() {
 function DebugShowInventorySaves() {
 	for(var i = 0; i < array_length(inventorySave); i++) {
 		var names = ""
-		if inventorySave[i] == noone
+		if inventorySave[i][0] == noone
 			names = " -"
 		else {
-			for(var j = 0; j < array_length(inventorySave[i]); j++){
+			for(var j = 0; j < array_length(inventorySave[i][0]); j++){
 				var name = "none"
-				if inventorySave[i][j] != noone
-					name = inventorySave[i][j].name
+				if inventorySave[i][0][j] != noone
+					name = inventorySave[i][0][j].name
 				names+=(name + ", ")
 			}
 		}
 		show_debug_message(string(i) + ": " + names)
 	}
-	show_debug_message("")	
+	show_debug_message("")
 }
 
 function StartTurn() {
@@ -85,7 +87,7 @@ function StartTurn() {
 		show_debug_message(string(turnOrder[i].baseSpeed) + " - " + turnOrder[i].name)
 		
 	
-	characterIndex = 0
+	characterIndex = 0 // change so that next character is in here after fixing inventory save thing
 }
 
 function Spell(_cost, _range, _name, _desc) constructor{

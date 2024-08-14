@@ -98,10 +98,8 @@ function InventoryFigureItem(item, character, index = lastIndex) {
 	if room == Rm_Battle {
 		inventoryUp = false; var battle = Obj_Battle
 		
-		//battle.inventorySave[battle.characterIndex][0] = invSave
-		//battle.inventorySave[battle.characterIndex][1] = item
-		//battle.inventorySave[battle.characterIndex][2] = character
-		//battle.thing[2] = [item, character]
+		battle.inventorySave[battle.characterIndex][1] = "item"
+		battle.inventorySave[battle.characterIndex][2] = [item, character, lastIndex]
 		
 		with Obj_Battle {NextCharacter()}
 		

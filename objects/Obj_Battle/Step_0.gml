@@ -45,9 +45,9 @@ if characterIndex >= NumOfCharacters() {
 				if cancelInput {
 					if characterIndex <= 0 {show_message("bruh")}
 					else {
-						inventorySave[characterIndex] = noone
+						inventorySave[characterIndex][0] = noone
 						characterIndex--
-						pm.inventory = ReplaceArray(inventorySave[characterIndex])
+						pm.inventory = ReplaceArray(inventorySave[characterIndex][0])
 					}
 					DebugShowInventorySaves()
 				}
