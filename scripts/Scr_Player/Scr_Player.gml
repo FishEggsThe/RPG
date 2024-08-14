@@ -62,10 +62,12 @@ function MovePlayer() {
 						for(var j = 0; j < 3; j++) {
 							partyGoto[i][j] = partyGoto[i-1][j]
 						}
+						show_debug_message(partyGoto[i][2])
 					}
 					partyGoto[0][0] = x
 					partyGoto[0][1] = y
 					partyGoto[0][2] = lastFacing
+					show_debug_message(partyGoto[0][2])
 					
 				}
 			}

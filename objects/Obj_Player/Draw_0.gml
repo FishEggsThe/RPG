@@ -1,7 +1,7 @@
 var sprFrame = (moveTime > 0 ? floor((moveTimeSet - moveTime)/(moveTimeSet/2)) : 1)
 
 for(var i = partySize-1; i >= 0; i--) {
-	draw_sprite(partySprites[i][partyPos[i][2]], sprFrame, 
+	draw_sprite(partySprites[i][partyGoto[i][2]], sprFrame, 
 				partyPos[i][0], partyPos[i][1])
 }
 draw_sprite(leaderSprites[facing], sprFrame, x, y)
