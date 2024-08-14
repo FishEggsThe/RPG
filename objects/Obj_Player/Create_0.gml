@@ -15,12 +15,10 @@ facing = 3
 
 partySize = NumOfCharacters()-1
 partySprites = array_create(partySize, [])
-for(var i = 0; i < partySize; i++)
-{partySprites[i] = Obj_PlayerManager.characters[i+1].walkSprites}
-
 partyGoto = array_create(partySize, [])
 partyPos = array_create(partySize, [])
 for(var i = 0; i < partySize; i++) {
+	partySprites[i] = Obj_PlayerManager.characters[i+1].walkSprites
 	partyGoto[i] = [x, y, facing]
 	partyPos[i] = [x, y, facing]
 }
@@ -31,5 +29,12 @@ if Obj_Control.playerStateSave != noone {
 	x = c.playerStateSave[0]
 	y = c.playerStateSave[1]
 	facing = c.playerStateSave[2]
+	
+	for(var i = 0; i < partySize; i++) {
+		partySprites[i] = Obj_PlayerManager.characters[i+1].walkSprites
+		partyGoto[i] = [x, y, facing]
+		partyPos[i] = [x, y, facing]
+	}
+	
 	c.playerStateSave = noone
 }

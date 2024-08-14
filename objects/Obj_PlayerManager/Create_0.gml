@@ -1,5 +1,4 @@
 if instance_number(Obj_PlayerManager) > 1 {instance_destroy()}
-//show_message("Manager")
 else {
 	depth = -10
 	width = display_get_gui_width(); height = display_get_gui_height()

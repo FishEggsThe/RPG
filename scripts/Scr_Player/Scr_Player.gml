@@ -75,10 +75,24 @@ function MovePlayer() {
 			
 			x += moveSpeed*xMove
 			y += moveSpeed*yMove
-			moveTime--
+			for(var i = 0; i < partySize; i++) {
+				if point_distance(partyPos[i][0], partyPos[i][1], partyGoto[i][0], partyGoto[i][1]) > 0 {
+					var dir = degtorad(point_direction(partyPos[i][0], partyPos[i][1],
+													   partyGoto[i][0], partyGoto[i][1]))
+					partyPos[i][0] += moveSpeed*cos(dir)
+					partyPos[i][1] -= moveSpeed*sin(dir)
+				}
+			}
 			
+			moveTime--
 			if moveTime <= 0 {
 				x = round(x); y = round(y)
+			for(var i = 0; i < partySize; i++) {
+				partyPos[i][0] = round(partyPos[i][0])
+				partyPos[i][1] = round(partyPos[i][1])
+			}
+				
+				
 				if instance_exists(Obj_Enemy) {
 					var enemyNear = instance_nearest(x, y, Obj_Enemy)
 					var enemyDistance = point_distance(x, y, enemyNear.x, enemyNear.y)
@@ -105,6 +119,10 @@ function MovePlayer() {
 function EnterRoom(entrance) {
 	var goto = instance_create_depth(0, 0, 0, entrance)
 	SetPlayerState(goto.playerPosition)
+	for(var i = 0; i < partySize; i++) {
+		partyGoto[i] = [x, y, facing]
+		partyPos[i] = [x, y, facing]
+	}
 	room_goto(goto.roomIn)
 }
 
