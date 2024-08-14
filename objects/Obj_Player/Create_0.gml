@@ -11,10 +11,17 @@ moveTimeSet = 20
 drawXFace = 0; drawYFace = 0
 
 canMove = true
-facing = 0
+facing = 3
 
-partyPos = [[0,0], [0,0], [0,0]]
-partyGoto = partyPos
+partySize = NumOfCharacters()-1
+partySprites = array_create(partySize, [])
+for(var i = 0; i < partySize; i++)
+{partySprites[i] = Obj_PlayerManager.characters[i+1].walkSprites}
+
+partyGoto = array_create(partySize, [])
+for(var i = 0; i < partySize; i++) {partyGoto[i] = [x, y, facing]}
+partyPos = ReplaceArray(partyGoto)
+
 
 if Obj_Control.playerStateSave != noone {
 	var c = Obj_Control

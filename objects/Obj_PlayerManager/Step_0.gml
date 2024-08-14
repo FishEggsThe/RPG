@@ -113,8 +113,6 @@ if inventoryUp {
 			
 			if acceptInput {
 				if characters[inventoryIndex] != noone {
-					//if room == Rm_Battle {Obj_Battle.inventorySave[characterIndex][0] = inventory}
-					//else {UseItem(selectedItem, characters[inventoryIndex])}
 					InventoryFigureItem(selectedItem, characters[inventoryIndex])
 				}
 			}
