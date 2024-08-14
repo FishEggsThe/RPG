@@ -62,12 +62,10 @@ function MovePlayer() {
 						for(var j = 0; j < 3; j++) {
 							partyGoto[i][j] = partyGoto[i-1][j]
 						}
-						show_debug_message(partyGoto[i][2])
 					}
 					partyGoto[0][0] = x
 					partyGoto[0][1] = y
 					partyGoto[0][2] = lastFacing
-					show_debug_message(partyGoto[0][2])
 					
 				}
 			}
@@ -121,10 +119,10 @@ function MovePlayer() {
 function EnterRoom(entrance) {
 	var goto = instance_create_depth(0, 0, 0, entrance)
 	SetPlayerState(goto.playerPosition)
-	for(var i = 0; i < partySize; i++) {
-		partyGoto[i] = [x, y, facing]
-		partyPos[i] = [x, y, facing]
-	}
+	//for(var i = 0; i < partySize; i++) {
+	//	partyGoto[i] = [x, y, facing]
+	//	partyPos[i] = [x, y, facing]
+	//}
 	room_goto(goto.roomIn)
 }
 
@@ -185,5 +183,23 @@ function InteractWithOverworld() {
 }
 
 function SetPlayerState(position = [Obj_Player.x, Obj_Player.y, Obj_Player.facing]) {
-	Obj_Control.playerStateSave = [position[0], position[1], position[2]]
+	var c = Obj_Control; var p = Obj_Player
+	c.playerStateSave = [position[0], position[1], position[2]]
+	//for(var i = 0; i < p.partySize; i++) {
+	//	c.playerStateSave = [position[0], position[1], position[2]]
+	//	c.partyStateSave = p.partyGoto
+	//}
+	
+	c.partyStateSave = array_create_ext(p.partySize, function(){return array_create(3, 0)})
+	for(var i = 0; i < p.partySize; i++) {
+		//for(var j = 0; j < 3; j++)
+		c.partyStateSave[i][0] = p.partyGoto[i][0] - position[0]
+		c.partyStateSave[i][1] = p.partyGoto[i][1] - position[1]
+		//c.partyStateSave[i][0] = position[0] - p.partyGoto[i][0]
+		//c.partyStateSave[i][1] = position[1] - p.partyGoto[i][1]
+		c.partyStateSave[i][2] = p.partyGoto[i][2]
+	}
+	show_debug_message(c.playerStateSave)
+	show_debug_message(c.partyStateSave)
+	
 }

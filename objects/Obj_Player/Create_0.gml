@@ -31,10 +31,15 @@ if Obj_Control.playerStateSave != noone {
 	facing = c.playerStateSave[2]
 	
 	for(var i = 0; i < partySize; i++) {
-		partySprites[i] = Obj_PlayerManager.characters[i+1].walkSprites
-		partyGoto[i] = [x, y, facing]
-		partyPos[i] = [x, y, facing]
+		partyGoto[i][0] = c.partyStateSave[i][0] + x
+		partyGoto[i][1] = c.partyStateSave[i][1] + y
+		partyGoto[i][2] = c.partyStateSave[i][2]
+		for(var j = 0; j < 3; j++) {
+			partyPos[i][j] = partyGoto[i][j]
+		}
 	}
+	show_debug_message(c.playerStateSave)
+	show_debug_message(c.partyStateSave)
 	
 	c.playerStateSave = noone
 }
