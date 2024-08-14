@@ -195,11 +195,7 @@ function SetPlayerState(position = [Obj_Player.x, Obj_Player.y, Obj_Player.facin
 		//for(var j = 0; j < 3; j++)
 		c.partyStateSave[i][0] = p.partyGoto[i][0] - p.x
 		c.partyStateSave[i][1] = p.partyGoto[i][1] - p.y
-		//c.partyStateSave[i][0] = position[0] - p.partyGoto[i][0]
-		//c.partyStateSave[i][1] = position[1] - p.partyGoto[i][1]
 		c.partyStateSave[i][2] = p.partyGoto[i][2]
 	}
-	show_debug_message(c.playerStateSave)
-	show_debug_message(c.partyStateSave)
 	
 }

@@ -38,8 +38,6 @@ if Obj_Control.playerStateSave != noone {
 			partyPos[i][j] = partyGoto[i][j]
 		}
 	}
-	show_debug_message(c.playerStateSave)
-	show_debug_message(c.partyStateSave)
 	
 	c.playerStateSave = noone
 }
