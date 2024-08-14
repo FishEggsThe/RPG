@@ -99,15 +99,14 @@ function StartAction() {
 
 function NextAction() {
 	turnIndex++
-	if turnIndex > array_length(turnOrder) {
-	
+	if turnIndex >= array_length(turnOrder) {
+		EndAction()
 	} else {
-		var turn = turnOrder[turnIndex]
-		switch(turn[1]) {
+		switch(turnOrder[turnIndex][1]) {
 			case "player":
 				PlayerAction()
 				break
-			case "enemy"
+			case "enemy":
 				EnemyAction()
 				break
 		}
@@ -115,18 +114,36 @@ function NextAction() {
 }
 
 function PlayerAction() {
-
+	var player = turnOrder[turnIndex][0]
+	var action = inventorySave[player.index][1]
+	switch(action) {
+		case "attack":
+			show_message("attack")
+			break
+		case "spell":
+			show_message("spell")
+			break
+		case "item":
+			show_message("item")
+			break
+		case "nada":
+			show_message("nada")
+			break
+	}
 }
 
 function EnemyAction() {
+	var enemy = turnOrder[turnIndex][0]
+	var attackIndex = irandom(array_length(enemy.attackList) - 1)
+	show_message(enemy.attackList[attackIndex])
 
 }
-#endregion
 
 function EndAction() {
 	actionTime = false
 	StartTurn()
 }
+#endregion
 
 #region // Debug Stuff
 function DebugShowInventorySaves() {
