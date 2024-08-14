@@ -8,7 +8,7 @@ var pm = Obj_PlayerManager
 
 if room == Rm_Battle && !Obj_Dialogue.onDialogue {
 	if actionTime {
-		
+		NextAction()
 	} else {
 		switch(menuSpot) {
 			case 0: // Start

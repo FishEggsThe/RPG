@@ -99,9 +99,34 @@ function StartAction() {
 
 function NextAction() {
 	turnIndex++
-	var l = turnOrder[turnIndex]
+	if turnIndex > array_length(turnOrder) {
+	
+	} else {
+		var turn = turnOrder[turnIndex]
+		switch(turn[1]) {
+			case "player":
+				PlayerAction()
+				break
+			case "enemy"
+				EnemyAction()
+				break
+		}
+	}
+}
+
+function PlayerAction() {
+
+}
+
+function EnemyAction() {
+
 }
 #endregion
+
+function EndAction() {
+	actionTime = false
+	StartTurn()
+}
 
 #region // Debug Stuff
 function DebugShowInventorySaves() {
