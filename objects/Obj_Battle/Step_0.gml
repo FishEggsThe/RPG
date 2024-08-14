@@ -43,13 +43,7 @@ if characterIndex >= NumOfCharacters() {
 					}
 				}
 				if cancelInput {
-					if characterIndex <= 0 {show_message("bruh")}
-					else {
-						inventorySave[characterIndex][0] = noone
-						characterIndex--
-						pm.inventory = ReplaceArray(inventorySave[characterIndex][0])
-					}
-					DebugShowInventorySaves()
+					LastCharacter()
 				}
 				break
 			case 1: // Spell Menu

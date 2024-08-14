@@ -43,17 +43,38 @@ function NextCharacter() {
 	DebugShowInventorySaves()
 }
 
+function LastCharacter() {
+	if characterIndex <= 0 {show_message("bruh")}
+	else {
+		inventorySave[characterIndex][0] = []
+		characterIndex--
+		inventorySave[characterIndex][1] = ""
+		inventorySave[characterIndex][2] = []
+		Obj_PlayerManager.inventory = ReplaceArray(inventorySave[characterIndex][0])
+	}
+	DebugShowInventorySaves()
+}
+
 function DebugShowInventorySaves() {
 	for(var i = 0; i < array_length(inventorySave); i++) {
-		var names = ""
-		for(var j = 0; j < array_length(inventorySave[i][0]); j++){
-			var name = "none"
-			if inventorySave[i][0][j] != noone
-				name = inventorySave[i][0][j].name
-			names+=(name + ", ")
+		//var names = ""
+		//for(var j = 0; j < array_length(inventorySave[i][0]); j++){
+		//	var name = "none"
+		//	if inventorySave[i][0][j] != noone
+		//		name = inventorySave[i][0][j].name
+		//	names+=(name + ", ")
+			
+		//}
+		//if names == "" {names = " -"}
+		//show_debug_message(string(i) + ": " + names)
+		
+		var action = ""
+		if inventorySave[i][1] != "" {
+			action = string(inventorySave[i][1]) + " "
+			if inventorySave[i][1] == "item"
+				action += string(inventorySave[i][2][0].name) + " " + string(inventorySave[i][2][1].name)
 		}
-		if names == "" {names = " -"}
-		show_debug_message(string(i) + ": " + names)
+		show_debug_message(string(i) + ": " + action)
 	}
 	show_debug_message("")
 }
@@ -84,7 +105,7 @@ function StartTurn() {
 		show_debug_message(string(turnOrder[i].baseSpeed) + " - " + turnOrder[i].name)
 		
 	
-	characterIndex = 0 // change so that next character is in here after fixing inventory save thing
+	characterIndex = 0
 }
 
 function Spell(_cost, _range, _name, _desc) constructor{
