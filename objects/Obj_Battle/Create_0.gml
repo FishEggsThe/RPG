@@ -15,9 +15,7 @@ else {
 	lastMenuIndex = 0
 	//inventorySave = array_create_ext(4, function(){array_create(3, noone)})
 	inventorySave = array_create(4, noone)
-	for(var i = 0; i < 4; i++) {
-		inventorySave[i] = [noone, noone, noone]
-	}
+	for(var i = 0; i < 4; i++) {inventorySave[i] = [[], "", []]}
 	willAttack = false
 
 	enemyList = []

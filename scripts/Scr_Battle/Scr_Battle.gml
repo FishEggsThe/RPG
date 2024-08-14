@@ -32,7 +32,7 @@ function NextCharacter() {
 		characterIndex = 0
 		
 		inventorySave = array_create(4, noone)
-		for(var i = 0; i < 4; i++) {inventorySave[i] = [noone, noone, noone]}
+		for(var i = 0; i < 4; i++) {inventorySave[i] = [[], "", []]}
 		StartTurn()
 	}
 	
@@ -46,16 +46,13 @@ function NextCharacter() {
 function DebugShowInventorySaves() {
 	for(var i = 0; i < array_length(inventorySave); i++) {
 		var names = ""
-		if inventorySave[i][0] == noone
-			names = " -"
-		else {
-			for(var j = 0; j < array_length(inventorySave[i][0]); j++){
-				var name = "none"
-				if inventorySave[i][0][j] != noone
-					name = inventorySave[i][0][j].name
-				names+=(name + ", ")
-			}
+		for(var j = 0; j < array_length(inventorySave[i][0]); j++){
+			var name = "none"
+			if inventorySave[i][0][j] != noone
+				name = inventorySave[i][0][j].name
+			names+=(name + ", ")
 		}
+		if names == "" {names = " -"}
 		show_debug_message(string(i) + ": " + names)
 	}
 	show_debug_message("")
