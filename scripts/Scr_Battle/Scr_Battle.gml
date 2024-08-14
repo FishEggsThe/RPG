@@ -8,7 +8,6 @@ function StartBattle(enemy, encounter){
 			expReward += enemyList[i].expPoints
 		
 		SetPlayerState()
-		NextCharacter()
 		StartTurn()
 		//curves = array_create(array_length(enemyList), noone)
 		//for(var i = 0; i < array_length(curves); i++) {
@@ -17,66 +16,20 @@ function StartBattle(enemy, encounter){
 	}
 }
 
-function EndBattle(roomIndex){
-	RemoveFromRoomState(enemyIDSave, roomIndex)
-	enemyIDSave = -1
-	BeginDialogue("Good jon bruv")
-	room_goto(roomIndex)
-}
-
 function NextCharacter() {
 	menuSpot = 0
 	characterIndex++
 	if characterIndex >= NumOfCharacters() {
 		// Actually do the thing later
-		characterIndex = 0
+		actionTime = true
 		
-		inventorySave = array_create(4, noone)
-		for(var i = 0; i < 4; i++) {inventorySave[i] = [[], "", []]}
-		StartTurn()
+		//StartTurn()
 	}
 	
 	inventorySave[characterIndex][0] = ReplaceArray(Obj_PlayerManager.inventory)
-	//show_message(inventorySave[characterIndex][0])
 	
 	// Debugging
 	DebugShowInventorySaves()
-}
-
-function LastCharacter() {
-	if characterIndex <= 0 {show_message("bruh")}
-	else {
-		inventorySave[characterIndex][0] = []
-		characterIndex--
-		inventorySave[characterIndex][1] = ""
-		inventorySave[characterIndex][2] = []
-		Obj_PlayerManager.inventory = ReplaceArray(inventorySave[characterIndex][0])
-	}
-	DebugShowInventorySaves()
-}
-
-function DebugShowInventorySaves() {
-	for(var i = 0; i < array_length(inventorySave); i++) {
-		//var names = ""
-		//for(var j = 0; j < array_length(inventorySave[i][0]); j++){
-		//	var name = "none"
-		//	if inventorySave[i][0][j] != noone
-		//		name = inventorySave[i][0][j].name
-		//	names+=(name + ", ")
-			
-		//}
-		//if names == "" {names = " -"}
-		//show_debug_message(string(i) + ": " + names)
-		
-		var action = ""
-		if inventorySave[i][1] != "" {
-			action = string(inventorySave[i][1]) + " "
-			if inventorySave[i][1] == "item"
-				action += string(inventorySave[i][2][0].name) + " " + string(inventorySave[i][2][1].name)
-		}
-		show_debug_message(string(i) + ": " + action)
-	}
-	show_debug_message("")
 }
 
 function StartTurn() {
@@ -103,9 +56,56 @@ function StartTurn() {
 	
 	for(var i = 0; i < numOfTurns; i++)
 		show_debug_message(string(turnOrder[i].baseSpeed) + " - " + turnOrder[i].name)
-		
 	
-	characterIndex = 0
+	actionTime = false
+	characterIndex = -1
+	inventorySave = array_create(4, noone)
+	for(var i = 0; i < 4; i++) {inventorySave[i] = [[], "", []]}
+	
+	NextCharacter()
+}
+
+function LastCharacter() {
+	if characterIndex <= 0 {show_message("bruh")}
+	else {
+		inventorySave[characterIndex][0] = []
+		characterIndex--
+		inventorySave[characterIndex][1] = ""
+		inventorySave[characterIndex][2] = []
+		Obj_PlayerManager.inventory = ReplaceArray(inventorySave[characterIndex][0])
+	}
+	DebugShowInventorySaves()
+}
+
+function EndBattle(roomIndex){
+	RemoveFromRoomState(enemyIDSave, roomIndex)
+	enemyIDSave = -1
+	BeginDialogue("Good jon bruv")
+	room_goto(roomIndex)
+}
+
+function DebugShowInventorySaves() {
+	for(var i = 0; i < array_length(inventorySave); i++) {
+		var names = ""
+		for(var j = 0; j < array_length(inventorySave[i][0]); j++){
+			var name = "none"
+			if inventorySave[i][0][j] != noone
+				name = inventorySave[i][0][j].name
+			names+=(name + ", ")
+			
+		}
+		if names == "" {names = " -"}
+		show_debug_message(string(i) + ": " + names)
+		
+		//var action = ""
+		//if inventorySave[i][1] != "" {
+		//	action = string(inventorySave[i][1]) + " "
+		//	if inventorySave[i][1] == "item"
+		//		action += string(inventorySave[i][2][0].name) + " " + string(inventorySave[i][2][1].name)
+		//}
+		//show_debug_message(string(i) + ": " + action)
+	}
+	show_debug_message("")
 }
 
 function Spell(_cost, _range, _name, _desc) constructor{

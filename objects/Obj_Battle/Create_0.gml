@@ -18,11 +18,9 @@ else {
 	for(var i = 0; i < 4; i++) {inventorySave[i] = [[], "", []]}
 	willAttack = false
 
+	actionTime = false
 	enemyList = []
 	turnOrder = []
-	
-	// [index, character, "action", [array of things for action]]
-	actionOrder = []
 	turnIndex = 0
 	
 	expReward = 0

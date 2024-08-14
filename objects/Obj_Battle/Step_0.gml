@@ -6,10 +6,10 @@ var vertInput = input_check_pressed("down") - input_check_pressed("up")
 
 var pm = Obj_PlayerManager
 
-if characterIndex >= NumOfCharacters() {
-	
-} else {
-	if room == Rm_Battle && !Obj_Dialogue.onDialogue {
+if room == Rm_Battle && !Obj_Dialogue.onDialogue {
+	if actionTime {
+		
+	} else {
 		switch(menuSpot) {
 			case 0: // Start
 				if horiInput != 0 {menuIndex += horiInput}
