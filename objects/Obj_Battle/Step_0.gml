@@ -20,24 +20,26 @@ if characterIndex >= NumOfCharacters() {
 				if acceptInput {
 					lastMenuIndex = menuIndex
 					switch(menuIndex) {
-						case 0:
+						case 0: // Attack
 							menuIndex = 0; menuSpot = 3
 							willAttack = true
 							break
-						case 1:
+						case 1: // Spells
 							menuSpot = 1
 							pm.selectedCharacter = pm.characters[characterIndex]
 							pm.inventoryUp = true
 							pm.inventoryIndex = characterIndex
 							pm.inventorySpot = 5 // Don't worry it works out
 							break
-						case 2:
+						case 2: // Items
 							menuSpot = 2
 							pm.inventoryUp = true
 							pm.inventoryIndex = 0
 							pm.inventorySpot = 0
 							break
-						case 3:
+						case 3: // Nothing
+							inventorySave[characterIndex][1] = "nada"
+							inventorySave[characterIndex][2] = []
 							NextCharacter()
 							break
 					}
@@ -69,7 +71,17 @@ if characterIndex >= NumOfCharacters() {
 			
 				if acceptInput {
 					//show_message(enemyList[menuIndex])
+					//inventorySave[characterIndex][1] = (willAttack ? "attack" : "spell")
+					//inventorySave[characterIndex][2] = ["player", menuIndex]
+					if willAttack {
+						inventorySave[characterIndex][1] = "attack"
+						inventorySave[characterIndex][2] = ["player", menuIndex]
+					} else {
+						inventorySave[characterIndex][1] = "spell"
+						inventorySave[characterIndex][2] = ["player", menuIndex]
+					}
 					menuIndex = 0
+					willAttack = false
 					NextCharacter()
 				}
 				if cancelInput {menuSpot = 0; menuIndex = lastMenuIndex
