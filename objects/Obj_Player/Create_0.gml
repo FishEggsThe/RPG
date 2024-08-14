@@ -19,8 +19,11 @@ for(var i = 0; i < partySize; i++)
 {partySprites[i] = Obj_PlayerManager.characters[i+1].walkSprites}
 
 partyGoto = array_create(partySize, [])
-for(var i = 0; i < partySize; i++) {partyGoto[i] = [x, y, facing]}
-partyPos = ReplaceArray(partyGoto)
+partyPos = array_create(partySize, [])
+for(var i = 0; i < partySize; i++) {
+	partyGoto[i] = [x, y, facing]
+	partyPos[i] = [x, y, facing]
+}
 
 
 if Obj_Control.playerStateSave != noone {

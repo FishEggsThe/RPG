@@ -58,27 +58,14 @@ function MovePlayer() {
 				} else {
 					moveTime = moveTimeSet
 					
-					//var print = string(x) + ", " + string(y) + ", " + string(partyGoto)
-					//show_debug_message(print)
 					for(var i = partySize-1; i > 0; i--) {
-						show_debug_message(i)
-						show_debug_message(partyGoto[i])
-						partyGoto[i][0] = partyGoto[i-1][0]
-						partyGoto[i][1] = partyGoto[i-1][1]
-						partyGoto[i][2] = partyGoto[i-1][2]
-						show_debug_message(partyGoto[i])
+						for(var j = 0; j < 3; j++) {
+							partyGoto[i][j] = partyGoto[i-1][j]
+						}
 					}
-					show_debug_message(0)
-					show_debug_message(partyGoto[0])
 					partyGoto[0][0] = x
 					partyGoto[0][1] = y
 					partyGoto[0][2] = lastFacing
-					show_debug_message(partyGoto[0])
-					show_debug_message("")
-					show_debug_message(partyGoto)
-					show_debug_message("")
-					//print = string(x) + ", " + string(y) + ", " + string(partyGoto)
-					//show_debug_message(print)
 					
 				}
 			}
