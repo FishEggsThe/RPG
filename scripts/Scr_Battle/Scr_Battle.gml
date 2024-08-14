@@ -25,7 +25,41 @@ function EndBattle(roomIndex){
 }
 #endregion
 
-#region // Deciding Character Actions
+#region // Decision Phase
+function StartTurn() {
+	var chars = NumOfCharacters(); var enems = array_length(enemyList)
+	var numOfTurns = chars + enems; var orderTemp = array_create(numOfTurns, noone)
+	
+	for(var i = 0; i < chars; i++) {orderTemp[i] = [Obj_PlayerManager.characters[i], "player"]}
+	for(var i = 0; i < enems; i++) {orderTemp[chars+i] = [enemyList[i], "enemy"]}
+	
+	turnOrder = array_create(numOfTurns, noone)
+	for(var i = 0; i < numOfTurns; i++) {
+		var maxSpeed = orderTemp[0][0].baseSpeed; var maxSpeedI = 0
+		
+		for(var j = 0; j < numOfTurns-i; j++) {
+			if orderTemp[j][0].baseSpeed > maxSpeed {
+				maxSpeed = orderTemp[j][0].baseSpeed
+				maxSpeedI = j
+				
+			}
+		}
+		turnOrder[i] = orderTemp[maxSpeedI]
+		array_delete(orderTemp, maxSpeedI, 1)
+	}
+	
+	for(var i = 0; i < numOfTurns; i++) {
+		show_debug_message(string(turnOrder[i][0].baseSpeed) + " - " + turnOrder[i][0].name + " " + turnOrder[i][1])
+	}
+	
+	actionTime = false
+	characterIndex = -1
+	inventorySave = array_create(4, noone)
+	for(var i = 0; i < 4; i++) {inventorySave[i] = [[], "", []]}
+	
+	NextCharacter()
+}
+
 function NextCharacter() {
 	menuSpot = 0
 	characterIndex++
@@ -41,39 +75,6 @@ function NextCharacter() {
 	
 	// Debugging
 	DebugShowInventorySaves()
-}
-
-function StartTurn() {
-	var chars = NumOfCharacters(); var enems = array_length(enemyList)
-	var numOfTurns = chars + enems; var orderTemp = array_create(numOfTurns, noone)
-	
-	for(var i = 0; i < chars; i++) {orderTemp[i] = Obj_PlayerManager.characters[i]}
-	for(var i = 0; i < enems; i++) {orderTemp[chars+i] = enemyList[i]}
-	
-	turnOrder = array_create(numOfTurns, noone)
-	for(var i = 0; i < numOfTurns; i++) {
-		var maxSpeed = orderTemp[0].baseSpeed; var maxSpeedI = 0
-		
-		for(var j = 0; j < numOfTurns-i; j++) {
-			if orderTemp[j].baseSpeed > maxSpeed {
-				maxSpeed = orderTemp[j].baseSpeed
-				maxSpeedI = j
-				
-			}
-		}
-		turnOrder[i] = orderTemp[maxSpeedI]
-		array_delete(orderTemp, maxSpeedI, 1)
-	}
-	
-	for(var i = 0; i < numOfTurns; i++)
-		show_debug_message(string(turnOrder[i].baseSpeed) + " - " + turnOrder[i].name)
-	
-	actionTime = false
-	characterIndex = -1
-	inventorySave = array_create(4, noone)
-	for(var i = 0; i < 4; i++) {inventorySave[i] = [[], "", []]}
-	
-	NextCharacter()
 }
 
 function LastCharacter() {
@@ -99,7 +100,9 @@ function StartAction() {
 function NextAction() {
 	turnIndex++
 }
+#endregion
 
+#region // Debug Stuff
 function DebugShowInventorySaves() {
 	for(var i = 0; i < array_length(inventorySave); i++) {
 		var names = ""
