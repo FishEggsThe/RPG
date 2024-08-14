@@ -1,3 +1,4 @@
+#region // Beginning and Ending a Battle
 function StartBattle(enemy, encounter){
 	if instance_exists(Obj_Battle) {return}
 	with instance_create_layer(0, 0, "Instances", Obj_Battle) {
@@ -16,12 +17,22 @@ function StartBattle(enemy, encounter){
 	}
 }
 
+function EndBattle(roomIndex){
+	RemoveFromRoomState(enemyIDSave, roomIndex)
+	enemyIDSave = -1
+	BeginDialogue("Good jon bruv")
+	room_goto(roomIndex)
+}
+#endregion
+
+#region // Deciding Character Actions
 function NextCharacter() {
 	menuSpot = 0
 	characterIndex++
 	if characterIndex >= NumOfCharacters() {
 		// Actually do the thing later
 		actionTime = true
+		StartAction()
 		
 		//StartTurn()
 	}
@@ -76,12 +87,17 @@ function LastCharacter() {
 	}
 	DebugShowInventorySaves()
 }
+#endregion
 
-function EndBattle(roomIndex){
-	RemoveFromRoomState(enemyIDSave, roomIndex)
-	enemyIDSave = -1
-	BeginDialogue("Good jon bruv")
-	room_goto(roomIndex)
+#region // Action Phase
+function StartAction() {
+	turnIndex = -1
+	
+	NextAction()
+}
+
+function NextAction() {
+	turnIndex++
 }
 
 function DebugShowInventorySaves() {
@@ -107,7 +123,9 @@ function DebugShowInventorySaves() {
 	}
 	show_debug_message("")
 }
+#endregion
 
+#region // Constructors for Spells and an Enemy
 function Spell(_cost, _range, _name, _desc) constructor{
 	cost = _cost
 	// 0 = Ally | 1 = Enemy
@@ -161,3 +179,4 @@ function Enemy(_health, _sprite, _attacks, _speed, _def, _exp, _name, _pos, _cur
 		draw_sprite(battleSprite, 0, xPosNew, yPosNew)
 	}
 }
+#endregion
