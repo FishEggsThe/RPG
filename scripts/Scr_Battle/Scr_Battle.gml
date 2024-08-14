@@ -116,26 +116,28 @@ function NextAction() {
 function PlayerAction() {
 	var player = turnOrder[turnIndex][0]
 	var action = inventorySave[player.index][1]
+	var actionDialogue = ""
 	switch(action) {
 		case "attack":
-			show_message("attack")
+			actionDialogue = "attack"
 			break
 		case "spell":
-			show_message("spell")
+			actionDialogue = "spell"
 			break
 		case "item":
-			show_message("item")
+			actionDialogue = "item"
 			break
 		case "nada":
-			show_message("nada")
+			actionDialogue = "nada"
 			break
 	}
+	BeginDialogue(actionDialogue)
 }
 
 function EnemyAction() {
 	var enemy = turnOrder[turnIndex][0]
 	var attackIndex = irandom(array_length(enemy.attackList) - 1)
-	show_message(enemy.attackList[attackIndex])
+	BeginDialogue(enemy.attackList[attackIndex].name)
 
 }
 
