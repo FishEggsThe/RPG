@@ -35,11 +35,24 @@ if room == Rm_Battle {
 			break
 		case 3:
 			for(var i = 0; i < array_length(enemyList); i++) {
+				var enemy = enemyList[i]; var scale = Obj_Camera.window_scale
+				var drawHealth = string(enemy.currHealth) + "/" + string(enemy.maxHealth)
+				var healthBar = string_length(drawHealth)*0.75*10
+				var yOffset = 30; var yNewPos = enemy.yPos + 70
+				
+				draw_set_color(c_red)
+				draw_rectangle(scale*(enemy.xPos-healthBar), scale*(yNewPos+yOffset), 
+							   scale*(enemy.xPos+healthBar), scale*(yNewPos+yOffset*2), false)
+				draw_set_color(c_black)
+				draw_set_halign(fa_center)
+				draw_set_valign(fa_middle)
+				draw_text_transformed(scale*enemy.xPos, scale*(yNewPos+yOffset*1.5), drawHealth, 2, 2, 0)
+				
 				if i == menuIndex {
-					var enemy = enemyList[i]
+					var yPosTop = scale*(enemy.yPos-sprite_get_yoffset(enemy.battleSprite)-50)
 					draw_set_color(c_green)
-					var yPosTop = Obj_Camera.window_scale*(enemy.yPos-sprite_get_yoffset(enemy.battleSprite)-50)
-					draw_sprite(Spr_ArrowDown, 0, Obj_Camera.window_scale*enemy.xPos, yPosTop)
+					//var yPosTop = scale*(enemy.yPos-sprite_get_yoffset(enemy.battleSprite)-50)
+					draw_sprite(Spr_ArrowDown, 0, scale*enemy.xPos, yPosTop)
 				}
 			}
 	}

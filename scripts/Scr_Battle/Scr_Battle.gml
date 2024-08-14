@@ -99,6 +99,7 @@ function StartAction() {
 
 function NextAction() {
 	turnIndex++
+	var l = turnOrder[turnIndex]
 }
 #endregion
 
