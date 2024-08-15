@@ -192,9 +192,45 @@ function PlayerAction() {
 
 function EnemyAction() {
 	var enemy = turnOrder[turnIndex][0]
-	var attackIndex = irandom(array_length(enemy.attackList) - 1)
-	BeginDialogue(enemy.attackList[attackIndex].name)
+	var player = Obj_PlayerManager.characters[irandom(NumOfCharacters()-1)]
+	var actionDialogue = ""
+	if irandom(1) == 0 { // Attack
+			
+		// Damage calculation
+		var damageTotal = enemy.baseAttack
+		damageTotal -= player.baseDefense
+		if player.armor != noone {damageTotal -= player.armor.defense}
+		if damageTotal < 1 {damageTotal = 1}
+			
+		// Damage application
+		player.currHealth -= damageTotal 
+		if player.currHealth <= 0 {player.dead = true}
+		//enemy.SetHitFlash()
+			
+		actionDialogue = [enemy.name + " attacked " + player.name,
+							"Dealt " + string(damageTotal) + " damage!!"]
+	} else { // Spell
+		var spellIndex = 0//irandom(array_length(enemy.spellList) - 1)
+		var spell = enemy.spellList[spellIndex]
 
+			
+		// Damage calculation
+		var magicDamageTotal = spell.damage + enemy.baseMagic
+		if magicDamageTotal < 1 {magicDamageTotal = 1}
+			
+		// Damage application
+		player.currHealth -= magicDamageTotal 
+		if player.currHealth <= 0 {player.dead = true}
+		//enemy.SetHitFlash()
+			
+		// Spell taking Mana because obviously
+		player.currMana -= spell.cost
+		if player.currMana <= 0 {player.currMana = 0}
+			
+		actionDialogue = [enemy.name + " hexxed " + player.name + " with " + player.name,
+							  "Dealt " + string(magicDamageTotal) + " damage!!"]
+	}
+	BeginDialogue(actionDialogue)
 }
 
 function EndAction() {
@@ -240,13 +276,13 @@ function DebugShowInventorySaves() {
 #region // Constructors for Spells and an Enemy
 function Spell(_cost, _range, _name, _desc) constructor{
 	cost = _cost
+	name = _name
+	description = _desc
+	
 	// 0 = Ally | 1 = Enemy
 	target = 1
 	// 0 = Single | 1 = All
 	range = _range
-	
-	name = _name
-	description = _desc
 }
 
 function OffenseSpell(_damage, _status, _cost, _range, _name, _desc) : Spell(_cost, _range, _name, _desc) constructor{
@@ -262,7 +298,7 @@ function SupportSpell(_heal, _cure, _boost, _cost, _range, _name, _desc) : Spell
 	boosts = _boost
 }
 
-function Enemy(_health, _sprite, _attacks, _speed, _def, _exp, _name, _pos, _curve, _percent = 1/60) constructor {
+function Enemy(_health, _sprite, _spells, _attack, _speed, _def, _magic, _exp, _name, _pos, _curve, _percent = 1/60) constructor {
 	name = _name
 	//description = LayerText(30, _desc) //, _desc
 	battleSprite = _sprite
@@ -276,12 +312,14 @@ function Enemy(_health, _sprite, _attacks, _speed, _def, _exp, _name, _pos, _cur
 	xPos = _pos[0]
 	yPos = _pos[1]
 	
-	attackList = _attacks
+	spellList = _spells
 	
 	maxHealth = _health
 	currHealth = maxHealth
+	baseAttack = _attack
 	baseSpeed = _speed
 	baseDefense = _def
+	baseMagic = _magic
 	expPoints = _exp
 	
 	dead = false

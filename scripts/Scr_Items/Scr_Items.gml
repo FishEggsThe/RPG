@@ -30,7 +30,7 @@ function Weapon(_type, _attack, _crit, _buy, _sell, _image, _name, _desc) : Item
 function Armor(_type, _def, _buy, _sell, _image, _name, _desc) : Item(_buy, _sell, _image, _name, _desc) constructor {
 	itemType = 3
 	armorType = _type
-	protection = _def
+	defense = _def
 	
 }
 
