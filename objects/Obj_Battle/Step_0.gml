@@ -75,10 +75,10 @@ if room == Rm_Battle && !Obj_Dialogue.onDialogue {
 					//inventorySave[characterIndex][2] = ["player", menuIndex]
 					if willAttack {
 						inventorySave[characterIndex][1] = "attack"
-						inventorySave[characterIndex][2] = ["player", menuIndex]
+						inventorySave[characterIndex][2] = [menuIndex]
 					} else {
 						inventorySave[characterIndex][1] = "spell"
-						inventorySave[characterIndex][2] = ["player", menuIndex]
+						inventorySave[characterIndex][2] = [menuIndex]
 					}
 					menuIndex = 0
 					willAttack = false

@@ -27,6 +27,8 @@ function EndBattle(roomIndex){
 
 #region // Decision Phase
 function StartTurn() {
+	MoveDownList()
+	
 	var chars = NumOfCharacters(); var enems = array_length(enemyList)
 	var numOfTurns = chars + enems; var orderTemp = array_create(numOfTurns, noone)
 	
@@ -116,17 +118,39 @@ function NextAction() {
 function PlayerAction() {
 	var player = turnOrder[turnIndex][0]
 	var action = inventorySave[player.index][1]
+	var actionList = inventorySave[player.index][2]
 	var actionDialogue = ""
+	
 	switch(action) {
 		case "attack":
-			actionDialogue = "attack"
+			var enemy = enemyList[actionList[0]]
+			
+			// Damage calculation
+			var damageTotal = player.baseAttack
+			if player.weapon != noone {damageTotal += player.weapon.damage}
+			damageTotal -= enemy.baseDefense
+			if damageTotal < 1 {damageTotal = 1}
+			
+			// Damage application
+			enemy.currHealth -= damageTotal 
+			if enemy.currHealth < 0 {enemy.dead = true}
+			enemy.SetHitFlash()
+			
+			actionDialogue = [player.name + " swung at " + enemy.name,
+							  "Dealt " + string(damageTotal) + "!!"]
 			break
+			
 		case "spell":
 			actionDialogue = "spell"
 			break
+			
 		case "item":
-			actionDialogue = "item"
+			UseItem(actionList[0], actionList[1], actionList[2])
+			
+			actionDialogue = [player.name + " took a swig of " + actionList[0].name,
+							  "Yum!"]
 			break
+			
 		case "nada":
 			actionDialogue = "nada"
 			break
@@ -207,6 +231,8 @@ function Enemy(_health, _sprite, _attacks, _speed, _def, _exp, _name, _pos, _cur
 				 animcurve_get_channel(_curve, "yCurve")]
 	curvePercent = 0
 	curvePercentIncrease = _percent
+	flashTime = 0
+	setFlashTime = 40
 	xPos = _pos[0]
 	yPos = _pos[1]
 	
@@ -218,13 +244,30 @@ function Enemy(_health, _sprite, _attacks, _speed, _def, _exp, _name, _pos, _cur
 	baseDefense = _def
 	expPoints = _exp
 	
+	dead = false
+	deathTime = 1
+	
+	static SetHitFlash = function() {
+		flashTime = setFlashTime
+	}
+	
 	static DrawEnemy = function() {
 		curvePercent += curvePercentIncrease
 		if curvePercent >= 1 {curvePercent--}
-		//for(var i = 0; i < array_length(enemyList); i++) {
+		
 		var xPosNew = (xPos)+animcurve_channel_evaluate(animCurve[0], curvePercent)
 		var yPosNew = (yPos)-animcurve_channel_evaluate(animCurve[1], curvePercent)
-		draw_sprite(battleSprite, 0, xPosNew, yPosNew)
+		
+		var arbitraryNumber = (setFlashTime/10)
+		var setFlash = flashTime%arbitraryNumber > arbitraryNumber/2
+		gpu_set_fog(setFlash, c_white, 0, 1000)
+		draw_sprite_ext(battleSprite, 0, xPosNew, yPosNew, 1, 1, 0, c_white, deathTime)
+		gpu_set_fog(false, c_white, 0, 1000)
+		
+		if flashTime > 0
+			flashTime--
+		else if dead
+			deathTime -= 1/setFlashTime
 	}
 }
 #endregion

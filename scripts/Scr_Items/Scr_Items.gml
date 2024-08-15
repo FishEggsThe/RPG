@@ -130,5 +130,4 @@ function UseItem(item, character, index = lastIndex) {
 			//show_message("fancy armor")
 			break
 	}
-	MoveDownList()
 }
