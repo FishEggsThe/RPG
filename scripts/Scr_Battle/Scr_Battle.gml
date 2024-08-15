@@ -35,8 +35,15 @@ function StartTurn() {
 	var chars = NumOfCharacters(); var enems = array_length(enemyList)
 	var numOfTurns = chars + enems; var orderTemp = array_create(numOfTurns, noone)
 	
-	for(var i = 0; i < chars; i++) {orderTemp[i] = [Obj_PlayerManager.characters[i], "player"]}
+	for(var i = 0; i < chars; i++) {
+		if Obj_PlayerManager.characters[i].dead {
+			array_delete(orderTemp, i, 1)
+			i--; chars--
+		} else {orderTemp[i] = [Obj_PlayerManager.characters[i], "player"]}
+	}
 	for(var i = 0; i < enems; i++) {orderTemp[chars+i] = [enemyList[i], "enemy"]}
+	
+	numOfTurns = array_length(orderTemp)
 	
 	turnOrder = array_create(numOfTurns, noone)
 	for(var i = 0; i < numOfTurns; i++) {
@@ -67,7 +74,8 @@ function StartTurn() {
 
 function NextCharacter() {
 	menuSpot = 0
-	characterIndex++
+	do {characterIndex++}
+	until(characterIndex >= NumOfCharacters() || !Obj_PlayerManager.characters[characterIndex].dead);
 	if characterIndex >= NumOfCharacters() {
 		// Actually do the thing later
 		actionTime = true
@@ -220,7 +228,7 @@ function EnemyAction() {
 			
 		// Damage application
 		player.currHealth -= damageTotal 
-		if player.currHealth <= 0 {player.dead = true}
+		if player.currHealth <= 0 {player.currHealth = 0; player.dead = true}
 		//enemy.SetHitFlash()
 			
 		actionDialogue = [enemy.name + " attacked " + player.name,
@@ -236,7 +244,7 @@ function EnemyAction() {
 			
 		// Damage application
 		player.currHealth -= magicDamageTotal 
-		if player.currHealth <= 0 {player.dead = true}
+		if player.currHealth <= 0 {player.currHealth = 0; player.dead = true}
 		//enemy.SetHitFlash()
 			
 		// Spell taking Mana because obviously
