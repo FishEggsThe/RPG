@@ -28,6 +28,7 @@ function PlayerStats(_health, _mana, _port, _walk, _equip, _wep, _armor, _spells
 	baseDefense = _def
 	baseMagic = _magic
 	
+	dead = false
 }
 
 function MovePlayer() {

@@ -168,6 +168,19 @@ function EnemyAction() {
 
 function EndAction() {
 	actionTime = false
+	
+	var DeleteEnemy array_create()
+	for(var i = 0; i < array_length(enemyList); i++) {
+		if enemyList[i].dead {
+			array_delete(enemyList, i, 1)
+			i--
+		}
+	}
+	for(var i = 0; i < array_length(enemyList); i++) {
+		if enemyList[i].dead
+			array_delete(enemyList, i, 1)
+	}
+	
 	StartTurn()
 }
 #endregion
