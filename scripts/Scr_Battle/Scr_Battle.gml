@@ -103,7 +103,7 @@ function StartAction() {
 }
 
 function NextAction() {
-	turnIndex++
+	// Checks if all of one part has been vanquished
 	var allDead = true
 	for(var i = 0; i < array_length(enemyList); i++) {
 		if !enemyList[i].dead {allDead = false; break}
@@ -115,7 +115,13 @@ function NextAction() {
 		
 		BeginDialogue(["Battle won!!!", string(expReward) + " EXP gained"])
 		return
-	} else if turnIndex >= array_length(turnOrder) {
+	}
+	
+	do {turnIndex++}
+	until(turnIndex >= array_length(turnOrder) || 
+		  !turnOrder[turnIndex][0].dead);
+	
+	if turnIndex >= array_length(turnOrder) {
 		EndAction()
 	} else {
 		switch(turnOrder[turnIndex][1]) {
@@ -227,7 +233,7 @@ function EnemyAction() {
 		player.currMana -= spell.cost
 		if player.currMana <= 0 {player.currMana = 0}
 			
-		actionDialogue = [enemy.name + " hexxed " + player.name + " with " + player.name,
+		actionDialogue = [enemy.name + " hexxed " + player.name + " with " + spell.name,
 							  "Dealt " + string(magicDamageTotal) + " damage!!"]
 	}
 	BeginDialogue(actionDialogue)
