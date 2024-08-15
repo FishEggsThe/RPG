@@ -45,7 +45,12 @@ function DrawCharactersBoxes(chosen = -1){
 	for(var i = 0; i < numOfCharacters; i++) {
 		var charBoxOffset = ((width*(i+1))/(numOfCharacters+1)) - (width/12)
 		var yOffset = (chosen == i ? 30 : 0)
-
+		
+		// Character
+		if room = Rm_Battle {
+			draw_sprite(pm.characters[i].walkSprites[3], pm.image_index, 
+						charBoxOffset+6+width/18, height*7/8-yOffset-52)
+		}
 		// Box
 		draw_set_color(c_maroon)
 		draw_rectangle(charBoxOffset+2, height*7/8-yOffset, charBoxOffset-2+width/6, height*2, false)
