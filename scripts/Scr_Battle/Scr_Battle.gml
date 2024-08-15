@@ -137,11 +137,29 @@ function PlayerAction() {
 			enemy.SetHitFlash()
 			
 			actionDialogue = [player.name + " swung at " + enemy.name,
-							  "Dealt " + string(damageTotal) + "!!"]
+							  "Dealt " + string(damageTotal) + " damage!!"]
 			break
 			
 		case "spell":
-			actionDialogue = ["spell"]
+			var enemy = enemyList[actionList[0]]
+			var spell = player.spellList[actionList[1]]
+
+			
+			// Damage calculation
+			var magicDamageTotal = spell.damage + player.baseMagic
+			if magicDamageTotal < 1 {magicDamageTotal = 1}
+			
+			// Damage application
+			enemy.currHealth -= magicDamageTotal 
+			if enemy.currHealth <= 0 {enemy.dead = true}
+			enemy.SetHitFlash()
+			
+			// Spell taking Mana because obviously
+			player.currMana -= spell.cost
+			if player.currMana <= 0 {player.currMana = 0}
+			
+			actionDialogue = [player.name + " cast " + spell.name + " upon " + enemy.name,
+							  "Dealt " + string(magicDamageTotal) + " damage!!"]
 			break
 			
 		case "item":

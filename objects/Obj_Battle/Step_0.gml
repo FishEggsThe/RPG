@@ -51,8 +51,10 @@ if room == Rm_Battle && !Obj_Dialogue.onDialogue {
 			case 1: // Spell Menu
 				if acceptInput {
 					if array_length(pm.selectedCharacter.spellList) > 0 {
-						pm.inventoryUp = false
-						menuIndex = 0; menuSpot = 3 //NextCharacter()
+						if pm.selectedCharacter.spellList[menuIndex].cost <= pm.selectedCharacter.currMana {
+							pm.inventoryUp = false; spellIndex = menuIndex
+							menuIndex = 0; menuSpot = 3 //NextCharacter()
+						}
 					}
 				}
 				if cancelInput {menuSpot = 0; menuIndex = lastMenuIndex
@@ -78,7 +80,7 @@ if room == Rm_Battle && !Obj_Dialogue.onDialogue {
 						inventorySave[characterIndex][2] = [menuIndex]
 					} else {
 						inventorySave[characterIndex][1] = "spell"
-						inventorySave[characterIndex][2] = [menuIndex]
+						inventorySave[characterIndex][2] = [menuIndex, spellIndex]
 					}
 					menuIndex = 0
 					willAttack = false

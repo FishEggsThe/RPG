@@ -13,6 +13,7 @@ else {
 	menuSpot = 0
 	battleOptions =  ["Attack", "Spells", "Items", "Nada"]
 	lastMenuIndex = 0
+	spellIndex = 0
 	//inventorySave = array_create_ext(4, function(){array_create(3, noone)})
 	inventorySave = array_create(4, noone)
 	for(var i = 0; i < 4; i++) {inventorySave[i] = [[], "", []]}

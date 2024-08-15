@@ -156,7 +156,8 @@ if inventoryUp {
 				draw_set_valign(fa_top)
 				for(var i = 0; i < numOfSpells; i++) {
 					var xPos = boxX1 + 10; var yPos = (i*70)+(boxY1+10)
-					draw_text_transformed(boxX1 + 10, yPos, selectedCharacter.spellList[i].name, textSize, textSize, 0)
+					var spellText = string(selectedCharacter.spellList[i].cost) + ":\t " + selectedCharacter.spellList[i].name
+					draw_text_transformed(boxX1 + 10, yPos, spellText, textSize, textSize, 0)
 					if i == inventoryIndex {
 						var lineWidth = textSize*string_width(selectedSpell.name)
 						var lineFloor = (yPos+(textSize*string_height(selectedSpell.name)))

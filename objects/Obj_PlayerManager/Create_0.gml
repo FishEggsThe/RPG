@@ -30,8 +30,8 @@ else {
 	var walkSprites = [Spr_PersonWalk0, Spr_PersonWalk1, Spr_PersonWalk2, Spr_PersonWalk3]
 	var knightSprites = [Spr_Knight0, Spr_Knight1, Spr_Knight2, Spr_Knight3]
 	var slimeSprites = [Spr_Slime0, Spr_Slime1, Spr_Slime2, Spr_Slime3]
-	var spells = [new OffenseSpell(15, [], 5, 1, "Skull Bash", "Do big damage"),
-				  new OffenseSpell(35, [], 8, 1, "Skull Bash II", "Do BIGGER damage")]
+	var spells = [new OffenseSpell(5, [], 5, 1, "Skull Bash", "Do big damage"),
+				  new OffenseSpell(12, [], 15, 1, "Skull Bash II", "Do BIGGER damage")]
 	characters[0] = new PlayerStats(25, 15, knightSprites[3], knightSprites, 0, noone, noone, spells, 5, 4, 5, 5, 
 									"Knight", "A mysterious warrior from an era long gone")
 	characters[1] = new PlayerStats(15, 25, slimeSprites[3], slimeSprites, 1, noone, noone, [], 5, 5, 5, 5, 
