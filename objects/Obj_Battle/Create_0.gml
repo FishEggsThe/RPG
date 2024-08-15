@@ -1,7 +1,12 @@
 if instance_number(Obj_Battle) > 1 {instance_destroy()}
 else {
-	enemyIDSave = -1
 	encounterText = "Oh Shit!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!"
+	
+	enemyIDSave = -1
+	lastRoom = room
+	characterSave = array_create(array_length(Obj_PlayerManager.characters), noone)
+	for(var i = 0; i < NumOfCharacters(); i++)
+		characterSave[i] = Obj_PlayerManager.characters[i]
 
 	depth = -999
 	setTransitionTime = 120
@@ -25,7 +30,6 @@ else {
 	turnIndex = 0
 	
 	wonBattle = false
-	lastRoom = room
 	expReward = 0
 
 	width = display_get_gui_width(); height = display_get_gui_height()

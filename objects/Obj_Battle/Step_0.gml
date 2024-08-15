@@ -55,7 +55,7 @@ if room == Rm_Battle && !Obj_Dialogue.onDialogue {
 				if acceptInput {
 					if array_length(pm.selectedCharacter.spellList) > 0 {
 						if pm.selectedCharacter.spellList[menuIndex].cost <= pm.selectedCharacter.currMana {
-							pm.inventoryUp = false; spellIndex = menuIndex
+							pm.inventoryUp = false; spellIndex = pm.inventoryIndex
 							menuIndex = 0; menuSpot = 3 //NextCharacter()
 						}
 					}
