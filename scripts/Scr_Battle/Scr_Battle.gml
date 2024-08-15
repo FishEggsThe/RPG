@@ -32,7 +32,7 @@ function EndBattle(roomIndex){
 function StartTurn() {
 	MoveDownList()
 	
-	var chars = NumOfCharacters(); var enems = array_length(enemyList)
+	var chars = numOfCharacters; var enems = array_length(enemyList)
 	var numOfTurns = chars + enems; var orderTemp = array_create(numOfTurns, noone)
 	
 	for(var i = 0; i < chars; i++) {
@@ -75,8 +75,8 @@ function StartTurn() {
 function NextCharacter() {
 	menuSpot = 0
 	do {characterIndex++}
-	until(characterIndex >= NumOfCharacters() || !Obj_PlayerManager.characters[characterIndex].dead);
-	if characterIndex >= NumOfCharacters() {
+	until(characterIndex >= numOfCharacters || !Obj_PlayerManager.characters[characterIndex].dead);
+	if characterIndex >= numOfCharacters {
 		// Actually do the thing later
 		actionTime = true
 		StartAction()
@@ -117,7 +117,7 @@ function NextAction() {
 		if !enemyList[i].dead {allEnemyDead = false; break}
 	} if allEnemyDead {
 		wonBattle = true
-		for(var i = 0; i < NumOfCharacters(); i++)
+		for(var i = 0; i < numOfCharacters; i++)
 			Obj_PlayerManager.characters[i].experience += expReward
 		
 		BeginDialogue(["Battle won!!!", string(expReward) + " EXP gained"])
@@ -125,7 +125,7 @@ function NextAction() {
 	}
 	
 	var allHeroDead = true; var charList = Obj_PlayerManager.characters;
-	for(var i = 0; i < NumOfCharacters(); i++) {
+	for(var i = 0; i < numOfCharacters; i++) {
 		if !charList[i].dead {allHeroDead = false; break}
 	} if allHeroDead {
 		lostBattle = true
@@ -216,7 +216,14 @@ function PlayerAction() {
 
 function EnemyAction() {
 	var enemy = turnOrder[turnIndex][0]
-	var player = Obj_PlayerManager.characters[irandom(NumOfCharacters()-1)]
+	var aliveCharacters = []; var aliveSize = 0
+	for(var i = 0; i < numOfCharacters; i++) {
+		if !Obj_PlayerManager.characters[i].dead {
+			array_insert(aliveCharacters, 0, i)
+			aliveSize++
+		}
+	}
+	var player = Obj_PlayerManager.characters[aliveCharacters[irandom(aliveSize-1)]]
 	var actionDialogue = ""
 	if irandom(1) == 0 { // Attack
 			

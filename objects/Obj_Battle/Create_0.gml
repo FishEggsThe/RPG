@@ -13,6 +13,7 @@ else {
 	alarm[0] = setTransitionTime
 	xFade = 0; yFade = 0
 
+	numOfCharacters = NumOfCharacters()
 	characterIndex = -1
 	menuIndex = 0
 	menuSpot = 0
