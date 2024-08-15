@@ -145,7 +145,8 @@ function PlayerAction() {
 			break
 			
 		case "item":
-			UseItem(actionList[0], actionList[1], actionList[2])
+			with Obj_PlayerManager
+			{UseItem(actionList[0], actionList[1], actionList[2])}
 			
 			actionDialogue = [player.name + " took a swig of " + actionList[0].name,
 							  "Yum!"]
