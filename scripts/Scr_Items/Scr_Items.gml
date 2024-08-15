@@ -104,30 +104,30 @@ function InventoryFigureItem(item, character, index = lastIndex) {
 		with Obj_Battle {NextCharacter()}
 		
 	} else {
-		inventorySpot = lastSpot; inventoryIndex = index
+		inventoryUp = false//inventorySpot = lastSpot; inventoryIndex = index
 		UseItem(item, character); MoveDownList()
 	}
 }
 
 function UseItem(item, character, index = lastIndex) {
 	if item == noone {show_message("How the hell did you select nothing"); return;}
+	var itemDialogue = ""
 	
 	switch(item.itemType) {
 		case 1:
 			character.currHealth = clamp(character.currHealth+item.healing, 0, character.maxHealth)
-			//show_message("yum!")
+			itemDialogue = character.name + " took a swig of " + item.name
 			break
 		case 2:
 			if character.weapon != noone {inventory[index] = character.weapon}
-			//else {inventory[index] = noone}
+			itemDialogue = character.name + " equipped the " + item.name
 			character.weapon = item
-			//show_message("cool weapon")
 			break
 		case 3:
 			if character.armor != noone {inventory[index] = character.armor}
-			//else {inventory[index] = noone}
+			itemDialogue = character.name + " equipped the " + item.name
 			character.armor = item
-			//show_message("fancy armor")
 			break
 	}
+	BeginDialogue(itemDialogue)
 }

@@ -141,22 +141,21 @@ function PlayerAction() {
 			break
 			
 		case "spell":
-			actionDialogue = "spell"
+			actionDialogue = ["spell"]
 			break
 			
 		case "item":
 			with Obj_PlayerManager
 			{UseItem(actionList[0], actionList[1], actionList[2])}
 			
-			actionDialogue = [player.name + " took a swig of " + actionList[0].name,
-							  "Yum!"]
+			actionDialogue = []
 			break
 			
 		case "nada":
-			actionDialogue = "nada"
+			actionDialogue = ["nada"]
 			break
 	}
-	BeginDialogue(actionDialogue)
+	if array_length(actionDialogue) > 0 {BeginDialogue(actionDialogue)}
 }
 
 function EnemyAction() {
