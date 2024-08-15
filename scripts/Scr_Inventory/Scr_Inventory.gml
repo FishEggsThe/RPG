@@ -44,10 +44,10 @@ function DrawCharactersBoxes(chosen = -1){
 	
 	for(var i = 0; i < numOfCharacters; i++) {
 		var charBoxOffset = ((width*(i+1))/(numOfCharacters+1)) - (width/12)
-		var yOffset = (chosen == i ? 30 : 0)
+		var yOffset = (i == chosen ? 30 : 0)
 		
 		// Character
-		if room = Rm_Battle {
+		if room = Rm_Battle && i == chosen {
 			draw_sprite(pm.characters[i].walkSprites[3], pm.image_index, 
 						charBoxOffset+6+width/18, height*7/8-yOffset-52)
 		}
