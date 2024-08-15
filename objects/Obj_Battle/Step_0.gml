@@ -7,6 +7,9 @@ var vertInput = input_check_pressed("down") - input_check_pressed("up")
 var pm = Obj_PlayerManager
 
 if room == Rm_Battle && !Obj_Dialogue.onDialogue {
+	if wonBattle {
+		EndBattle(lastRoom)
+	}
 	if actionTime {
 		NextAction()
 	} else {

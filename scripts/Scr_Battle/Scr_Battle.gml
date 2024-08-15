@@ -5,6 +5,7 @@ function StartBattle(enemy, encounter){
 		xFade = 32+enemy.x; yFade = 32+enemy.y
 		enemyIDSave = enemy.roomStateID
 		enemyList = encounter
+		lastRoom = room
 		for(var i = 0; i < array_length(enemyList); i++)
 			expReward += enemyList[i].expPoints
 		
@@ -101,7 +102,18 @@ function StartAction() {
 
 function NextAction() {
 	turnIndex++
-	if turnIndex >= array_length(turnOrder) {
+	var allDead = true
+	for(var i = 0; i < array_length(enemyList); i++) {
+		if !enemyList[i].dead {allDead = false; break}
+	}
+	if allDead {
+		wonBattle = true
+		for(var i = 0; i < NumOfCharacters(); i++)
+			Obj_PlayerManager.characters[i].experience += expReward
+		
+		BeginDialogue(["Battle won!!!", string(expReward) + " EXP gained"])
+		return
+	} else if turnIndex >= array_length(turnOrder) {
 		EndAction()
 	} else {
 		switch(turnOrder[turnIndex][1]) {
