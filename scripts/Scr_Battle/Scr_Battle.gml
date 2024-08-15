@@ -19,9 +19,11 @@ function StartBattle(enemy, encounter){
 }
 
 function EndBattle(roomIndex){
+	wonBattle = false
+	actionTime = false
 	RemoveFromRoomState(enemyIDSave, roomIndex)
 	enemyIDSave = -1
-	BeginDialogue("Good jon bruv")
+	//BeginDialogue("Good jon bruv")
 	room_goto(roomIndex)
 }
 #endregion

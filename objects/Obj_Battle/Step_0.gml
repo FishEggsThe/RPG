@@ -10,7 +10,7 @@ if room == Rm_Battle && !Obj_Dialogue.onDialogue {
 	if wonBattle {
 		EndBattle(lastRoom)
 	}
-	if actionTime {
+	else if actionTime {
 		NextAction()
 	} else {
 		switch(menuSpot) {
