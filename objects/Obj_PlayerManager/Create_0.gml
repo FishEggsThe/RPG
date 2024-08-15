@@ -34,8 +34,8 @@ else {
 				  new OffenseSpell(12, [], 15, 1, "Skull Bash II", "Do BIGGER damage")]
 	characters[0] = new PlayerStats(25, 15, knightSprites[3], knightSprites, 0, noone, noone, spells, 5, 4, 5, 5, 
 									"Knight", "A mysterious warrior from an era long gone")
-	//characters[1] = new PlayerStats(15, 25, slimeSprites[3], slimeSprites, 1, noone, noone, [], 5, 5, 5, 5, 
-	//								"Slime", "Tired of working the grueling 9-5, this slime is looking for a more meaningful purpose")
+	characters[1] = new PlayerStats(15, 25, slimeSprites[3], slimeSprites, 1, noone, noone, [], 5, 5, 5, 5, 
+									"Slime", "Tired of working the grueling 9-5, this slime is looking for a more meaningful purpose")
 	//characters[2] = new PlayerStats(15, 25, walkSprites[3], walkSprites, 2, noone, noone, [], 5, 4, 5, 5, 
 	//								"Dinosaur", "Has found its calling to life, which involves a lot of biting")
 	//characters[3] = new PlayerStats(1, 1, chives, [chives, chives, chives, chives], 3, noone, noone, [], 0, 0, 0, 0, 
@@ -52,8 +52,8 @@ else {
 	inventory[1] = new Weapon(0, 5, 0.1, 3, 2, chives2, "Dinky Sword", "If you swing this too hard, it might fall apart")
 	inventory[2] = new Armor(0, 3, 3, 2, chives2, "Dinky Armor", "You can feel the weldings coming undone")
 	
-	inventory[8] = new Consumable(0, 3, [], [], 0, 0, chives2, "Dirt", "Dirt")
-	inventory[9] = new Consumable(0, 3, [], [], 0, 0, chives2, "Dirt", "Dirt")
+	inventory[3] = new Consumable(0, 3, [], [], 0, 0, chives2, "Dirt", "Dirt")
+	inventory[4] = new Consumable(0, 3, [], [], 0, 0, chives2, "Dirt", "Dirt")
 
 	keyItems = array_create(8, noone)
 	keyItems[0] = new Item(0, -4, chives, "The Bible", "The whole thing")
