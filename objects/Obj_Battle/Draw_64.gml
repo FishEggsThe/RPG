@@ -38,11 +38,15 @@ if room == Rm_Battle {
 				var enemy = enemyList[i]; var scale = Obj_Camera.window_scale
 				var drawHealth = string(enemy.currHealth) + "/" + string(enemy.maxHealth)
 				var healthBar = string_length(drawHealth)*0.75*10
+				var xOffset = enemy.xPos-healthBar
 				var yOffset = 30; var yNewPos = enemy.yPos + 70
 				
-				draw_set_color(c_red)
-				draw_rectangle(scale*(enemy.xPos-healthBar), scale*(yNewPos+yOffset), 
-							   scale*(enemy.xPos+healthBar), scale*(yNewPos+yOffset*2), false)
+				draw_set_color(c_dkgrey)
+				draw_rectangle(scale*(xOffset), scale*(yNewPos+yOffset), 
+							   scale*(xOffset+healthBar*2), scale*(yNewPos+yOffset*2), false)
+				draw_set_color(c_red); var hpPercent = enemy.currHealth/enemy.maxHealth
+				draw_rectangle(scale*(xOffset), scale*(yNewPos+yOffset), 
+							   scale*(xOffset+healthBar*2*hpPercent), scale*(yNewPos+yOffset*2), false)
 				draw_set_color(c_black)
 				draw_set_halign(fa_center)
 				draw_set_valign(fa_middle)

@@ -133,7 +133,7 @@ function PlayerAction() {
 			
 			// Damage application
 			enemy.currHealth -= damageTotal 
-			if enemy.currHealth < 0 {enemy.dead = true}
+			if enemy.currHealth <= 0 {enemy.dead = true}
 			enemy.SetHitFlash()
 			
 			actionDialogue = [player.name + " swung at " + enemy.name,
@@ -169,16 +169,11 @@ function EnemyAction() {
 function EndAction() {
 	actionTime = false
 	
-	var DeleteEnemy array_create()
 	for(var i = 0; i < array_length(enemyList); i++) {
 		if enemyList[i].dead {
 			array_delete(enemyList, i, 1)
 			i--
 		}
-	}
-	for(var i = 0; i < array_length(enemyList); i++) {
-		if enemyList[i].dead
-			array_delete(enemyList, i, 1)
 	}
 	
 	StartTurn()
