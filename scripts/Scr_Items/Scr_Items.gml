@@ -12,9 +12,10 @@ function Item(_buy, _sell, _image, _name, _desc) constructor {
 	description = LayerText(30, _desc)
 }
 
-function Consumable(_heal, _cure, _buff, _buy, _sell, _image, _name, _desc) : Item(_buy, _sell, _image, _name, _desc) constructor {
+function Consumable(_heal, _mana, _cure, _buff, _buy, _sell, _image, _name, _desc) : Item(_buy, _sell, _image, _name, _desc) constructor {
 	itemType = 1
 	healing = _heal
+	mana = _mana
 	cureStatus = _cure // e.g. [true, false, false], I'll figure out status effects later
 	buffStats = _buff // same as _cure but with numbers
 }
@@ -116,6 +117,7 @@ function UseItem(item, character, index = lastIndex) {
 	switch(item.itemType) {
 		case 1:
 			character.currHealth = clamp(character.currHealth+item.healing, 0, character.maxHealth)
+			character.currMana = clamp(character.currMana+item.mana, 0, character.maxMana)
 			itemDialogue = character.name + " took a swig of " + item.name
 			break
 		case 2:
