@@ -332,10 +332,12 @@ function Enemy(_health, _sprite, _spells, _attack, _speed, _def, _magic, _exp, _
 	
 	maxHealth = _health
 	currHealth = maxHealth
-	baseAttack = _attack
-	baseSpeed = _speed
-	baseDefense = _def
-	baseMagic = _magic
+
+	baseAttack = _attack; boostAttack = 0
+	baseSpeed = _speed; boostSpeed = 0
+	baseDefense = _def; boostDefense = 0
+	baseMagic = _magic; boostMagic = 0
+	
 	expPoints = _exp
 	
 	dead = false

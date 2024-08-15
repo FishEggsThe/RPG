@@ -23,12 +23,20 @@ function PlayerStats(_health, _mana, _port, _walk, _equip, _wep, _armor, _spells
 	currHealth = maxHealth
 	maxMana = _mana
 	currMana = maxMana
-	baseAttack = _attack
-	baseSpeed = _speed
-	baseDefense = _def
-	baseMagic = _magic
+	
+	baseAttack = _attack; boostAttack = 0
+	baseSpeed = _speed; boostSpeed = 0
+	baseDefense = _def; boostDefense = 0
+	baseMagic = _magic; boostMagic = 0
 	
 	dead = false
+	
+	static ResetBoosts = function() {
+		boostAttack = 0
+		boostSpeed = 0
+		boostDefense = 0
+		boostMagic = 0
+	}
 }
 
 function MovePlayer() {
