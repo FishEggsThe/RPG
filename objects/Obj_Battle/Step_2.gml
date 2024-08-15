@@ -7,12 +7,16 @@ var vertInput = input_check_pressed("down") - input_check_pressed("up")
 var pm = Obj_PlayerManager
 
 if room == Rm_Battle && !Obj_Dialogue.onDialogue {
-	if wonBattle {
+	switch(1) {
+	case wonBattle:
 		EndBattle(lastRoom)
-	}
-	else if actionTime {
+		break
+	case lostBattle:
+		EndBattle(lastRoom)
+		break
+	case actionTime:
 		NextAction()
-	} else {
+	default:
 		switch(menuSpot) {
 			case 0: // Start
 				if horiInput != 0 {menuIndex += horiInput}
@@ -31,14 +35,14 @@ if room == Rm_Battle && !Obj_Dialogue.onDialogue {
 							menuSpot = 1
 							pm.selectedCharacter = pm.characters[characterIndex]
 							pm.inventoryUp = true
-							pm.inventoryIndex = characterIndex
-							pm.inventorySpot = 5 // Don't worry it works out
+							//pm.inventoryIndex = characterIndex
+							pm.inventorySpot = 6 // Don't worry it works out
 							break
 						case 2: // Items
 							menuSpot = 2
 							pm.inventoryUp = true
 							pm.inventoryIndex = 0
-							pm.inventorySpot = 0
+							pm.inventorySpot = 1
 							break
 						case 3: // Nothing
 							inventorySave[characterIndex][1] = "nada"
@@ -54,7 +58,9 @@ if room == Rm_Battle && !Obj_Dialogue.onDialogue {
 			case 1: // Spell Menu
 				if acceptInput {
 					if array_length(pm.selectedCharacter.spellList) > 0 {
-						if pm.selectedCharacter.spellList[menuIndex].cost <= pm.selectedCharacter.currMana {
+						//show_debug_message(string(pm.selectedCharacter.currMana) + " " + string(pm.selectedCharacter.spellList[pm.inventoryIndex].cost))
+						if pm.selectedCharacter.spellList[pm.inventoryIndex].cost <= pm.selectedCharacter.currMana {
+							//show_debug_message("Can Use")
 							pm.inventoryUp = false; spellIndex = pm.inventoryIndex
 							menuIndex = 0; menuSpot = 3 //NextCharacter()
 						}
@@ -75,9 +81,6 @@ if room == Rm_Battle && !Obj_Dialogue.onDialogue {
 				else if menuIndex < 0 {menuIndex+=enemies}
 			
 				if acceptInput {
-					//show_message(enemyList[menuIndex])
-					//inventorySave[characterIndex][1] = (willAttack ? "attack" : "spell")
-					//inventorySave[characterIndex][2] = ["player", menuIndex]
 					if willAttack {
 						inventorySave[characterIndex][1] = "attack"
 						inventorySave[characterIndex][2] = [menuIndex]
@@ -89,8 +92,9 @@ if room == Rm_Battle && !Obj_Dialogue.onDialogue {
 					willAttack = false
 					NextCharacter()
 				}
-				if cancelInput {menuSpot = 0; menuIndex = lastMenuIndex
-								Obj_PlayerManager.inventoryUp = false
+				if cancelInput {menuSpot = !willAttack
+								menuIndex = lastMenuIndex
+								Obj_PlayerManager.inventoryUp = !willAttack
 								willAttack = false}
 				break
 		}

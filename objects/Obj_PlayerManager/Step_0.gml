@@ -14,9 +14,9 @@ if (input_check_pressed("inventory") && playerCheck && dialogueCheck && battleCh
 }
 
 if inventoryUp {
-	width = display_get_gui_width(); height = display_get_gui_height()
-	boxX1 = width/8; boxY1 = height/6; boxX2 = width*7/8; boxY2 = height*5/6;
-	boxWidth = boxX2-boxX1; boxHeight = boxY2-boxY1
+	//width = display_get_gui_width(); height = display_get_gui_height()
+	//boxX1 = width/8; boxY1 = height/6; boxX2 = width*7/8; boxY2 = height*5/6;
+	//boxWidth = boxX2-boxX1; boxHeight = boxY2-boxY1
 	
 	var acceptInput = input_check_pressed("accept")
 	var cancelInput = input_check_pressed("cancel")

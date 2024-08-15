@@ -104,11 +104,10 @@ function StartAction() {
 
 function NextAction() {
 	// Checks if all of one part has been vanquished
-	var allDead = true
+	var allEnemyDead = true
 	for(var i = 0; i < array_length(enemyList); i++) {
-		if !enemyList[i].dead {allDead = false; break}
-	}
-	if allDead {
+		if !enemyList[i].dead {allEnemyDead = false; break}
+	} if allEnemyDead {
 		wonBattle = true
 		for(var i = 0; i < NumOfCharacters(); i++)
 			Obj_PlayerManager.characters[i].experience += expReward
@@ -117,6 +116,17 @@ function NextAction() {
 		return
 	}
 	
+	var allHeroDead = true; var charList = Obj_PlayerManager.characters;
+	for(var i = 0; i < NumOfCharacters(); i++) {
+		if !charList[i].dead {allHeroDead = false; break}
+	} if allHeroDead {
+		lostBattle = true
+		
+		BeginDialogue("Battle lost...")
+		return
+	}
+	
+	// Goes to the next one in line if no win/lose state is found
 	do {turnIndex++}
 	until(turnIndex >= array_length(turnOrder) || 
 		  !turnOrder[turnIndex][0].dead);
