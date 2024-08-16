@@ -37,15 +37,15 @@ else {
 									"Knight", "A mysterious warrior from an era long gone")
 	characters[1] = new PlayerStats(15, 25, slimeSprites[3], slimeSprites, 1, noone, noone, [], 5, 5, 5, 5, 
 									"Slime", "Tired of working the grueling 9-5, this slime is looking for a more meaningful purpose")
-	//characters[2] = new PlayerStats(15, 25, walkSprites[3], walkSprites, 2, noone, noone, [], 5, 4, 5, 5, 
-	//								"Dinosaur", "Has found its calling to life, which involves a lot of biting")
+	characters[2] = new PlayerStats(15, 25, walkSprites[3], walkSprites, 2, noone, noone, [], 5, 4, 5, 5, 
+									"Dinosaur", "Has found its calling to life, which involves a lot of biting")
 	//characters[3] = new PlayerStats(1, 1, chives, [chives, chives, chives, chives], 3, noone, noone, [], 0, 0, 0, 0, 
 									//"Pet Rock", "Does nothing for the team")
 								
 	characters[0].weapon = new Weapon(0, 100, 0.00000000001, 1, 0, chives2, "Stick", "At least's it's a neat stick")
 	characters[0].armor = new Armor(0, 1, 1, 0, chives2, "Stick Armor", "The unworthy sticks get sewn into armor")
-	//characters[2].weapon = new Weapon(2, 5, 0.05, 1, 1, chives2, "Dino Pincher Toy", "Bought on clearance")
-	//characters[2].armor = new Weapon(2, 5, 0.05, 1, 1, chives2, "Green Dino Onesie", "Bought on clearance")
+	characters[2].weapon = new Weapon(2, 5, 0.05, 1, 1, chives2, "Dino Pincher Toy", "Bought on clearance")
+	characters[2].armor = new Armor(2, 5, 1, 1, chives2, "Green Dino Onesie", "Bought on clearance")
 
 	// Inventory Stuff
 	inventory = array_create(16, noone)
@@ -58,8 +58,6 @@ else {
 
 	keyItems = array_create(8, noone)
 	keyItems[0] = new Item(0, -4, chives, "The Bible", "The whole thing")
-	//characters[1] = noone
-	//characters[2] = noone
 	
 	inventoryLength = array_length(inventory)
 	pageSize = 8; pages = inventoryLength/pageSize
