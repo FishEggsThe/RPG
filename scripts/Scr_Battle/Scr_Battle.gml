@@ -135,11 +135,12 @@ function NextAction() {
 	}
 	
 	// Goes to the next one in line if no win/lose state is found
+	var totalTurns = array_length(turnOrder)
 	do {turnIndex++}
-	until(turnIndex >= array_length(turnOrder) || 
+	until(turnIndex >= totalTurns || 
 		  !turnOrder[turnIndex][0].dead);
 	
-	if turnIndex >= array_length(turnOrder) {
+	if turnIndex >= totalTurns {
 		EndAction()
 	} else {
 		switch(turnOrder[turnIndex][1]) {
@@ -162,6 +163,23 @@ function PlayerAction() {
 	switch(action) {
 		case "attack":
 			var enemy = enemyList[actionList[0]]
+			
+			// Making sure a dead enemy isn't being targeted
+			if enemy.dead {
+				var directionI = choose([1, -1], [-1, 1]); var scaleI = 0
+				var enemyListSize = array_length(enemyList); var enemyFound = false
+				while(!enemyFound) {
+					scaleI++
+					for(var i = 0; i < 2; i++) {
+						var newI = actionList[0] + directionI[i]*scaleI
+						if (newI >= 0 && newI < enemyListSize && !enemyList[newI].dead) {
+							enemyFound = true
+							enemy = enemyList[newI]
+							break
+						}
+					}
+				}
+			}
 			
 			// Damage calculation
 			var damageTotal = player.baseAttack
@@ -186,7 +204,7 @@ function PlayerAction() {
 				var directionI = choose([1, -1], [-1, 1]); var scaleI = 0
 				var enemyListSize = array_length(enemyList); var enemyFound = false
 				while(!enemyFound) {
-					nextDoorI++
+					scaleI++
 					for(var i = 0; i < 2; i++) {
 						var newI = actionList[0] + directionI[i]*scaleI
 						if (newI >= 0 && newI < enemyListSize && !enemyList[newI].dead) {
@@ -242,7 +260,6 @@ function EnemyAction() {
 		}
 	}
 	var player = Obj_PlayerManager.characters[aliveCharacters[irandom(aliveSize-1)]]
-	show_message(player.armor)
 	var actionDialogue = ""
 	if irandom(1) == 0 { // Attack
 			
