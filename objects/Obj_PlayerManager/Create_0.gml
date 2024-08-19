@@ -39,8 +39,8 @@ else {
 									"Slime", "Tired of working the grueling 9-5, this slime is looking for a more meaningful purpose")
 	characters[2] = new PlayerStats(15, 25, walkSprites[3], walkSprites, 2, noone, noone, [], 5, 4, 5, 5, 
 									"Dinosaur", "Has found its calling to life, which involves a lot of biting")
-	//characters[3] = new PlayerStats(1, 1, chives, [chives, chives, chives, chives], 3, noone, noone, [], 0, 0, 0, 0, 
-									//"Pet Rock", "Does nothing for the team")
+	characters[3] = new PlayerStats(1, 1, chives, [chives, chives, chives, chives], 3, noone, noone, [], 0, 0, 0, 0, 
+									"Pet Rock", "Does nothing for the team")
 								
 	characters[0].weapon = new Weapon(0, 100, 0.00000000001, 1, 0, chives2, "Stick", "At least's it's a neat stick")
 	characters[0].armor = new Armor(0, 1, 1, 0, chives2, "Stick Armor", "The unworthy sticks get sewn into armor")
