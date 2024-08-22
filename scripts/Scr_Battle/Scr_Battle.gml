@@ -1,6 +1,8 @@
 #region // Beginning and Ending a Battle
 function StartBattle(enemy, encounter){
 	if instance_exists(Obj_Battle) {return}
+	
+	SetPlayerState()
 	with instance_create_layer(0, 0, "Instances", Obj_Battle) {
 		xFade = 32+enemy.x; yFade = 32+enemy.y
 		enemyIDSave = enemy.roomStateID
@@ -9,7 +11,6 @@ function StartBattle(enemy, encounter){
 		for(var i = 0; i < array_length(enemyList); i++)
 			expReward += enemyList[i].expPoints
 		
-		SetPlayerState()
 		StartTurn()
 		//curves = array_create(array_length(enemyList), noone)
 		//for(var i = 0; i < array_length(curves); i++) {

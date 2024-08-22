@@ -127,7 +127,7 @@ function MovePlayer() {
 }
 function EnterRoom(entrance) {
 	var goto = instance_create_depth(0, 0, 0, entrance)
-	SetPlayerState(goto.playerPosition, goto.partyPosition)
+	SetPlayerState(goto.playerPosition, goto.partyPosition, true)
 	//for(var i = 0; i < partySize; i++) {
 	//	partyGoto[i] = [x, y, facing]
 	//	partyPos[i] = [x, y, facing]
@@ -191,7 +191,7 @@ function InteractWithOverworld() {
 	}
 }
 
-function SetPlayerState(position = [Obj_Player.x, Obj_Player.y, Obj_Player.facing], partyPos = Obj_Player.partyPos) {
+function SetPlayerState(position = [Obj_Player.x, Obj_Player.y, Obj_Player.facing], partyPos = Obj_Player.partyPos, diff = false) {
 	var c = Obj_Control; var p = Obj_Player
 	c.playerStateSave = [position[0], position[1], position[2]]
 	//for(var i = 0; i < p.partySize; i++) {
@@ -209,6 +209,8 @@ function SetPlayerState(position = [Obj_Player.x, Obj_Player.y, Obj_Player.facin
 		//c.partyStateSave[i][1] = p.partyGoto[i][1] - p.y
 		//c.partyStateSave[i][2] = p.partyGoto[i][2]
 	}
+	
+	c.differentRoom = diff
 }
 
 function SetPartyPosition(posFromPlayer = "in", face = Obj_Player.facing) {

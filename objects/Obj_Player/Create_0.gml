@@ -31,8 +31,8 @@ if Obj_Control.playerStateSave != noone {
 	facing = c.playerStateSave[2]
 	
 	for(var i = 0; i < partySize; i++) {
-		partyGoto[i][0] = c.partyStateSave[i][0] + x
-		partyGoto[i][1] = c.partyStateSave[i][1] + y
+		partyGoto[i][0] = c.partyStateSave[i][0] + x*c.differentRoom
+		partyGoto[i][1] = c.partyStateSave[i][1] + y*c.differentRoom
 		partyGoto[i][2] = c.partyStateSave[i][2]
 		for(var j = 0; j < 3; j++) {
 			partyPos[i][j] = partyGoto[i][j]
