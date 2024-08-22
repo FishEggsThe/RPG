@@ -191,7 +191,7 @@ function InteractWithOverworld() {
 	}
 }
 
-function SetPlayerState(position = [Obj_Player.x, Obj_Player.y, Obj_Player.facing], partyPos = Obj_Player.partyPosition) {
+function SetPlayerState(position = [Obj_Player.x, Obj_Player.y, Obj_Player.facing], partyPos = Obj_Player.partyPos) {
 	var c = Obj_Control; var p = Obj_Player
 	c.playerStateSave = [position[0], position[1], position[2]]
 	//for(var i = 0; i < p.partySize; i++) {
