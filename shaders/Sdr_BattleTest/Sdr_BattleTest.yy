@@ -1,7 +1,7 @@
 {
   "$GMShader":"",
-  "%Name":"Shader1",
-  "name":"Shader1",
+  "%Name":"Sdr_BattleTest",
+  "name":"Sdr_BattleTest",
   "parent":{
     "name":"Shaders",
     "path":"folders/Shaders.yy",
