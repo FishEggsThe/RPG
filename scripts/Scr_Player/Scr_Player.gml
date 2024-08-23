@@ -125,15 +125,6 @@ function MovePlayer() {
 		}
 	}
 }
-function EnterRoom(entrance) {
-	var goto = instance_create_depth(0, 0, 0, entrance)
-	SetPlayerState(goto.playerPosition, goto.partyPosition, true)
-	//for(var i = 0; i < partySize; i++) {
-	//	partyGoto[i] = [x, y, facing]
-	//	partyPos[i] = [x, y, facing]
-	//}
-	room_goto(goto.roomIn)
-}
 
 function TileCollision(xDir, yDir) {
 	var xGoto = x+xDir*tile; var yGoto = y+yDir*tile
@@ -147,6 +138,16 @@ function TileCollision(xDir, yDir) {
 	if instance_position(xGoto+tile/2, yGoto+tile/2, Obj_Interactable) != noone {return true}
 	
 	return false
+}
+
+function EnterRoom(entrance) {
+	var goto = instance_create_depth(0, 0, 0, entrance)
+	SetPlayerState(goto.playerPosition, goto.partyPosition, true)
+	//for(var i = 0; i < partySize; i++) {
+	//	partyGoto[i] = [x, y, facing]
+	//	partyPos[i] = [x, y, facing]
+	//}
+	room_goto(goto.roomIn)
 }
 
 function InteractWithOverworld() {
