@@ -13,8 +13,8 @@
   "name":"Obj_Battle",
   "overriddenProperties":[],
   "parent":{
-    "name":"Backend",
-    "path":"folders/Objects/Backend.yy",
+    "name":"Battle",
+    "path":"folders/Objects/Battle.yy",
   },
   "parentObjectId":null,
   "persistent":true,
