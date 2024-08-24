@@ -1,4 +1,4 @@
-#macro timeDelay 30
+#macro timeDelay 45
 
 #region // Beginning and Ending a Battle
 function StartBattle(enemy, encounter){
