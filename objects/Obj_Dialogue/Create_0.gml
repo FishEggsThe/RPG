@@ -5,6 +5,7 @@ else {
 	dialogueIndex = 0
 
 	enemyCheck = noone
+	holdDialogue = 0
 
 	letterIndex = 0
 	startAcceptBuffer = 1

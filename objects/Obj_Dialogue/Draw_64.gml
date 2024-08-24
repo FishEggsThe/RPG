@@ -19,7 +19,8 @@ if onDialogue {
 	
 	draw_text_transformed(10, (height*2/3)+10, lineToDraw, 2, 2, 0)
 	
-	if acceptInput {
+	if holdDialogue >= 0 {holdDialogue--}
+	if (acceptInput && holdDialogue < 0) {
 		dialogueIndex++
 		letterIndex = 0
 	}

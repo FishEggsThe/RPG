@@ -1,3 +1,5 @@
+#macro timeDelay 30
+
 #region // Beginning and Ending a Battle
 function StartBattle(enemy, encounter){
 	if instance_exists(Obj_Battle) {return}
@@ -121,7 +123,7 @@ function NextAction() {
 		for(var i = 0; i < numOfCharacters; i++)
 			Obj_PlayerManager.characters[i].experience += expReward
 		
-		BeginDialogue(["Battle won!!!", string(expReward) + " EXP gained"])
+		BeginDialogue(["Battle won!!!", string(expReward) + " EXP gained"], timeDelay)
 		return
 	}
 	
@@ -131,7 +133,7 @@ function NextAction() {
 	} if allHeroDead {
 		lostBattle = true
 		
-		BeginDialogue("Battle lost...")
+		BeginDialogue("Battle lost...", timeDelay)
 		return
 	}
 	
@@ -248,7 +250,7 @@ function PlayerAction() {
 			actionDialogue = ["nada"]
 			break
 	}
-	if array_length(actionDialogue) > 0 {BeginDialogue(actionDialogue)}
+	if array_length(actionDialogue) > 0 {BeginDialogue(actionDialogue, timeDelay)}
 }
 
 function EnemyAction() {
@@ -298,7 +300,7 @@ function EnemyAction() {
 		actionDialogue = [enemy.name + " hexxed " + player.name + " with " + spell.name,
 							  "Dealt " + string(magicDamageTotal) + " damage!!"]
 	}
-	BeginDialogue(actionDialogue)
+	BeginDialogue(actionDialogue, timeDelay)
 }
 
 function EndAction() {
