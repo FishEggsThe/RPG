@@ -24,8 +24,12 @@ void main()
 	v_vLine = v_vTexcoord.y * size;
 	float trueTime = time + v_vLine*2;
 	
-	float offset = 60.0 * sin(tau * trueTime);
+	float offset = 120.0 * sin(tau * trueTime);
 	float trueOffset = offset * mod(floor(v_vLine), 2.0);
+	
+	if(mod(v_vLine, 2.0) == 0) {
+		trueOffset = -trueOffset;
+	}
 	
 	
     vec4 object_space_pos = vec4( in_Position.x+trueOffset, in_Position.y, in_Position.z, 1.0);
