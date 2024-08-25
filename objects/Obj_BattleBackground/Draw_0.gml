@@ -1,6 +1,9 @@
 shader_set(Sdr_BattleTest)
-var shader_params = shader_get_uniform(Sdr_BattleTest, "time");
-shader_set_uniform_f(shader_params, current_time / 3000);
+
+var shader_size = shader_get_uniform(Sdr_BattleTest, "size");
+shader_set_uniform_f(shader_size, sprite_get_width(background));
+var shader_time = shader_get_uniform(Sdr_BattleTest, "time");
+shader_set_uniform_f(shader_time, current_time / 3000);
 
 var spriteWidth = sprite_get_width(background)
 var spriteHeight = sprite_get_height(background)

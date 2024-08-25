@@ -471,6 +471,7 @@
     {"id":{"name":"chives2","path":"sprites/chives2/chives2.yy",},},
     {"id":{"name":"Spr_ArrowDown","path":"sprites/Spr_ArrowDown/Spr_ArrowDown.yy",},},
     {"id":{"name":"Spr_ArrowRight","path":"sprites/Spr_ArrowRight/Spr_ArrowRight.yy",},},
+    {"id":{"name":"Spr_BattleBackgroundTest","path":"sprites/Spr_BattleBackgroundTest/Spr_BattleBackgroundTest.yy",},},
     {"id":{"name":"Spr_Knight0","path":"sprites/Spr_Knight0/Spr_Knight0.yy",},},
     {"id":{"name":"Spr_Knight1","path":"sprites/Spr_Knight1/Spr_Knight1.yy",},},
     {"id":{"name":"Spr_Knight2","path":"sprites/Spr_Knight2/Spr_Knight2.yy",},},

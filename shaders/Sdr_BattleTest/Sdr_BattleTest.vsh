@@ -11,15 +11,21 @@ varying vec4 v_vColour;
 
 varying float v_vLine;
 
-uniform float time;
+uniform float time = 0;
+uniform float size;
 
 void main()
 {
 	float tau = 3.14*2.0;
-	float offset = 60.0 * sin(tau * time);
-	v_vLine = floor(in_Position.y);
+	
+	//v_vLine = floor(in_Position.y);
 	//float trueOffset = offset * mod(floor(v_vLine),2.0);
-	float trueOffset = offset * mod(floor(v_vLine)/64, 2.0);
+	
+	v_vLine = v_vTexcoord.y * size;
+	float trueTime = time + v_vLine;
+	
+	float offset = 60.0 * sin(tau * trueTime);
+	float trueOffset = offset * mod(floor(v_vLine), 2.0);
 	
 	
     vec4 object_space_pos = vec4( in_Position.x+trueOffset, in_Position.y, in_Position.z, 1.0);
