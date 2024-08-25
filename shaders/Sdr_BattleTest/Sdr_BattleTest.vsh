@@ -9,21 +9,17 @@ attribute vec2 in_TextureCoord;              // (u,v)
 varying vec2 v_vTexcoord;
 varying vec4 v_vColour;
 
+uniform float time;
+
 void main()
 {
-
-	//float angle = 10
-	//float angleInc = 1 / (2*3.14)
+	float tau = 3.14*2.0;
 	
-    //vec4 object_space_pos = vec4( in_Position.x, in_Position.y, in_Position.z, 1.0);
-    //gl_Position = gm_Matrices[MATRIX_WORLD_VIEW_PROJECTION] * object_space_pos;
+	float offset = 60.0 * sin(tau * time);
 	
-	//angle += angleInc
-	//offset = sin(angle)*60
+	//float offset = 120.0;
 	
-	float offset = 120.0;
-	
-    vec4 object_space_pos = vec4( in_Position.xy+offset, in_Position.z, 1.0);
+    vec4 object_space_pos = vec4( in_Position.x+offset, in_Position.y, in_Position.z, 1.0);
     gl_Position = gm_Matrices[MATRIX_WORLD_VIEW_PROJECTION] * object_space_pos;
     
     v_vColour = in_Colour;
