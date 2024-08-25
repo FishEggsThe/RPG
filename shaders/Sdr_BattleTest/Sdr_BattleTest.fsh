@@ -8,7 +8,7 @@ void main()
 {
     vec4 sampleColor = v_vColour * texture2D( gm_BaseTexture, v_vTexcoord );
 	//sampleColor.rgb = vec3(30, 20, 10)
-	//sampleColor.rgb += vec3(0.5);
+	sampleColor.rgb += vec3(0.5*aight);
 	
     gl_FragColor = sampleColor;
 }

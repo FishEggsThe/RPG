@@ -48,6 +48,8 @@ Enemies:
 * Sunglasses Guy
 	- Guy who has sunglasses under their sunglasses every single time.
 	- When they get hit some of their sunglasses fly off
+* Out-of-Control Vespa
+	- Crazy motorcycle misses a lot but can deal big damage on hit
 
 World:
 * The Cheese Man
