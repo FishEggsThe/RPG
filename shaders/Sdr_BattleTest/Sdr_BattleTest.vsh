@@ -22,7 +22,7 @@ void main()
 	//float trueOffset = offset * mod(floor(v_vLine),2.0);
 	
 	v_vLine = v_vTexcoord.y * size;
-	float trueTime = time + v_vLine;
+	float trueTime = time + v_vLine*2;
 	
 	float offset = 60.0 * sin(tau * trueTime);
 	float trueOffset = offset * mod(floor(v_vLine), 2.0);
