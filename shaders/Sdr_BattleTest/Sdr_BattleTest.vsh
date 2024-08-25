@@ -21,8 +21,7 @@ void main()
 	//angle += angleInc
 	//offset = sin(angle)*60
 	
-	int offset
-	offset = 60
+	float offset = 120.0;
 	
     vec4 object_space_pos = vec4( in_Position.xy+offset, in_Position.z, 1.0);
     gl_Position = gm_Matrices[MATRIX_WORLD_VIEW_PROJECTION] * object_space_pos;
