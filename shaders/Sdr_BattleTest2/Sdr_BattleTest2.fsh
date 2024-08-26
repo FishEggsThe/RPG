@@ -17,11 +17,11 @@ void main()
     
     // Calculate wavy distortion using sine wave function
     float pos_y = v_vTexcoord.y;
-    float x_adj = progress * 0.75 * uv_dimensions.x * sin((v_vTexcoord.y - uv_center.y)/uv_dimensions.y * wave_freq * 2.0 * 3.14);
+    float x_adj = progress * 0.1 * uv_dimensions.x * sin((v_vTexcoord.y - uv_center.y)/uv_dimensions.y * wave_freq * 2.0 * 3.14);
 
 
     vec2 coord = vec2(
-        uv_center.x + max_scale*(v_vTexcoord.x - uv_center.x) + x_adj,
+        uv_center.x + (v_vTexcoord.x - uv_center.x) + x_adj,
         v_vTexcoord.y
     );
 
