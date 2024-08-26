@@ -5,11 +5,9 @@ varying vec2 v_vTexcoord;
 varying vec4 v_vColour;
 
 uniform float progress;                      // Progress of the fizzle effect (in [0, 1])
-//uniform float offset;
+uniform float wave_length;     
 uniform vec2 uv_center;
-uniform vec2 uv_dimensions;
-
-const float wave_freq = 5.0;          // Frequency of the sine wave for the fizzle effect
+uniform vec2 uv_dimensions;     // Frequency of the sine wave for the fizzle effect
 
 
 void main()
@@ -19,7 +17,7 @@ void main()
     float pos_y = v_vTexcoord.y;
 	
     //float x_adj = sin(progress) * 0.05 * uv_dimensions.x * sin((v_vTexcoord.y - uv_center.y)/uv_dimensions.y * wave_freq * 2.0 * 3.14);
-	float x_adj = 1.5 * 0.05 * uv_dimensions.x * sin(progress * 2.0 * 3.14 + pos_y*70);
+	float x_adj = wave_length * 0.05 * uv_dimensions.x * sin(progress * 2.0 * 3.14 + pos_y*70);
 	
 
     vec2 coord = vec2(

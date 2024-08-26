@@ -52,6 +52,8 @@ Enemies:
 	- Crazy motorcycle misses a lot but can deal big damage on hit
 * Dirty Zombie
 	- Can inflict nasty status effects on your party
+	- Variant: Clean Zombie
+		- Very clean, inflicts completely new status effects idk
 
 
 World:
