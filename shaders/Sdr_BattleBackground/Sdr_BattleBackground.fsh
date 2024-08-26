@@ -1,42 +1,77 @@
-//
-// NOT SIMPLE passthrough fragment shader
-//
+// credit to the link below for being very helpful to this whole shebang
+// https://forum.gamemaker.io/index.php?threads/wavy-shader-help.112715/
+
+// Texture variables idk it's important or something
 varying vec2 v_vTexcoord;
 varying vec4 v_vColour;
 
-uniform float progress;                      // Progress of the fizzle effect (in [0, 1])
-uniform float wave_length;     
-uniform int sub_layer;
+// Sprite stuff
 uniform vec2 uv_center;
-uniform vec2 uv_dimensions;     // Frequency of the sine wave for the fizzle effect
+uniform vec2 uv_dimensions;
+
+// General wave info
+uniform float progress;
+uniform float wave_length;
+
+// Checks for specific wave types
+uniform int sub_layer;
+uniform int sway_horizontal;
+uniform int split_wave;
 
 
 void main()
 {
-    // Calculate wavy distortion using sine wave function
+	// Setting up local variables
 	float tau = 2.0 * 3.14;
-    float pos_y = v_vTexcoord.y*70;
-    float x_adj = wave_length * 0.05 * uv_dimensions.x * sin(progress * tau + pos_y);
-	
-
-    vec2 coord = vec2(
-        uv_center.x + (v_vTexcoord.x - uv_center.x),
+	vec2 coord = vec2(
+        v_vTexcoord.x,
         v_vTexcoord.y
     );
 	
-	if(mod(coord.y, uv_center.y/50) >= uv_center.y/100) {
-		coord.x -= x_adj;
-	} else {
-		coord.x += x_adj;
-	}
-
-    // Check if the current texture coordinate is outside the specified range
-    if (coord.x > uv_center.x + uv_dimensions.x || coord.x < uv_center.x - uv_dimensions.x) {
-        gl_FragColor = vec4(v_vColour.rgb, 0.0); // Set alpha to 0
-    } else {
-        gl_FragColor = v_vColour * texture2D(gm_BaseTexture, coord);
-    }
+	if (sway_horizontal == 1) {
+		// Calculate wavy distortion using sine wave function
+	    float pos_y = v_vTexcoord.y*70;
+	    float x_adj = wave_length * 0.05 * uv_dimensions.x * sin(progress * tau + pos_y);
 	
+		// Checking if the wave should be split into layers
+		if (split_wave == 1) {
+			if(mod(coord.y, uv_center.y/50) >= uv_center.y/100) {
+				x_adj = -x_adj;
+			}
+		}
+		coord.x += x_adj;
+
+	    // Check if the current texture coordinate is outside the specified range (Lame)
+	    if (coord.x > uv_center.x + uv_dimensions.x || coord.x < uv_center.x - uv_dimensions.x) {
+	        gl_FragColor = vec4(v_vColour.rgb, 0.0); // Set alpha to 0
+	    } else {
+	        gl_FragColor = v_vColour * texture2D(gm_BaseTexture, coord);
+	    }
+	}
+	else {
+		// Calculate wavy distortion using sine wave function
+	    float pos_x = v_vTexcoord.x*70;
+	    float y_adj = wave_length * 0.05 * uv_dimensions.x * sin(progress * tau + pos_x);
+	
+		// Checking if the wave should be split into layers
+		if (split_wave == 1) {
+			if(mod(coord.x, uv_center.x/50) >= uv_center.x/100) {
+				y_adj = -y_adj;
+			}
+		}
+		coord.y += y_adj;
+
+	    // Check if the current texture coordinate is outside the specified range (Lame)
+	    if (coord.y > uv_center.y + uv_dimensions.y || coord.y < uv_center.y - uv_dimensions.y) {
+	        gl_FragColor = vec4(v_vColour.rgb, 0.0); // Set alpha to 0
+	    } else {
+	        gl_FragColor = v_vColour * texture2D(gm_BaseTexture, coord);
+	    }
+	}
+	
+    
+	
+	// Checking if this is the second layer
 	if (sub_layer == 1) {
 		gl_FragColor.a = 0.5;
 	}
