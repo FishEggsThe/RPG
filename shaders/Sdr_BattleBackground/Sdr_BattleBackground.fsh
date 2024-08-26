@@ -13,13 +13,10 @@ uniform vec2 uv_dimensions;     // Frequency of the sine wave for the fizzle eff
 
 void main()
 {
-	//if(sub_layer == 1) {
-	//	v_vColour.a = 0.5;
-	//}
-    
     // Calculate wavy distortion using sine wave function
-    float pos_y = v_vTexcoord.y;
-    float x_adj = wave_length * 0.05 * uv_dimensions.x * sin(progress * 2.0 * 3.14 + pos_y*70);
+	float tau = 2.0 * 3.14;
+    float pos_y = v_vTexcoord.y*70;
+    float x_adj = wave_length * 0.05 * uv_dimensions.x * sin(progress * tau + pos_y);
 	
 
     vec2 coord = vec2(
@@ -39,4 +36,8 @@ void main()
     } else {
         gl_FragColor = v_vColour * texture2D(gm_BaseTexture, coord);
     }
+	
+	if (sub_layer == 1) {
+		gl_FragColor.a = 0.5;
+	}
 }

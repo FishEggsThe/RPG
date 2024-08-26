@@ -39,7 +39,7 @@ shader_set_uniform_f(shader_progress, current_time/6000);
 shader_set_uniform_f(shader_wave_length, 2.0);
 shader_set_uniform_f(shader_dimensions, uv_width, uv_height);
 shader_set_uniform_f(shader_center, uv_width/2, uv_height/2);
-//shader_set_uniform_i(shader_sub, 1);
+shader_set_uniform_i(shader_sub, 1);
 
 draw_sprite(subBackground, 0, xCenter, yCenter)
 
