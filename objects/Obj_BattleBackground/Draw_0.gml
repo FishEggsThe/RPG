@@ -14,7 +14,7 @@ var shader_progress = shader_get_uniform(Sdr_BattleTest2, "progress");
 var shader_dimensions = shader_get_uniform(Sdr_BattleTest2, "uv_dimensions");
 var shader_center = shader_get_uniform(Sdr_BattleTest2, "uv_center");
 
-shader_set_uniform_f(shader_progress, current_time/1000);
+shader_set_uniform_f(shader_progress, current_time/5000);
 shader_set_uniform_f(shader_dimensions, uv_width, uv_height);
 shader_set_uniform_f(shader_center, uv_width/2, uv_height/2);
 
