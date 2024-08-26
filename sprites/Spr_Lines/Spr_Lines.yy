@@ -25,8 +25,8 @@
   "nineSlice":null,
   "origin":4,
   "parent":{
-    "name":"Placeholders",
-    "path":"folders/Sprites/Placeholders.yy",
+    "name":"Battle",
+    "path":"folders/Sprites/Battle.yy",
   },
   "preMultiplyAlpha":false,
   "resourceType":"GMSprite",
