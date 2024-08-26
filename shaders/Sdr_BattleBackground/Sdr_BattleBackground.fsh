@@ -68,9 +68,9 @@ void main()
 	    //    gl_FragColor = v_vColour * texture2D(gm_BaseTexture, coord);
 	    //}
 		if (coord.y > uv_center.y + uv_dimensions.y) {
-	        coord.y += uv_dimensions.y;
-	    } else if (coord.y < uv_center.y - uv_dimensions.y) {
 	        coord.y -= uv_dimensions.y;
+	    } else if (coord.y < uv_center.y - uv_dimensions.y) {
+	        coord.y += uv_dimensions.y;
 	    }
 	}
 	
