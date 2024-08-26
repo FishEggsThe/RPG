@@ -29,16 +29,16 @@ Weapons:
 Enemies:
 * Termites
 	- Little bug guy
-* Flying Termites
-	- stronger termites that fly a wright brothers plane
+	- Variant: Flying Termites
+		- stronger termites that fly a wright brothers plane
 * Quarterback tackler
 	- bull type enemy
 * Techbro
 	- Inflicts debilitating stat downs to simulate the lack of value nft's hold
 * Robot with Legs 
 	- Knocks you down with the support of the techbros
-* Robot with Legs and GUNS
-	- Self explanatory
+	- Variant: Robot with Legs and GUNS
+		- Self explanatory
 * Haunted Floor Mat
 	- Surprise miniboss!!
 * Chandelier
@@ -50,6 +50,9 @@ Enemies:
 	- When they get hit some of their sunglasses fly off
 * Out-of-Control Vespa
 	- Crazy motorcycle misses a lot but can deal big damage on hit
+* Dirty Zombie
+	- Can inflict nasty status effects on your party
+
 
 World:
 * The Cheese Man

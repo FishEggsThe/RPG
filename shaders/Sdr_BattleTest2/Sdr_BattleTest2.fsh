@@ -19,7 +19,7 @@ void main()
     float pos_y = v_vTexcoord.y;
 	
     //float x_adj = sin(progress) * 0.05 * uv_dimensions.x * sin((v_vTexcoord.y - uv_center.y)/uv_dimensions.y * wave_freq * 2.0 * 3.14);
-	float x_adj = progress * 0.05 * uv_dimensions.x * sin(progress * 2.0 * 3.14 + pos_y*70);
+	float x_adj = 1.5 * 0.05 * uv_dimensions.x * sin(progress * 2.0 * 3.14 + pos_y*70);
 	
 
     vec2 coord = vec2(
@@ -27,11 +27,11 @@ void main()
         v_vTexcoord.y
     );
 	
-	//if(mod(coord.y, uv_center.y/50) >= uv_center.y/100) {
-	//	coord.x -= x_adj;
-	//} else {
+	if(mod(coord.y, uv_center.y/50) >= uv_center.y/100) {
+		coord.x -= x_adj;
+	} else {
 		coord.x += x_adj;
-	//}
+	}
 
     // Check if the current texture coordinate is outside the specified range
     if (coord.x > uv_center.x + uv_dimensions.x || coord.x < uv_center.x - uv_dimensions.x) {
