@@ -62,16 +62,17 @@ void main()
 		coord.y += y_adj;
 
 	    // Check if the current texture coordinate is outside the specified range (Lame)
-	    //if (coord.y > uv_center.y + uv_dimensions.y || coord.y < uv_center.y - uv_dimensions.y) {
-	    //    gl_FragColor = vec4(v_vColour.rgb, 0.0); // Set alpha to 0
-	    //} else {
-	    //    gl_FragColor = v_vColour * texture2D(gm_BaseTexture, coord);
-	    //}
-		if (coord.y > uv_center.y + uv_dimensions.y) {
-	        coord.y -= uv_dimensions.y;
-	    } else if (coord.y < uv_center.y - uv_dimensions.y) {
-	        coord.y += uv_dimensions.y;
+	    if (coord.y > uv_center.y + uv_dimensions.y || coord.y < uv_center.y - uv_dimensions.y) {
+	        gl_FragColor = vec4(v_vColour.rgb, 0.0); // Set alpha to 0
+	    } else {
+	        gl_FragColor = v_vColour * texture2D(gm_BaseTexture, coord);
 	    }
+		// Uncomment this code it you want some sick static
+		//if (coord.y > uv_center.y + uv_dimensions.y) {
+	    //    coord.y -= uv_dimensions.y;
+	    //} else if (coord.y < uv_center.y - uv_dimensions.y) {
+	    //    coord.y += uv_dimensions.y;
+	    //}
 	}
 	
     
