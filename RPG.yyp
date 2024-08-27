@@ -493,6 +493,7 @@
     {"id":{"name":"Spr_Slime3","path":"sprites/Spr_Slime3/Spr_Slime3.yy",},},
     {"id":{"name":"Spr_Spider","path":"sprites/Spr_Spider/Spr_Spider.yy",},},
     {"id":{"name":"Spr_SpiderBattle","path":"sprites/Spr_SpiderBattle/Spr_SpiderBattle.yy",},},
+    {"id":{"name":"Spr_Squash","path":"sprites/Spr_Squash/Spr_Squash.yy",},},
     {"id":{"name":"Spr_TestTiles","path":"sprites/Spr_TestTiles/Spr_TestTiles.yy",},},
     {"id":{"name":"Ts_Test","path":"tilesets/Ts_Test/Ts_Test.yy",},},
   ],

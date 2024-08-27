@@ -26,12 +26,13 @@ shader_set_uniform_f(shader_center, uv_width/2, uv_height/2);
 shader_set_uniform_i(shader_split, 0);
 shader_set_uniform_i(shader_ripple, 1);
 shader_set_uniform_i(shader_horizontal, 1);
-shader_set_uniform_i(shader_sub, 1);
+shader_set_uniform_i(shader_sub, 0);
 
 draw_sprite(background, 0, xCenter, yCenter)
 
 
 // Background 2
+if !enableSubBackground {exit}
 uv = sprite_get_uvs(subBackground, 0)
 uv_width = uv[2]-uv[0]; uv_height = uv[3]-uv[1]
 
