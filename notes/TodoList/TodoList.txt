@@ -13,7 +13,10 @@ To-Do List:
 
 - Cutscenes -
  * oh dear god I'm dreading this part
- 
+
+
+===================================================================================================
+
 - Finished Stuff -
  * Funky battle screen, good time to learn shaders
  * Create battle system
