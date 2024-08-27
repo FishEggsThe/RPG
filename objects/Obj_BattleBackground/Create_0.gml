@@ -3,6 +3,8 @@ subBackground = background
 enableSubBackground = false
 shader = Sdr_BattleBackground
 
+progress = 0
+
 shader_progress = shader_get_uniform(shader, "progress");
 shader_wave_length = shader_get_uniform(shader, "wave_length");
 shader_wave_freq = shader_get_uniform(shader, "wave_freq");

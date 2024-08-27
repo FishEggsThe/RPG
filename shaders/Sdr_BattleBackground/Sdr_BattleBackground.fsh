@@ -33,7 +33,7 @@ void main()
 	if (sway_horizontal == 1) {
 		// Calculate wavy distortion using sine wave function
 	    float pos_y = v_vTexcoord.y*70;
-	    float x_adj = wave_length * 0.05 * uv_dimensions.x * sin(progress * tau * wave_freq + pos_y);
+	    float x_adj = wave_length * 0.05 * uv_dimensions.x * sin(progress * tau + pos_y * wave_freq);
 	
 		// Checking if the wave should be split into layers
 		if (split_wave == 1) {
@@ -59,7 +59,7 @@ void main()
 	else {
 		// Calculate wavy distortion using sine wave function
 	    float pos_x = v_vTexcoord.x*70;
-	    float y_adj = wave_length * 0.05 * uv_dimensions.y * sin(progress * tau + pos_x);
+	    float y_adj = wave_length * 0.05 * uv_dimensions.y * sin(progress * tau + pos_x * wave_freq);
 	
 		// Checking if the wave should be split into layers
 		if (split_wave == 1) {

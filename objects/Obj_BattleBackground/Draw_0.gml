@@ -13,13 +13,13 @@ var uv_width = uv[2]-uv[0]; var uv_height = uv[3]-uv[1]
 
 shader_set_uniform_f(shader_progress, current_time/5000);
 shader_set_uniform_f(shader_wave_length, 1.5);
-shader_set_uniform_f(shader_wave_freq, 1);
+shader_set_uniform_f(shader_wave_freq, 2);
 shader_set_uniform_f(shader_dimensions, uv_width, uv_height);
 shader_set_uniform_f(shader_center, uv_width/2, uv_height/2);
 
 shader_set_uniform_i(shader_split, 0);
-shader_set_uniform_i(shader_ripple, 1);
-shader_set_uniform_i(shader_horizontal, 1);
+shader_set_uniform_i(shader_ripple, 0);
+shader_set_uniform_i(shader_horizontal, 0);
 shader_set_uniform_i(shader_sub, 0);
 
 draw_sprite(background, 0, xCenter, yCenter)
@@ -30,12 +30,6 @@ if !enableSubBackground {exit}
 uv = sprite_get_uvs(subBackground, 0)
 uv_width = uv[2]-uv[0]; uv_height = uv[3]-uv[1]
 
-//shader_progress = shader_get_uniform(Sdr_BattleBack, "progress");
-//shader_wave_length = shader_get_uniform(Sdr_BattleBack, "wave_length");
-//shader_dimensions = shader_get_uniform(Sdr_BattleBack, "uv_dimensions");
-//shader_center = shader_get_uniform(Sdr_BattleBack, "uv_center");
-//shader_sub = shader_get_uniform(Sdr_BattleBack, "sub_layer");
-
 shader_set_uniform_f(shader_progress, current_time/6000);
 shader_set_uniform_f(shader_wave_length, 2.0);
 shader_set_uniform_f(shader_wave_freq, 1);
@@ -43,8 +37,8 @@ shader_set_uniform_f(shader_dimensions, uv_width, uv_height);
 shader_set_uniform_f(shader_center, uv_width/2, uv_height/2);
 
 shader_set_uniform_i(shader_split, 0);
-shader_set_uniform_i(shader_ripple, 1);
-shader_set_uniform_i(shader_horizontal, 1);
+shader_set_uniform_i(shader_ripple, 0);
+shader_set_uniform_i(shader_horizontal, 0);
 shader_set_uniform_i(shader_sub, 1);
 
 draw_sprite(subBackground, 0, xCenter, yCenter)
