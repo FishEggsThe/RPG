@@ -1,5 +1,7 @@
 function BattleBackgroundData(_sprite, _progress, _length, _frequency, _horizontal, _split, _ripple) constructor {
 	battleBackground = _sprite
+	var uv = sprite_get_uvs(battleBackground, 0)
+	uv_width = uv[2]-uv[0]; uv_height = uv[3]-uv[1]
 	
 	progress = _progress
 	length = _length

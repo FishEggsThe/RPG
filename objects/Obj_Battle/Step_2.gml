@@ -1,3 +1,5 @@
+visible = !global.debug
+
 var acceptInput = input_check_pressed("accept")
 var cancelInput = input_check_pressed("cancel")
 	
