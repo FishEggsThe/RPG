@@ -1,10 +1,15 @@
-background = Spr_NoThree
-subBackground = background
-enableSubBackground = false
-shader = Sdr_BattleBackground
+backgroundID = 0
+backgroundStorage = ds_list_create()
+FillBackgroundStorage()
 
+//backgroundList = []
+backgroundList = backgroundStorage[| backgroundID]
+backgroundListSize = array_length(backgroundList)
+
+shader = Sdr_BattleBackground
 progress = 0
 
+// Uniform variable stuff
 shader_progress = shader_get_uniform(shader, "progress");
 shader_wave_length = shader_get_uniform(shader, "wave_length");
 shader_wave_freq = shader_get_uniform(shader, "wave_freq");

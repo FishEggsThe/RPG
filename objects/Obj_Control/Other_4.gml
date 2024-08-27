@@ -1,3 +1,5 @@
+if room == Rm_Battle {exit}
+
 if !ds_map_exists(global.roomStates, room) {
 	var numOfEntities = instance_number(Obj_Interactable)
 	var listOfEntities = array_create(numOfEntities, noone)
