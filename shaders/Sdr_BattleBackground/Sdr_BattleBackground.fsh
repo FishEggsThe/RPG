@@ -12,6 +12,7 @@ uniform vec2 uv_dimensions;
 // General wave info
 uniform float progress;
 uniform float wave_length;
+uniform float wave_freq;
 
 // Checks for specific wave types and stuff
 uniform int sway_horizontal;
@@ -32,7 +33,7 @@ void main()
 	if (sway_horizontal == 1) {
 		// Calculate wavy distortion using sine wave function
 	    float pos_y = v_vTexcoord.y*70;
-	    float x_adj = wave_length * 0.05 * uv_dimensions.x * sin(progress * tau + pos_y);
+	    float x_adj = wave_length * 0.05 * uv_dimensions.x * sin(progress * tau * wave_freq + pos_y);
 	
 		// Checking if the wave should be split into layers
 		if (split_wave == 1) {
