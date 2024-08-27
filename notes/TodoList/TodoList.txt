@@ -9,13 +9,14 @@ To-Do List:
  * Allow mischief to happen after dialogue finishes
 
 - Battle -
- * Create battle system
- * Funky battle screen, good time to learn shaders
+ * Finish Battle system
 
 - Cutscenes -
  * oh dear god I'm dreading this part
  
 - Finished Stuff -
+ * Funky battle screen, good time to learn shaders
+ * Create battle system
  * Increase size mayhaps
  * Fuck I forgot spells okay do that
  * erm, doing it (Dialogue)
