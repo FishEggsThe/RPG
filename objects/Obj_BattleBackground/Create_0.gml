@@ -1,5 +1,2 @@
-//background = chives
-//background = Spr_Lines
-background = test
-//background = Spr_BattlePolka
+background = Spr_Lines2
 subBackground = background

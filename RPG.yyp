@@ -494,7 +494,6 @@
     {"id":{"name":"Spr_Spider","path":"sprites/Spr_Spider/Spr_Spider.yy",},},
     {"id":{"name":"Spr_SpiderBattle","path":"sprites/Spr_SpiderBattle/Spr_SpiderBattle.yy",},},
     {"id":{"name":"Spr_TestTiles","path":"sprites/Spr_TestTiles/Spr_TestTiles.yy",},},
-    {"id":{"name":"test","path":"sprites/test/test.yy",},},
     {"id":{"name":"Ts_Test","path":"tilesets/Ts_Test/Ts_Test.yy",},},
   ],
   "resourceType":"GMProject",
