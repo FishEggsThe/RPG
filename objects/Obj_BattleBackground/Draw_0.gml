@@ -11,15 +11,15 @@ var uv = sprite_get_uvs(background, 0)
 var uv_width = uv[2]-uv[0]; var uv_height = uv[3]-uv[1]
 
 
-shader_set_uniform_f(shader_progress, current_time/5000);
-shader_set_uniform_f(shader_wave_length, 1.5);
-shader_set_uniform_f(shader_wave_freq, 2);
+shader_set_uniform_f(shader_progress, current_time/4000);
+shader_set_uniform_f(shader_wave_length, 0.35);
+shader_set_uniform_f(shader_wave_freq, 0.75);
 shader_set_uniform_f(shader_dimensions, uv_width, uv_height);
 shader_set_uniform_f(shader_center, uv_width/2, uv_height/2);
 
 shader_set_uniform_i(shader_split, 0);
-shader_set_uniform_i(shader_ripple, 0);
-shader_set_uniform_i(shader_horizontal, 0);
+shader_set_uniform_i(shader_ripple, 1);
+shader_set_uniform_i(shader_horizontal, 1);
 shader_set_uniform_i(shader_sub, 0);
 
 draw_sprite(background, 0, xCenter, yCenter)

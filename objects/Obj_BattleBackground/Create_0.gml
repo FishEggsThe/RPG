@@ -1,4 +1,4 @@
-background = Spr_Lines2
+background = Spr_NoThree
 subBackground = background
 enableSubBackground = false
 shader = Sdr_BattleBackground

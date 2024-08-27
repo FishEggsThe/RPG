@@ -483,6 +483,7 @@
     {"id":{"name":"Spr_Lines","path":"sprites/Spr_Lines/Spr_Lines.yy",},},
     {"id":{"name":"Spr_Lines2","path":"sprites/Spr_Lines2/Spr_Lines2.yy",},},
     {"id":{"name":"Spr_Nothing","path":"sprites/Spr_Nothing/Spr_Nothing.yy",},},
+    {"id":{"name":"Spr_NoThree","path":"sprites/Spr_NoThree/Spr_NoThree.yy",},},
     {"id":{"name":"Spr_PersonWalk0","path":"sprites/Spr_PersonWalk0/Spr_PersonWalk0.yy",},},
     {"id":{"name":"Spr_PersonWalk1","path":"sprites/Spr_PersonWalk1/Spr_PersonWalk1.yy",},},
     {"id":{"name":"Spr_PersonWalk2","path":"sprites/Spr_PersonWalk2/Spr_PersonWalk2.yy",},},
