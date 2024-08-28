@@ -2,7 +2,7 @@ backgroundID = 0
 backgroundStorage = ds_list_create()
 FillBackgroundStorage()
 
-//backgroundList = []
+backgroundList = []
 backgroundList = backgroundStorage[| backgroundID]
 backgroundListSize = array_length(backgroundList)
 

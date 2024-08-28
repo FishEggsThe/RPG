@@ -30,4 +30,8 @@ function FillBackgroundStorage() {
 	
 	currentBackground = [new BattleBackgroundData(Spr_NoThree, 1/2500, 0.35, 0.75, 1, 0, 1)]
 	ds_list_add(backgroundStorage, currentBackground)
+	
+	currentBackground = [new BattleBackgroundData(Spr_WaveFunk, 1/2500, 1, 5, 1, 1, 0),
+						 new BattleBackgroundData(Spr_WaveFunk, 1/5000, 1, 5, 0, 1, 0)]
+	ds_list_add(backgroundStorage, currentBackground)
 }
