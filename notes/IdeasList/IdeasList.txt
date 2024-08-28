@@ -72,3 +72,5 @@ World:
 	- Infiltrating the castle requires you to obtain a box full of bugs/bacteria that are specifically trained to ward off the fungus' attempt to spread to your party. They alone will not take out the fungus as they are a defensive bacteria, not offensive.
 	- Enemies include guards and peasants overtaken by fungi that grew on their bodies.
 	- Defeating the host of the fungi will generally free the castle of it's control, though the fungi had the foresight to spread its control around instead of putting all their eggs in one basket, so there's still a few infected that have to be taken care of.
+* Giant Meteor
+	- Standing under where the giant meteor will spawn triggers dialogue from it, abruptly stopping it from its violently fast trajectory to trigger Earthbound boss banter before starting a battle like normal.
