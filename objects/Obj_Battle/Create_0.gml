@@ -29,6 +29,8 @@ else {
 	enemyList = []
 	turnOrder = []
 	turnIndex = 0
+	setTurnMinTime = 20
+	turnMinTime = setTurnMinTime
 	
 	wonBattle = false
 	lostBattle = false

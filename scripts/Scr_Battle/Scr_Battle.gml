@@ -109,6 +109,7 @@ function LastCharacter() {
 #region // Action Phase
 function StartAction() {
 	turnIndex = -1
+	turnMinTime = setTurnMinTime
 	
 	NextAction()
 }
