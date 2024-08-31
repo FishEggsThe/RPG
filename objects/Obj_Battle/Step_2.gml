@@ -17,7 +17,8 @@ if room == Rm_Battle && !Obj_Dialogue.onDialogue {
 		EndBattle(lastRoom)
 		break
 	case actionTime:
-		NextAction()
+		if turnMinTime > 0 {NextAction()}
+		else {turnMinTime--}
 	default:
 		switch(menuSpot) {
 			case 0: // Start
