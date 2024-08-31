@@ -176,10 +176,11 @@ function InteractWithOverworld() {
 			//		PickupItem(interactable)
 			//		break
 			//}
-			if object_is_ancestor(interactable.object_index, Obj_NPC){ 
+			var obj_ind = interactable.object_index
+			if object_is_ancestor(obj_ind, Obj_NPC) || obj_ind == Obj_NPC { 
 				interactable.facing = facing+2
 				if interactable.facing >= 4 {interactable.facing -= 4}
-			} else if object_is_ancestor(interactable.object_index, Obj_Pickup){ 
+			} else if object_is_ancestor(obj_ind, Obj_Pickup) || obj_ind == Obj_Pickup { 
 				PickupItem(interactable)
 			}
 			//if interactable == Obj_NPC { 
