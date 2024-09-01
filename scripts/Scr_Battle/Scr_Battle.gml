@@ -393,6 +393,8 @@ function Enemy(_health, _sprite, _spells, _attack, _speed, _def, _magic, _exp, _
 	baseDefense = _def; boostDefense = 0
 	baseMagic = _magic; boostMagic = 0
 	
+	statuses = []
+	
 	expPoints = _exp
 	
 	dead = false
