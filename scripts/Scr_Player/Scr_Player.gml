@@ -29,6 +29,8 @@ function PlayerStats(_health, _mana, _port, _walk, _equip, _wep, _armor, _spells
 	baseDefense = _def; boostDefense = 0
 	baseMagic = _magic; boostMagic = 0
 	
+	statuses = []
+	
 	dead = false
 	
 	static ResetBoosts = function() {
