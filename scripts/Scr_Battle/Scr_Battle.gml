@@ -201,26 +201,28 @@ function PlayerAction() {
 			break
 			
 		case "spell":
-			enemy = enemyList[actionList[0]]
+			var spell = player.spellList[actionList[1]]
 			
-			// Making sure a dead enemy isn't being targeted
-			if enemy.dead {
-				var directionI = choose([1, -1], [-1, 1]); var scaleI = 0
-				var enemyListSize = array_length(enemyList); var enemyFound = false
-				while(!enemyFound) {
-					scaleI++
-					for(var i = 0; i < 2; i++) {
-						var newI = actionList[0] + directionI[i]*scaleI
-						if (newI >= 0 && newI < enemyListSize && !enemyList[newI].dead) {
-							enemyFound = true
-							enemy = enemyList[newI]
-							break
+			if spell.range == 0 {
+				enemy = [enemyList[actionList[0]]]
+			
+				// Making sure a dead enemy isn't being targeted
+				if enemy.dead {
+					var directionI = choose([1, -1], [-1, 1]); var scaleI = 0
+					var enemyListSize = array_length(enemyList); var enemyFound = false
+					while(!enemyFound) {
+						scaleI++
+						for(var i = 0; i < 2; i++) {
+							var newI = actionList[0] + directionI[i]*scaleI
+							if (newI >= 0 && newI < enemyListSize && !enemyList[newI].dead) {
+								enemyFound = true
+								enemy = enemyList[newI]
+								break
+							}
 						}
 					}
 				}
-			}
-			
-			var spell = player.spellList[actionList[1]]
+			} else {enemy = enemyList}
 
 			
 			// Damage calculation
@@ -228,16 +230,23 @@ function PlayerAction() {
 			if magicDamageTotal < 1 {magicDamageTotal = 1}
 			
 			// Damage application
-			enemy.currHealth -= magicDamageTotal 
-			if enemy.currHealth <= 0 {enemy.dead = true}
-			enemy.SetHitFlash()
+			var enemySize = array_length(enemy)
+			for(var i = 0; i < enemySize; i++) {
+				if enemy[i].dead {continue}
+				
+				enemy[i].currHealth -= magicDamageTotal 
+				if enemy[i].currHealth <= 0 {enemy[i].dead = true}
+				enemy[i].SetHitFlash()
+			}
 			
 			// Spell taking Mana because obviously
 			player.currMana -= spell.cost
 			if player.currMana <= 0 {player.currMana = 0}
 			
-			actionDialogue = [player.name + " cast " + spell.name + " upon " + enemy.name,
-							  "Dealt " + string(magicDamageTotal) + " damage!!"]
+			var targetA =  ""; if enemySize > 1 {targetA = " upon " + enemy[0].name}
+			var targetB =  ""; if enemySize == 1 {targetB = " to all"}
+			actionDialogue = [player.name + " cast " + spell.name + targetA,
+							  "Dealt " + string(magicDamageTotal) + " damage" + targetB + "!!"]
 			break
 			
 		case "item":
