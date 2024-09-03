@@ -207,7 +207,7 @@ function PlayerAction() {
 				enemy = [enemyList[actionList[0]]]
 			
 				// Making sure a dead enemy isn't being targeted
-				if enemy.dead {
+				if enemy[0].dead {
 					var directionI = choose([1, -1], [-1, 1]); var scaleI = 0
 					var enemyListSize = array_length(enemyList); var enemyFound = false
 					while(!enemyFound) {
@@ -216,7 +216,7 @@ function PlayerAction() {
 							var newI = actionList[0] + directionI[i]*scaleI
 							if (newI >= 0 && newI < enemyListSize && !enemyList[newI].dead) {
 								enemyFound = true
-								enemy = enemyList[newI]
+								enemy[0] = enemyList[newI]
 								break
 							}
 						}
@@ -243,8 +243,8 @@ function PlayerAction() {
 			player.currMana -= spell.cost
 			if player.currMana <= 0 {player.currMana = 0}
 			
-			var targetA =  ""; if enemySize > 1 {targetA = " upon " + enemy[0].name}
-			var targetB =  ""; if enemySize == 1 {targetB = " to all"}
+			var targetA =  ""; if enemySize == 1 {targetA = " upon " + enemy[0].name}
+			var targetB =  ""; if enemySize > 1 {targetB = " to all"}
 			actionDialogue = [player.name + " cast " + spell.name + targetA,
 							  "Dealt " + string(magicDamageTotal) + " damage" + targetB + "!!"]
 			break
