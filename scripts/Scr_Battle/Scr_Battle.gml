@@ -76,7 +76,9 @@ function StartTurn() {
 }
 
 function NextCharacter() {
-	menuSpot = 0
+	//menuSpot = 0
+	menuSpot = 0; menuIndex = lastMenuIndex
+	Obj_PlayerManager.inventoryUp = false
 	do {characterIndex++}
 	until(characterIndex >= numOfCharacters || !Obj_PlayerManager.characters[characterIndex].dead);
 	if characterIndex >= numOfCharacters {
