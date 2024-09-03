@@ -243,10 +243,11 @@ function PlayerAction() {
 			player.currMana -= spell.cost
 			if player.currMana <= 0 {player.currMana = 0}
 			
-			var targetA =  ""; if enemySize == 1 {targetA = " upon " + enemy[0].name}
-			var targetB =  ""; if enemySize > 1 {targetB = " to all"}
-			actionDialogue = [player.name + " cast " + spell.name + targetA,
-							  "Dealt " + string(magicDamageTotal) + " damage" + targetB + "!!"]
+			actionDialogue = array_create(enemySize+1, "")
+			actionDialogue[0] = player.name + " cast " + spell.name
+			for(var i = 0; i < enemySize; i++)
+				actionDialogue[i+1] = "Dealt " + string(magicDamageTotal) + 
+									" damage to " + enemy[i].name + "!!"
 			break
 			
 		case "item":
