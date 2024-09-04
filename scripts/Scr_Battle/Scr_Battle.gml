@@ -236,7 +236,8 @@ function PlayerAction() {
 			for(var i = 0; i < enemySize; i++) {
 				if enemy[i].dead {continue}
 				
-				enemy[i].currHealth -= magicDamageTotal 
+				enemy[i].currHealth -= magicDamageTotal
+				array_insert(enemy[i].statuses, -1, "dizzy")
 				if enemy[i].currHealth <= 0 {enemy[i].dead = true}
 				enemy[i].SetHitFlash()
 			}
