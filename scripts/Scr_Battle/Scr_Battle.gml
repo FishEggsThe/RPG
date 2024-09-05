@@ -237,7 +237,7 @@ function PlayerAction() {
 				if enemy[i].dead {continue}
 				
 				enemy[i].currHealth -= magicDamageTotal
-				array_insert(enemy[i].statuses, -1, "dizzy")
+				array_insert(enemy[i].statuses, -1, spell.status)
 				if enemy[i].currHealth <= 0 {enemy[i].dead = true}
 				enemy[i].SetHitFlash()
 			}
@@ -372,7 +372,7 @@ function Spell(_cost, _range, _name, _desc) constructor{
 function OffenseSpell(_damage, _status, _cost, _range, _name, _desc) : Spell(_cost, _range, _name, _desc) constructor{
 	target = 1
 	damage = _damage
-	statuses = _status
+	status = _status
 }
 
 function SupportSpell(_heal, _cure, _boost, _cost, _range, _name, _desc) : Spell(_cost, _range, _name, _desc) constructor{
