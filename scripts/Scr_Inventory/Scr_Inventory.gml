@@ -66,6 +66,9 @@ function DrawCharactersBoxes(chosen = -1){
 		draw_text_transformed(charBoxOffset+height/12, height*7.5/8-yOffset, drawHealth, 2, 2, 0)
 		draw_set_color(c_teal)
 		draw_text_transformed(charBoxOffset+height/12, height*7.8/8-yOffset, drawMana, 2, 2, 0)
+		// Status Effects
+		for(var j = 0; j < array_length(statuses); j++)
+			draw_text(charBoxOffset+height/12, height*7.5/8-yOffset, pm.characters[i].statuses[j])
 	}
 }
 
