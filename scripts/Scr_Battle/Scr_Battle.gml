@@ -382,6 +382,12 @@ function SupportSpell(_heal, _cure, _boost, _cost, _range, _name, _desc) : Spell
 	boosts = _boost
 }
 
+function StatusEffect(_name, _sprite, _effect) constructor {
+	name = _name
+	sprite = _sprite
+	effect = _effect
+}
+
 function Enemy(_health, _sprite, _spells, _attack, _speed, _def, _magic, _exp, _name, _pos, _curve, _percent = 1/60) constructor {
 	name = _name
 	//description = LayerText(30, _desc) //, _desc

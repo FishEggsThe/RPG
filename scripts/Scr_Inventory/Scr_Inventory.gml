@@ -8,7 +8,7 @@ function DrawChoiceText(){
 
 function ReplaceArray(array){
 	var replace = array_create(array_length(array), noone)
-	for(var i = 0; i < array_length(replace); i++	)
+	for(var i = 0; i < array_length(replace); i++)
 		replace[i] = array[i]
 	return replace
 }
