@@ -1,46 +1,5 @@
 #macro tile (global.tileSize)
 
-function PlayerStats(_health, _mana, _port, _walk, _equip, _wep, _armor, _spells, _attack, _speed, _def, _magic, _name, _desc, _level=0, _exp=0) constructor {
-	name = _name
-	index = NumOfCharacters()
-	description = LayerText(30, _desc)
-	portraitSprites = _port
-	walkSprites = _walk
-	
-	// 0 = Swords & Shields
-	// 1 = idk
-	// 2 = Fake Teeth and Shinguards
-	// 3 = something
-	equipmentChoice = _equip
-	weapon = _wep
-	armor = _armor
-	spellList = _spells
-	
-	level = _level
-	experience = _exp
-	
-	maxHealth = _health
-	currHealth = maxHealth
-	maxMana = _mana
-	currMana = maxMana
-	
-	baseAttack = _attack; boostAttack = 0
-	baseSpeed = _speed; boostSpeed = 0
-	baseDefense = _def; boostDefense = 0
-	baseMagic = _magic; boostMagic = 0
-	
-	statuses = []
-	
-	dead = false
-	
-	static ResetBoosts = function() {
-		boostAttack = 0
-		boostSpeed = 0
-		boostDefense = 0
-		boostMagic = 0
-	}
-}
-
 function MovePlayer() {
 	if !canMove {exit}
 	
