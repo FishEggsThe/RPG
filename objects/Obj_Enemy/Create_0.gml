@@ -4,7 +4,7 @@ dialogue = "*Spider noise"
 enemyInfo = array_create(3, noone)
 
 var spiderSpells = [
-new OffenseSpell(3, [], 1, 0, "Spider Bite", 
+new OffenseSpell(3, [StatusEffect("poison", chives2, function() {hp--})], 1, 0, "Spider Bite", 
 "Before you get too exasperated, these spiders are not poisonous"),
 new SupportSpell(0, [], [], 3, 0, "Spider Web", 
 "Spiders are wonderful artists")]
