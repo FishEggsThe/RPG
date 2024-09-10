@@ -388,7 +388,7 @@ function StatusEffect(_name, _sprite, _effect) constructor {
 	effect = _effect
 }
 
-function PlayerStats(_health, _mana, _port, _walk, _equip, _wep, _armor, _spells, _attack, _speed, _def, _magic, _name, _desc, _level=0, _exp=0) constructor {
+function Player(_health, _mana, _port, _walk, _equip, _wep, _armor, _spells, _attack, _speed, _def, _magic, _name, _desc, _level=0, _exp=0) constructor {
 	name = _name
 	index = NumOfCharacters()
 	description = LayerText(30, _desc)
