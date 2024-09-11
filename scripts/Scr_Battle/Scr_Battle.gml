@@ -388,6 +388,29 @@ function StatusEffect(_name, _sprite, _effect) constructor {
 	effect = _effect
 }
 
+function BattleStats(_health, _spells, _attack, _speed, _def, _magic, _name, _desc, _exp=0) constructor {
+	name = _name
+	description = LayerText(30, _desc)
+	
+	spellList = _spells
+	
+	experience = _exp
+	
+	maxHealth = _health
+	currHealth = maxHealth
+	maxMana = _mana
+	currMana = maxMana
+	
+	baseAttack = _attack; boostAttack = 0
+	baseSpeed = _speed; boostSpeed = 0
+	baseDefense = _def; boostDefense = 0
+	baseMagic = _magic; boostMagic = 0
+	
+	statuses = []
+	
+	dead = false
+}
+
 function Player(_health, _mana, _port, _walk, _equip, _wep, _armor, _spells, _attack, _speed, _def, _magic, _name, _desc, _level=0, _exp=0) constructor {
 	name = _name
 	index = NumOfCharacters()
