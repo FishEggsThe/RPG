@@ -388,13 +388,11 @@ function StatusEffect(_name, _sprite, _effect) constructor {
 	effect = _effect
 }
 
-function BattleStats(_health, _mana, _spells, _attack, _speed, _def, _magic, _name, _desc, _exp=0) constructor {
+function BattleStats(_health, _mana, _spells, _attack, _speed, _def, _magic, _name, _desc) constructor {
 	name = _name
 	description = LayerText(30, _desc)
 	
 	spellList = _spells
-	
-	experience = _exp
 	
 	maxHealth = _health
 	currHealth = maxHealth
@@ -411,7 +409,7 @@ function BattleStats(_health, _mana, _spells, _attack, _speed, _def, _magic, _na
 	dead = false
 }
 
-function Player(_health, _mana, _port, _walk, _equip, _wep, _armor, _spells, _attack, _speed, _def, _magic, _name, _desc, _level=0, _exp=0) : BattleStats(_health, _mana, _spells, _attack, _speed, _def, _magic, _name, _desc, _exp) constructor {
+function Player(_health, _mana, _port, _walk, _equip, _wep, _armor, _spells, _attack, _speed, _def, _magic, _name, _desc, _level=0) : BattleStats(_health, _mana, _spells, _attack, _speed, _def, _magic, _name, _desc) constructor {
 	index = NumOfCharacters()
 	
 	portraitSprites = _port
@@ -427,6 +425,7 @@ function Player(_health, _mana, _port, _walk, _equip, _wep, _armor, _spells, _at
 	spellList = _spells
 	
 	level = _level
+	experience = 0
 	
 	maxHealth = _health
 	currHealth = maxHealth
