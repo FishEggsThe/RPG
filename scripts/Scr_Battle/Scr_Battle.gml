@@ -427,20 +427,6 @@ function Player(_health, _mana, _port, _walk, _equip, _wep, _armor, _spells, _at
 	level = _level
 	experience = 0
 	
-	maxHealth = _health
-	currHealth = maxHealth
-	maxMana = _mana
-	currMana = maxMana
-	
-	baseAttack = _attack; boostAttack = 0
-	baseSpeed = _speed; boostSpeed = 0
-	baseDefense = _def; boostDefense = 0
-	baseMagic = _magic; boostMagic = 0
-	
-	statuses = []
-	
-	dead = false
-	
 	static ResetBoosts = function() {
 		boostAttack = 0
 		boostSpeed = 0
