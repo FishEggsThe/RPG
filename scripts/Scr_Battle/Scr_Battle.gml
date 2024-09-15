@@ -435,7 +435,7 @@ function Player(_health, _mana, _port, _walk, _equip, _wep, _armor, _spells, _at
 	}
 }
 
-function Enemy(_health, _sprite, _spells, _attack, _speed, _def, _magic, _exp, _name, _pos, _curve, _percent = 1/60) constructor {
+function Enemy(_health, _sprite, _spells, _attack, _speed, _def, _magic, _exp, _name, _pos, _curve, _percent = 1/60) : BattleStats(_health, _mana, _spells, _attack, _speed, _def, _magic, _name, _desc) constructor {
 	name = _name
 	//description = LayerText(30, _desc) //, _desc
 	battleSprite = _sprite
