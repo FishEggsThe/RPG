@@ -390,7 +390,7 @@ function StatusEffect(_name, _sprite, _effect) constructor {
 
 function BattleStats(_health, _mana, _spells, _attack, _speed, _def, _magic, _name, _desc) constructor {
 	name = _name
-	description = LayerText(30, _desc)
+	description = LayerText(30, string(_desc))
 	
 	spellList = _spells
 	
