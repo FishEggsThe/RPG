@@ -435,8 +435,7 @@ function Player(_health, _mana, _port, _walk, _equip, _wep, _armor, _spells, _at
 	}
 }
 
-function Enemy(_health, _sprite, _spells, _attack, _speed, _def, _magic, _exp, _name, _pos, _curve, _percent = 1/60) : BattleStats(_health, _mana, _spells, _attack, _speed, _def, _magic, _name, _desc) constructor {
-	name = _name
+function Enemy(_health, _sprite, _spells, _attack, _speed, _def, _magic, _exp, _name, _pos, _curve, _percent = 1/60) : BattleStats(_health, 100, _spells, _attack, _speed, _def, _magic, _name, "Probably not friendly") constructor {
 	//description = LayerText(30, _desc) //, _desc
 	battleSprite = _sprite
 	//animCurve = _curve
@@ -449,21 +448,8 @@ function Enemy(_health, _sprite, _spells, _attack, _speed, _def, _magic, _exp, _
 	xPos = _pos[0]
 	yPos = _pos[1]
 	
-	spellList = _spells
-	
-	maxHealth = _health
-	currHealth = maxHealth
-
-	baseAttack = _attack; boostAttack = 0
-	baseSpeed = _speed; boostSpeed = 0
-	baseDefense = _def; boostDefense = 0
-	baseMagic = _magic; boostMagic = 0
-	
-	statuses = []
-	
 	expPoints = _exp
 	
-	dead = false
 	deathTime = 1
 	
 	static SetHitFlash = function() {
