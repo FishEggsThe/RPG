@@ -120,4 +120,4 @@ if inventoryUp {
 			if cancelInput {inventorySpot = lastSpot; inventoryIndex = lastIndex}
 			break
 	}
-}
+} else {inventoryIndex = 0}
