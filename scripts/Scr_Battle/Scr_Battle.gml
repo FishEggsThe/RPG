@@ -443,6 +443,7 @@ function Enemy(_health, _sprite, _spells, _attack, _speed, _def, _magic, _exp, _
 				 animcurve_get_channel(_curve, "yCurve")]
 	curvePercent = 0
 	curvePercentIncrease = _percent
+	delayTime = 0
 	flashTime = 0
 	setFlashTime = 40
 	xPos = _pos[0]
@@ -452,7 +453,8 @@ function Enemy(_health, _sprite, _spells, _attack, _speed, _def, _magic, _exp, _
 	
 	deathTime = 1
 	
-	static SetHitFlash = function() {
+	static SetHitFlash = function(delay = setFlashTime) {
+		delayTime = delay
 		flashTime = setFlashTime
 	}
 	
@@ -469,10 +471,14 @@ function Enemy(_health, _sprite, _spells, _attack, _speed, _def, _magic, _exp, _
 		draw_sprite_ext(battleSprite, 0, xPosNew, yPosNew, 1, 1, 0, c_white, deathTime)
 		gpu_set_fog(false, c_white, 0, 1000)
 		
-		if flashTime > 0
+		//if Obj_Battle.turnMinTime < Obj_Battle.setTurnMinTime/2 {
+		if delayTime > 0
+			delayTime--
+		else if flashTime > 0
 			flashTime--
 		else if dead
 			deathTime -= 1/setFlashTime
+		//}
 	}
 }
 #endregion
