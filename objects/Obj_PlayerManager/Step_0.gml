@@ -24,6 +24,8 @@ if inventoryUp {
 	var horiInput = input_check_pressed("right") - input_check_pressed("left")
 	var vertInput = input_check_pressed("down") - input_check_pressed("up")
 	
+	var numOfCharactersSlots = array_length(characters)
+	
 	switch(inventorySpot) {
 		case 0: // Start
 			if vertInput != 0 {inventoryIndex += vertInput}
@@ -68,7 +70,6 @@ if inventoryUp {
 		case 3: // Characters
 			if horiInput != 0 {inventoryIndex += horiInput}
 			
-			var numOfCharactersSlots = array_length(characters)
 			if inventoryIndex >= numOfCharactersSlots {inventoryIndex-=numOfCharactersSlots}
 			else if inventoryIndex < 0 {inventoryIndex+=numOfCharactersSlots}
 			
@@ -107,7 +108,6 @@ if inventoryUp {
 		case 7: // Use Selected Item
 			if horiInput != 0 {inventoryIndex += horiInput}
 			
-			numOfCharactersSlots = array_length(characters)
 			if inventoryIndex >= numOfCharactersSlots {inventoryIndex-=numOfCharactersSlots}
 			else if inventoryIndex < 0 {inventoryIndex+=numOfCharactersSlots}
 			
