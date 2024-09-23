@@ -23,7 +23,7 @@
   ],
   "name":"Spr_Couch1",
   "nineSlice":null,
-  "origin":9,
+  "origin":4,
   "parent":{
     "name":"Battle",
     "path":"folders/Sprites/Battle.yy",
@@ -75,7 +75,7 @@
     ],
     "visibleRange":null,
     "volume":1.0,
-    "xorigin":80,
+    "xorigin":480,
     "yorigin":480,
   },
   "swatchColours":null,
