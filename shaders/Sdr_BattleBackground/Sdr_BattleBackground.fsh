@@ -81,6 +81,6 @@ void main()
 	
 	// Checking if this is the second layer
 	if (sub_layer == 1) {
-		gl_FragColor.a = 0.5;
+		gl_FragColor.a *= 0.5;
 	}
 }

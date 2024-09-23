@@ -42,7 +42,11 @@ function FillBackgroundStorage() {
 	ds_list_add(backgroundStorage, currentBackground)
 	
 	// Couch Pattern
-	currentBackground = [new BattleBackgroundData(Spr_Couch1, 1/5000, 1.5, 1, 1, 0, 0),
-						 new BattleBackgroundData(Spr_Couch2, 1/6000, 1.5, 1, 1, 0, 0)]
+	currentBackground = [new BattleBackgroundData(Spr_Couch1, 1/5000, 1.5, 0.5, 1, 0, 0),
+						 new BattleBackgroundData(Spr_Couch2, 1/6000, 1.5, 0.5, 1, 0, 0)]
+	ds_list_add(backgroundStorage, currentBackground)
+	
+	// Test Couch Pattern
+	currentBackground = [new BattleBackgroundData(Spr_Couch1, 1/5000, 1.5, 0.5, 1, 0, 0)]
 	ds_list_add(backgroundStorage, currentBackground)
 }
