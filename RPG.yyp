@@ -476,6 +476,8 @@
     {"id":{"name":"Spr_ArrowDown","path":"sprites/Spr_ArrowDown/Spr_ArrowDown.yy",},},
     {"id":{"name":"Spr_ArrowRight","path":"sprites/Spr_ArrowRight/Spr_ArrowRight.yy",},},
     {"id":{"name":"Spr_BattlePolka","path":"sprites/Spr_BattlePolka/Spr_BattlePolka.yy",},},
+    {"id":{"name":"Spr_Couch1","path":"sprites/Spr_Couch1/Spr_Couch1.yy",},},
+    {"id":{"name":"Spr_Couch2","path":"sprites/Spr_Couch2/Spr_Couch2.yy",},},
     {"id":{"name":"Spr_Knight0","path":"sprites/Spr_Knight0/Spr_Knight0.yy",},},
     {"id":{"name":"Spr_Knight1","path":"sprites/Spr_Knight1/Spr_Knight1.yy",},},
     {"id":{"name":"Spr_Knight2","path":"sprites/Spr_Knight2/Spr_Knight2.yy",},},
